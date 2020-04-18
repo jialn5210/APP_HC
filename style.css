@@ -84,22 +84,22 @@ html,body{
 .fa-clinic-medical{
   color:white; 
   border:2px solid;
-  padding: 20px;
-  border-radius: 10rem;
+  padding: 10px;
+  border-radius: 1rem;
   background-color:red;
 }
 .fa-comment-medical{
   color:white; 
   border:2px solid;
-  padding: 20px;
-  border-radius: 10rem;
+  padding: 10px;
+  border-radius: 1rem;
   background-color:red;
 }
 .fa-ambulance{
   color:white; 
   border:2px solid;
-  padding: 20px;
-  border-radius: 10rem;
+  padding: 10px;
+  border-radius: 1rem;
   background-color:red;
 }
 .fa-clinic-medical,.fa-comment-medical,.fa-ambulance{
@@ -170,13 +170,19 @@ footer a{
 }
 
 .title{
+    font-family: Varela Round;
     color: black;
-    font-size: 3rem; 
+    font-size: 4rem; 
 }
-
+.slogan{
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+}
   .banner-title {
+      font-family: Varela Round;
     color: red;
-    font-size: 3rem;
+    font-size: 5rem;
+    
   }
   .banner-link {
     font-size: 1.5rem;
