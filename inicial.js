@@ -53,7 +53,7 @@ class Particle {
 			const d = dist(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
 			if(d < 120) {
 				const alpha = map(d, 0, 120, 0, 0.25)
-				stroke(`rgba(255, 255, 255, ${alpha})`);
+				stroke(`rgba(0, 0, 0, ${alpha})`);
 				line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y)
 			}
 		});
