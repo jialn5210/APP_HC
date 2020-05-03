@@ -15,8 +15,7 @@ html,body{
     color: #222;
 }
 .nav-bg{
-    background-color:rgba(120, 231, 194, 0.795) ;
-    
+    background-color:rgb(120, 231, 194,0.795);
 }
 .navbar-nav a{
     font-family: poppins;
@@ -167,7 +166,7 @@ footer a{
   .banner-title {
       font-family: Varela Round;
     color: red;
-    font-size: 5rem;
+    font-size: 4 rem;
     
   }
   .banner-link {
