@@ -45,13 +45,13 @@ export default class UserView {
 
     
     bindAddFloating_btn(){
-        this.floating_btn.addEventListener('click', event => {
-            social_panel_container.classList.toggle('visible')
+        this.floating_btn.addEventListener('click', () => {
+            this.social_panel_container.classList.toggle('visible')
         });
     }
     bindAddClose_btn(){
-        this.close_btn.addEventListener('click',event => {
-            social_panel_container.classList.remove('visible')
+        this.close_btn.addEventListener('click',() => {
+            this.social_panel_container.classList.remove('visible')
         
         });
     }
