@@ -11,16 +11,6 @@ close_btn.addEventListener('click', () => {
 	social_panel_container.classList.remove('visible')
 });
 
-$(window).on('scroll',function(){
-    if($(window).scrollTop()){
-        $('header').addClass('black');
-
-    }
-    else{
-        $('header').removeClass('black');
-    }
-})
-new WOW().init();
 
 
 $(".counter").counterUp({delay:10,time:1000});
