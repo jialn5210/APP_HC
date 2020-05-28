@@ -20,9 +20,6 @@ $(window).on('scroll',function(){
         $('header').removeClass('black');
     }
 })
-
-
-
 $(".counter").counterUp({delay:10,time:1000});
 
 $(document).ready(function(){
