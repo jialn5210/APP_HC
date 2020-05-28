@@ -217,39 +217,5 @@ class Particle {
     }
 }
 
-<<<<<<< HEAD
 
 
-=======
-//narvbar mais escuro
-$(window).on('scroll',function(){
-    if($(window).scrollTop()){
-        $('header').addClass('black');
-
-    }
-    else{
-        $('header').removeClass('black');
-    }
-})
-new WOW().init();
-
-//carrossel
-$(document).ready(function(){
-    $('.carousel').carousel();
-    });
-   
-   
-    var swiper = new Swiper('.swiper-container', {
-       effect: 'coverflow',
-       grabCursor: true,
-       centeredSlides: true,
-       slidesPerView: 'auto',
-       coverflowEffect: {
-         rotate: 50,
-         stretch: 0,
-         depth: 100,
-         modifier: 1,
-         slideShadows : true,
-       },
-     });
->>>>>>> 45d1bdc24d4807f663c24aebe6168edc559df0e9

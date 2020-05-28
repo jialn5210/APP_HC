@@ -11,7 +11,6 @@ close_btn.addEventListener('click', () => {
 	social_panel_container.classList.remove('visible')
 });
 
-<<<<<<< HEAD
 $(window).on('scroll',function(){
     if($(window).scrollTop()){
         $('header').addClass('black');
@@ -22,8 +21,6 @@ $(window).on('scroll',function(){
     }
 })
 
-=======
->>>>>>> 45d1bdc24d4807f663c24aebe6168edc559df0e9
 
 
 $(".counter").counterUp({delay:10,time:1000});
