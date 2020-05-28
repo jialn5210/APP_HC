@@ -1,5 +1,4 @@
 import UserView from './views/UserView.js'
-import UserModel from './models/UserModel.js';
 
 
 class App {
@@ -7,14 +6,10 @@ class App {
         this.routes = {
           
             'index': [
-                UserView,
-                UserModel
-                
+                UserView   
             ],
             'hc': [
-                UserView,
-                UserModel
-                
+               UserView            
             ],
            
         
@@ -43,7 +38,6 @@ class App {
     }
 
     _importDataFixtures() {
-        
 
         const users = [
             {
@@ -51,7 +45,6 @@ class App {
                 username: 'user',
                 password: 'user'
                 
-
             }
         ];
      
