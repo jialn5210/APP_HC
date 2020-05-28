@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        
+        #map {
+          height: 100%;
+          width: 89%;
+          position: absolute;
+          left: 200px;
+        }
+         nav{
+           background-color: #70c5c0;
+           color: white;
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 200px;
+           height: 100%;
+         }
+         #logo{
+           height: 60px;
+           width: 170px;
+           position: fixed;
+           top: 17px;
+           left: 13px
+         }
+         #medico1{
+           height: 50px;
+           width: 50px;
+         }
+         #medico2{
+           height: 50px;
+           width: 50px;
+         }
+    </style>
+</head>
+<body>
+    <!--side bar-->
+  <nav class="navbar navbar-expand-md fixed-top" role="tablist" aria-orientation="vertical">
+    <img src="img/Logo tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
+    <ul class="nav navbar-nav navbar-right ml-auto" id="opcoes"> 
+      <li class="nav-item">
+          <button id="btnProcurar" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRecomendados">Recomendados</button> 
+        </li>
+      <li class="nav-item">
+        <label for="sltDistance">Distância:</label>
+      </li>
+      <li class="nav-item"></li>
+      <li class="nav-item">
+        <form class="form-inline">
+          <div class="form-group">
+              <select class="form-control m-2" name="" id="sltDistancia">
+                <option value="">---</option>
+                <option value="1km">1km</option>
+                <option value="5km">5km</option>
+                <option value="10km">10km</option>
+                <option value="20km">20km</option>
+                <option value="all">All</option>
+              </select>
+          </div>
+        </form>
+      </li>
+      <li class="nav-item">
+        <label for="sltEspecialidade">Especialidade:</label>
+      </li>
+      <li class="nav-item"></li>
+      <li class="nav-item">
+        <form class="form-inline">
+          <div class="form-group">
+              <select class="form-control m-2" name="" id="sltEspecialidade">
+                <option value="">---</option>
+                <option value="Geriatria">Geriatria</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Urgência">Urgência</option>
+                <option value="Geral">Medicina geral</option>
+                <option value="all">All</option>
+              </select>
+          <hr></div>
+        </form>
+      </li>
+      <li class="nav-item">
+        <button id="btnProcurar" type="button" class="btn btn-outline-primary">Procurar</button> 
+      </li>
+      
+      <li class="nav-item">Quando pretende a sua consulta?</li>
+      <li class="nav-item">
+        <button id="btnAgora" type="button" class="btn btn-primary m-2" disabled>Agora</button>
+      </li>
+      <li class="nav-item">
+        <button id="btnMaistarde" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde" disabled>Mais tarde</button>
+      </li>
+    </ul>
+  
+  </nav>
+
+    <!-- Recomendados modal -->
+    <div class="modal fade" id="mdlRecomendados" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h5 class="modal-title ">Recomendados</h5>
+                </div>
+                <div class="modal-body">
+                  <ul class="nav navbar-nav navbar-right ml-auto">
+                    <li class="nav-item text-center">
+                      <img src="img/doctor1.jpg" class="rounded-circle" id="medico1"><br>
+                      <label for="sltMedico1">Dra. Sara Doe <br> Especialidade: Geriatria</label><br>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Agora</button>
+                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Mais Tarde</button>
+                    </li>
+                    <li class="nav-item text-center">
+                      <img src="img/doctor2.jpg" class="rounded-circle" id="medico2"><br>
+                      <label for="sltMedico2">Dr. John Doe <br> Especialidade: Pediatria</label><br>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Agora</button>
+                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Mais Tarde</button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                    <div id="mdlRecomendadosMessage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Mais tarde modal -->
+    <div class="modal fade" id="mdlMaistarde" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mais tarde</h5>
+                </div>
+                <div class="modal-body">
+                  <form>    Quando pretende a sua consulta?    <input type="datetime-local" name="DayHour"> </form> 
+                  <button id="btnMarcarConsulta" type="button" class="btn btn-primary m-2">Marcar!</button>
+                </div>
+                <div class="modal-footer">
+                    <div id="mdlLaterMessage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    // JQUERY 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    // POPPER.JS 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    // JAVASCRIPT PLUGINS 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
