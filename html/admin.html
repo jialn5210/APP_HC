@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="admin.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- sidebar -->
+  <div class="container-fluid col-sm-4">
+    <div" id="first-row">
+      <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+        <a class="nav-link " id="active" data-toggle="pill" href="#dashboard" role="tab" aria-selected="true"><i
+            class="fas fa-chart-line"></i>Dashboard</a>
+        <a class="nav-link" data-toggle="pill"  href="#doctor" role="tab" aria-selected="false"><i
+            class="fas fa-user-md"></i>Doctors</a>
+        <a class="nav-link" data-toggle="pill"  href="#user" role="tab" aria-selected="false"><i
+            class="fas fa-users"></i>Users </a>
+        <a class="nav-link" data-toggle="pill" href="#v-pills-settings" role="tab" aria-selected="false"><i
+            class="fas fa-sign-out-alt"></i>Log out </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid col-sm-8 text-center" id="left">
+    <div id="dashboard" >
+      <!-- Counters -->
+      <h1>Totals</h1>
+      <div class="row counters">
+
+        <div class="col-lg-3 col-6 text-center">
+          <span class="counter" data-target="60000">0</span>
+          <h3>Users</h3>
+        </div>
+
+        <div class="col-lg-3 col-6 text-center">
+          <span class="counter" data-target="15000">0</span>
+          <h3>Doctors</h3>
+        </div>
+
+        <div class="col-lg-3 col-6 text-center">
+          <span class="counter" data-target="9000">0</span>
+          <h3>Consults</h3>
+        </div>
+      </div>
+      <br><br>
+
+      <!-- graphic-->
+      <div id="chartContainer" style="height: 200px; width: 80%;"></div>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <!-- doctor table -->
+    <section id="doctor">
+      <div class="container">
+        <h1>Doctors list</h1>
+
+        <table class="table">
+          <thead>
+            <th>Nome completo</th>
+            <th>Especialidade</th>
+            <th>Editar</th>
+            <th>Remover</th>
+            <th>Bloquear</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maria</td>
+              <td>Gereatria</td>
+              <td><button type="submit">Editar</button></td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+            <tr>
+              <td>Antonio</td>
+              <td>Pediatria</td>
+              <td><button type="submit">Editar</button></td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+            <tr>
+              <td>Amélia</td>
+              <td>Medicina geral</td>
+              <td><button type="submit">Editar</button></td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- user table -->
+    <section id="user">
+
+      <div class="container">
+        <h1>Users list</h1>
+        <table class="table">
+          <thead>
+            <th>Nome completo</th>
+            <th>Email</th>
+            <th>Remover</th>
+            <th>Bloquear</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maria</td>
+              <td>maria@gmail.com</td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+            <tr>
+              <td>Antonio</td>
+              <td>antonio@gmail.com</td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+            <tr>
+              <td>Amélia</td>
+              <td>amelia@gmail.com</td>
+              <td><button type="submit">Remover</button></td>
+              <td><button type="submit">Bloquear</button></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  </div>
+  </div>
+  <script>
+    window.onload = function () {
+
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+          text: "Consults per day"
+        },
+        axisY: {
+          includeZero: false
+        },
+        data: [{
+          type: "line",
+          indexLabelFontSize: 16,
+          dataPoints: [
+            { y: 450 },
+            { y: 414 },
+            { y: 520, indexLabel: "\u2191 highest", markerColor: "red", markerType: "triangle" },
+            { y: 460 },
+            { y: 450 },
+            { y: 500 },
+            { y: 480 },
+            { y: 480 },
+            { y: 410, indexLabel: "\u2193 lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+            { y: 500 },
+            { y: 480 },
+            { y: 510 }
+          ]
+        }]
+      });
+      chart.render();
+
+    }
+    /* Counters */
+
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // The lower the slower
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+        if (count < target) {
+
+          counter.innerText = count + inc;
+
+          setTimeout(updateCount, 5);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+
+
+    //butões sidebar
+    document.getElementById("doctors").addEventListener("click", show);
+    function show(){
+
+    }
+  </script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
