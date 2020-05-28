@@ -137,6 +137,8 @@ updateButtons(event) {
  
     
 }
+
+//background animation
 const particles = [];
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
@@ -146,9 +148,6 @@ function setup() {
         particles.push(new Particle());
     }
 }
-
-
-
 
 
 particles.forEach((particle, idx) => {
