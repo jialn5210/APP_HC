@@ -21,6 +21,7 @@ export default class UserModel {
 
     login(username) {
         sessionStorage.setItem('loggedUser', username);
+        
     }
 
     logout() {

@@ -21,7 +21,7 @@ export default class UserView {
         this.loginUsername = document.getElementById('txtUsername');
         this.loginPassword = document.getElementById('txtPassword');
         this.loginMessage = document.getElementById('mdlLoginMessage');
-
+        
 
         this.bindAddLoginForm();
 
@@ -33,6 +33,10 @@ export default class UserView {
         this.bindAddLogoutEvent();
 
         this.checkLoginStatus();
+
+        
+        
+        
 // buttons Social painel
         this.floating_btn = document.querySelector('.floating-btn');
         this.close_btn = document.querySelector('.close-btn');
@@ -41,6 +45,9 @@ export default class UserView {
         this.bindAddFloating_btn();
         this.bindAddClose_btn();
 
+    //counter
+        this.Counter=document.querySelector('.counter');
+        this.Counters();
     }
 
     
@@ -55,8 +62,15 @@ export default class UserView {
         
         });
     }
+    Counters(){
+        this.Counter.counterUp({delay:10,time:1000});
+    }
     
- 
+  
+   
+       
+        
+    
 
 bindAddRegisterForm() {
     this.registerForm.addEventListener('submit', event => {
@@ -85,7 +99,10 @@ bindAddLoginForm() {
             // Wait 1 second before reloading, so the user can see the login success message
             setTimeout(() => {
                 this.updateButtons('login');
-                location.replace('hc.html')
+                location.replace('html/hc.html')
+
+              
+
             },
                 1000);
 
@@ -137,6 +154,8 @@ updateButtons(event) {
  
     
 }
+
+//background animation
 const particles = [];
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
@@ -146,9 +165,6 @@ function setup() {
         particles.push(new Particle());
     }
 }
-
-
-
 
 
 particles.forEach((particle, idx) => {
@@ -200,4 +216,6 @@ class Particle {
         });
     }
 }
+
+
 

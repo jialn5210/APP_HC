@@ -20,7 +20,7 @@ $(window).on('scroll',function(){
         $('header').removeClass('black');
     }
 })
-new WOW().init();
+
 
 
 $(".counter").counterUp({delay:10,time:1000});
