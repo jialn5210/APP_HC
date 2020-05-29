@@ -9,11 +9,12 @@ body{
 }
 /*sidebar*/
 #first-row{
-    padding-top: 10px;
+    padding-top: 100px;
     position:fixed;
     background-attachment: fixed;
     background-color: #70c5c0;
     height: 100%;
+    width: 190px;
     top: 0;
     left: 0;
 
@@ -43,3 +44,10 @@ align-items: center;
     position: relative;
     text-align: center;
 }
+#logo{
+    height: 60px;
+    width: 170px;
+    position: fixed;
+    top: 17px;
+    left: 13px
+  }

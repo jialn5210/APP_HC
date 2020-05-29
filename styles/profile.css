@@ -1,0 +1,27 @@
+nav{
+    background-color: #70c5c0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+  }
+  #logo{
+    height: 60px;
+    width: 170px;
+    position: fixed;
+    top: 17px;
+    left: 13px
+  }
+  #btnLogout{
+    position: fixed;
+    bottom: 25px;
+    left: 45px;
+  }
+  #box{
+    position: fixed;
+    left: 200px;
+    height: 100%;
+    width: 90%;
+  }
