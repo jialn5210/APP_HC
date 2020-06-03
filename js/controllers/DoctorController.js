@@ -7,7 +7,7 @@ export default class DoctorController {
 
     addDoctor(name,email ,location ,specialty , photo, description) {
         if (!this.doctorModel.getAll().some(doctor => doctor.name === name)) {
-            this.bandModel.create(
+            this.doctorModel.create(
                 name,
                 email,
                 location,

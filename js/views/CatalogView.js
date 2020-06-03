@@ -1,6 +1,6 @@
-import BandController from '../controllers/BandController.js'
+import DoctorController from '../controllers/DoctorController.js'
 
-export default class DoctosView {
+export default class DoctorView {
 
     constructor() {
         this.doctorController = new DoctorController()
