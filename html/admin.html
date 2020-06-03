@@ -10,14 +10,16 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="bootstrap.min.js"></script>
   <link href="../styles/admin.css" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
 <body>
   <!-- sidebar -->
-  <div class="container-fluid col-sm-4">
+  
+ <div class="container-fluid col-sm-4">
     <div" id="first-row">
       <img src="../img/Logo_tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
       <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
@@ -31,7 +33,7 @@
             class="fas fa-sign-out-alt"></i>Log out </a>
       </div>
     </div>
-  </div>
+  </div> 
   <div class="container-fluid col-sm-8 text-center" id="left">
     <div id="dashboard" >
       <!-- Counters -->
@@ -61,9 +63,9 @@
     </div>
     <!-- doctor table -->
     <section id="doctor">
-      <div class="container">
+      <div class="flex-container">
         <h1>Doctors list</h1>
-
+        <button id="btnAdd" type="button" class="btn btn-outline-primary m-2">ADD</button>
         <table class="table">
           <thead>
             <th>Nome completo</th>
