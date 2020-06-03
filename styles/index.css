@@ -1,119 +1,38 @@
 body{
-   margin: 0;
-   overflow: hidden;
-  
-}
-
-.title{
-    font-family: Varela Round;
-    color: white;
-    font-size: 5rem; 
-}
-  .banner-title {
-      font-family: Varela Round;
-    color: red;
-    font-size: 5rem;
-    
-  }
-  .banner-link {
-    font-size: 1.5rem;
-    color: black;
-    border: 0.2rem solid black;
-  }
-  .banner-link:hover {   
-    color: red;
-  }
-  .carousel-caption{
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-    
-}
-
-.slogan{
-    font-size: 1.2rem;
-    margin-top: 1rem;
-}
-
-.modal-login {		
-    color: #636363;
-    width: 350px;
-   position: relative;
+    margin: 0;
+    overflow: hidden;
  
-}
-.modal-login .modal-content {
-    padding: 20px;
-    border-radius: 5px;
-    border: none;
-}
-.modal-login .modal-header {
-    border-bottom: none;   
-    position: relative;
-    justify-content: center;
-}
-.modal-login h4 {
-    text-align: center;
-    font-size: 26px;
-    margin: 30px 0 -15px;
-}
-.modal-login .form-control:focus {
-    border-color: #70c5c0;
-}
-.modal-login .form-control, .modal-login .btn {
-    min-height: 40px;
-    border-radius: 3px; 
-}
-.modal-login .close {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-}	
-.modal-login .modal-footer {
-    background: #ecf0f1;
-    border-color: #dee4e7;
-    text-align: center;
-    justify-content: center;
-    margin: 0 -20px -20px;
-    border-radius: 5px;
-    font-size: 13px;
-}
-.modal-login .modal-footer a {
-    color: #999;
-}		
-.modal-login .avatar {
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    top: -70px;
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    z-index: 9;
-    background: #60c7c1;
-    padding: 15px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-}
-.modal-login .avatar img {
-    width: 100%;
-}
-.modal-login.modal-dialog {
-    margin-top: 80px;
-}
-.modal-login .btn {
-    color: #fff;
-    border-radius: 4px;
-    background: #60c7c1;
-    text-decoration: none;
-    transition: all 0.4s;
-    line-height: normal;
-    border: none;
-}
-.modal-login .btn:hover, .modal-login .btn:focus {
-    background: #45aba6;
-    outline: none;
-}
-.trigger-btn {
-    display: inline-block;
-    margin: 100px auto;
-}
+ 
+ }
+ 
+ .title{
+     font-family: "Open Sans", sans-serif;
+     color: white;
+     font-size: 6rem; 
+ }
+   .banner-title {
+     font-family: "Open Sans", sans-serif;
+     color: red;
+     font-size: 6rem;
+ 
+   }
+   .banner-link {
+     font-size: 1.5rem;
+     color: white;
+     border: 0.2rem solid white;
+   }
+   .banner-link:hover {
+     color: red;
+   }
+   .carousel-caption{
+     position: absolute;
+     top: 55%;
+     transform: translateY(-50%);
+ 
+ }
+ 
+ .slogan{
+     font-size: 1.2rem;
+     margin-top: 1rem;
+ }
+ 
