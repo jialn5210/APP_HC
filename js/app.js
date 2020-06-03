@@ -1,16 +1,24 @@
 import UserView from './views/UserView.js'
-
+import CatalogView from './views/CatalogView.js'
+import DoctorAddView from './views/DoctorAddView.js'
 
 class App {
     constructor() {
         this.routes = {
           
             'index': [
-                UserView   
+                UserView,  
+                
             ],
             'hc': [
                UserView            
             ],
+            'addDoctor':[
+                DoctorAddView   
+            ],
+            'catalog':[
+                CatalogView 
+            ]
            
         
         };
@@ -38,6 +46,16 @@ class App {
     }
 
     _importDataFixtures() {
+        const doctors = [
+            {
+                id: 1,
+                name: 'Muse',
+                email:'blabla',
+                location:'blabla',
+                specialty: 'genreal',
+                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                description: 'The best band ever'
+            }];
 
         const users = [
             {
@@ -48,10 +66,16 @@ class App {
             }
         ];
      
+        if (!localStorage.doctors) {
+            localStorage.setItem('doctors', JSON.stringify(doctors));    
+        }
         if (!localStorage.users) {
             localStorage.setItem('users', JSON.stringify(users));
         }
     }
 }
+
+
+
 
 new App();
