@@ -17,7 +17,7 @@ export default class DoctorView {
 
     bindAddAddEvent() {
         this.btnAdd.addEventListener('click', () => {
-            location.href='html/addDoctor.html';
+            location.href='addDoctor.html';
         })
     }
 
