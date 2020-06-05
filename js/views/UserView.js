@@ -101,7 +101,7 @@ export default class UserView {
                     this.updateButtons('login');
                     location.replace('html/hc.html')
                     document.getElementById('user').innerHTML = this.loginUsername.value;
-
+ 
 
                 },
                     1000);

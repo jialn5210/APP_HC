@@ -1,4 +1,4 @@
-import BandController from '../controllers/BandController.js'
+import DoctorController from '../controllers/DoctorController.js'
 
 export default class DoctorAddView {
     constructor(){
