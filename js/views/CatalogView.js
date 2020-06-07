@@ -7,28 +7,40 @@ export default class DoctorView {
         
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
-        this.btnAdd = document.querySelector("#btnAdd")
+        this.btnFilter = document.querySelector("#btnFilter")
+        this.btnSort = document.querySelector("#btnSort")
+        
         this.txtDoctor = document.querySelector("#txtDoctor")
         this.sltSpecialty = document.querySelector("#sltSpecialty")
 
         this.renderCatalog(this.doctorController.getDoctors())
-        this.bindAddAddEvent()
+        this.bindAddFilterEvent()
+        this.bindAddSortEvent()
+        
     }
 
-    bindAddAddEvent() {
-        this.btnAdd.addEventListener('click', () => {
-            location.href='addDoctor.html';
+    bindAddFilterEvent() {
+        this.btnFilter.addEventListener('click', () => {            
+            this.renderCatalog(this.doctorController.getDoctors(this.txtDoctor.value, this.sltSpecialty.value))
         })
     }
 
-/*     bindAddSeeMoreEvent() {
+    bindAddSortEvent() {
+        this.btnSort.addEventListener('click', () => {
+            this.renderCatalog(this.doctorController.getDoctors(this.txtDoctor.value, this.sltSpecialty.value, true))
+        })
+    }
+
+
+
+    bindAddSeeMoreEvent() {
         for (const btnSee of document.getElementsByClassName("see")) {
             btnSee.addEventListener('click', event => {
                 this.doctorController.setCurrentDoctor(event.target.id)  
                 location.href='html/band.html';
             })
         }
-    } */
+    }
 
     renderCatalog(doctors = []) {
         let result = ''
@@ -41,8 +53,10 @@ export default class DoctorView {
         }
 
         this.catalog.innerHTML = result
+       
 
- /*        this.bindAddSeeMoreEvent() */
+        
+        this.bindAddSeeMoreEvent()
     }
 
     _generateDoctorCard(doctor) {
@@ -53,8 +67,7 @@ export default class DoctorView {
                 <div class="card-body">
                     <h4 class="card-title">${doctor.name}</h4>
                     <p class="card-text">${doctor.specialty}</p>
- /*                    <button id="${doctor.id}" class="btn btn-primary see">See more</button> */
-            ``
+                    <button id="${doctor.id}" class="btn btn-primary see">See more</button>           
                 </div>
             </div>
         </div>        
@@ -62,4 +75,5 @@ export default class DoctorView {
         return html
     }
 
+   
 }

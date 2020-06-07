@@ -7,7 +7,7 @@ class App {
         this.routes = {
           
             'index': [
-                UserView,  
+                UserView  
                 
             ],
             'hc': [
@@ -46,6 +46,7 @@ class App {
     }
 
     _importDataFixtures() {
+      
 
         const users = [
             {
