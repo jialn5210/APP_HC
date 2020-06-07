@@ -12,6 +12,7 @@ export default class DoctorAddView {
         this.doctorSpecialty = document.getElementById('sltSpecialty');
         this.doctorPhoto = document.getElementById('txtPhoto');
         this.doctorDescription = document.getElementById('txtDescription');
+        this.pCatalog = document.querySelector('#pCatalog')
         this.addDoctorMessage = document.getElementById('addDoctorMessage');
 
         this.renderCatalog(this.doctorController.getDoctors())
@@ -80,7 +81,7 @@ export default class DoctorAddView {
             `
         }
         result += `</table>`
-        this.doctorCatalog.innerHTML= result
+        this.pCatalog.innerHTML= result
         this.bindRemoveEvent()
     }
 
