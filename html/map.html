@@ -13,10 +13,10 @@
     <img src="../img/Logo_tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
     <ul class="nav navbar-nav navbar-right ml-auto" id="opcoes"> 
       <li class="nav-item">
-          <button id="btnProcurar" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRecomendados">Recomendados</button> 
+          <button id="btnProcurar" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRecomendados">Recommended</button> 
         </li>
       <li class="nav-item">
-        <label for="sltDistance">Distância:</label>
+        <label for="sltDistance">Distance: </label>
       </li>
       <li class="nav-item"></li>
       <li class="nav-item">
@@ -34,7 +34,7 @@
         </form>
       </li>
       <li class="nav-item">
-        <label for="sltEspecialidade">Especialidade:</label>
+        <label for="sltEspecialidade">Specialty: </label>
       </li>
       <li class="nav-item"></li>
       <li class="nav-item">
@@ -42,28 +42,28 @@
           <div class="form-group">
               <select class="form-control m-2" name="" id="sltEspecialidade">
                 <option value="">---</option>
-                <option value="Geriatria">Geriatria</option>
-                <option value="Pediatria">Pediatria</option>
-                <option value="Urgência">Urgência</option>
-                <option value="Geral">Medicina geral</option>
+                <option value="Geriatria">Geriatric</option>
+                <option value="Pediatria">Pediatrics</option>
+                <option value="Urgência">Emergency</option>
+                <option value="Geral">General medicine</option>
                 <option value="all">All</option>
               </select>
           <hr></div>
         </form>
       </li>
       <li class="nav-item">
-        <button id="btnProcurar" type="button" class="btn btn-outline-primary">Procurar</button> 
+        <button id="btnProcurar" type="button" class="btn btn-outline-primary">Search</button> 
       </li>
       
-      <li class="nav-item">Quando pretende a sua consulta?</li>
+      <li class="nav-item">When do you want your appointment?</li>
       <li class="nav-item">
-        <button id="btnAgora" type="button" class="btn btn-primary m-2" disabled>Agora</button>
+        <button id="btnAgora" type="button" class="btn btn-primary m-2" disabled>Now</button>
       </li>
       <li class="nav-item">
-        <button id="btnMaistarde" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde" disabled>Mais tarde</button>
+        <button id="btnMaistarde" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde" disabled>Later</button>
       </li>
     </ul>
-  
+    <button id="btnVoltar" type="button" class="btn btn-outline-primary" href="html/hc.html">Back</button>
   </nav>
 
     <!-- Recomendados modal -->
@@ -72,21 +72,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header ">
-                    <h5 class="modal-title ">Recomendados</h5>
+                    <h5 class="modal-title ">Recommended</h5>
                 </div>
                 <div class="modal-body">
                   <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="nav-item text-center">
                       <img src="../img/doctor1.jpg" class="rounded-circle" id="medico1"><br>
-                      <label for="sltMedico1">Dra. Sara Doe <br> Especialidade: Geriatria</label><br>
-                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Agora</button>
-                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Mais Tarde</button>
+                      <label for="sltMedico1">Dra. Sara Doe <br> Speciality: Geriatric</label><br>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Now</button>
+                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Later</button>
                     </li>
                     <li class="nav-item text-center">
                       <img src="../img/doctor2.jpg" class="rounded-circle" id="medico2"><br>
-                      <label for="sltMedico2">Dr. John Doe <br> Especialidade: Pediatria</label><br>
-                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Agora</button>
-                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Mais Tarde</button>
+                      <label for="sltMedico2">Dr. John Doe <br> Speciality: Pediatrics</label><br>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Now</button>
+                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Later</button>
                     </li>
                   </ul>
                 </div>

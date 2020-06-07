@@ -30,9 +30,8 @@ export default class UserView {
         this.registerButton = document.getElementById('btnRegister');
         this.logoutButton = document.getElementById('btnLogout');
 
+       
         this.bindAddLogoutEvent();
-
-        this.checkLoginStatus();
 
 
 
@@ -98,10 +97,10 @@ export default class UserView {
 
                 // Wait 1 second before reloading, so the user can see the login success message    
                 setTimeout(() => {
-                    this.updateButtons('login');
+                    
                     location.replace('html/hc.html')
                     document.getElementById('user').innerHTML = this.loginUsername.value;
- 
+                    
 
                 },
                     1000);
@@ -115,18 +114,12 @@ export default class UserView {
     bindAddLogoutEvent() {
         this.logoutButton.addEventListener('click', event => {
             this.userController.logoutUser();
-            this.updateButtons('logout');
-            location.reload()
+            
+            location.replace('index.html')
         });
     }
 
-    checkLoginStatus() {
-        if (this.userController.checkLoginStatus()) {
-            this.updateButtons('login');
-        } else {
-            this.updateButtons('logout');
-        }
-    }
+ 
 
     displayRegisterMessage(message, type) {
         this.registerMessage.innerHTML =
@@ -138,19 +131,7 @@ export default class UserView {
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
 
-    updateButtons(event) {
-        switch (event) {
-            case 'login':
-                this.loginButton.style.visibility = 'hidden'
-
-                this.logoutButton.style.visibility = 'visible'
-                break;
-            case 'logout':
-                this.loginButton.style.visibility = 'visible'
-
-                this.logoutButton.style.visibility = 'hidden'
-        }
-    }
+   
 
 
 }
