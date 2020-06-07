@@ -20,6 +20,10 @@ export default class DoctorModel {
         this.doctors.push(doctor);
         this._persist();
     }
+    remove(name) {
+        this.doctors = this.doctors.filter(doctor => doctor.name != name)
+        this._persist()
+    }
 
     setCurrentDoctor(id) {
         localStorage.setItem("doctor", id); 

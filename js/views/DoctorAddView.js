@@ -1,10 +1,10 @@
 import DoctorController from '../controllers/DoctorController.js'
 
 export default class DoctorAddView {
-    constructor(){
+    constructor() {
         this.doctorController = new DoctorController();
 
-        // add band DOM
+        // add doctor DOM
         this.addDoctorForm = document.getElementById('formAddDoctor');
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
@@ -14,7 +14,9 @@ export default class DoctorAddView {
         this.doctorDescription = document.getElementById('txtDescription');
         this.addDoctorMessage = document.getElementById('addDoctorMessage');
 
+        this.renderCatalog(this.doctorController.getDoctors())
         this.bindAddAddDoctorForm();
+        this.bindRemoveEvent()
     }
 
     bindAddAddDoctorForm() {
@@ -34,10 +36,10 @@ export default class DoctorAddView {
 
                 // Wait 1 second before sending to catalog, so the user can see the login success message
                 setTimeout(() => {
-                    location.href="catalog.html";
+                    location.href = "admin.html";
                 },
-                1000);
-            } catch(e) {
+                    1000);
+            } catch (e) {
                 this.displayAddDoctorMessage(e, 'danger');
             }
         });
@@ -47,4 +49,42 @@ export default class DoctorAddView {
         this.addDoctorMessage.innerHTML =
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
+
+    bindRemoveEvent() {
+        for (const btnRemove of document.getElementsByClassName('remove')) {
+            btnRemove.addEventListener('click', event => {
+                this.doctorController.removeDoctor(event.target.id)
+                this.renderCatalog(this.doctorController.getDoctors())
+            })
+        }
+    }
+
+
+    renderCatalog(doctors = []) {
+        let result = ''
+        if (doctors.length != 0) {
+            result = `
+                <table><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
+            `
+        } else {
+            result = `<p>Without any doctors registered!</p>`
+        }
+
+        for (const doctor of doctors) {
+            result += `                
+            <td>${doctor.name}</td>
+            <td>${doctor.email}</td>
+            <td>${doctor.specialty}</td>
+            <td><button id='${doctor.name}' class='remove'>REMOVE</button></td>
+            </tr>
+            `
+        }
+        result += `</table>`
+        this.doctorCatalog.innerHTML= result
+        this.bindRemoveEvent()
+    }
+
+
+
+
 }

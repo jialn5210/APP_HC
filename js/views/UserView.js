@@ -66,11 +66,6 @@ export default class UserView {
     }
 
 
-
-
-
-
-
     bindAddRegisterForm() {
         this.registerForm.addEventListener('submit', event => {
             event.preventDefault();

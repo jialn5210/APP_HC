@@ -20,6 +20,14 @@ export default class DoctorController {
         }
     }
 
+    getDoctors() {
+        return this.doctorModel.getAll()
+    }
+
+    removeDoctor(name) {
+        this.doctorModel.remove(name)
+    }
+
     setCurrentDoctor(id) {
         this.doctorModel.setCurrentDoctor(id)
     }
