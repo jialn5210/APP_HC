@@ -5,12 +5,13 @@ export default class DoctorController {
         this.doctorModel = new DoctorModel()
     }
 
-    addDoctor(name,email ,location ,specialty , photo, description) {
+    addDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
         if (!this.doctorModel.getAll().some(doctor => doctor.name === name)) {
             this.doctorModel.create(
                 name,
                 email,
-                location,
+                latitude,
+                longitude,
                 specialty,
                 photo,
                 description
