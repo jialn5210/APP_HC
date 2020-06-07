@@ -50,8 +50,8 @@ class App {
             {
                 id: 1,
                 name: 'Muse',
-                email:'blabla',
-                location:'blabla',
+/*                 email:'blabla',
+                location:'blabla', */
                 specialty: 'genreal',
                 photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
                 description: 'The best band ever'

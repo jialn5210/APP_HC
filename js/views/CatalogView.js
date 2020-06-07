@@ -52,7 +52,7 @@ export default class DoctorView {
                 <img class="card-img-top" src="${doctor.photo}" alt="">
                 <div class="card-body">
                     <h4 class="card-title">${doctor.name}</h4>
-                    <p class="card-text">${doctor.genre}</p>
+                    <p class="card-text">${doctor.specialty}</p>
  /*                    <button id="${doctor.id}" class="btn btn-primary see">See more</button> */
             ``
                 </div>
