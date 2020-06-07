@@ -344,6 +344,15 @@
         infoWindow.open(map);
       }
 
+      //get doctors from local storage
+      let doctors = []
+      if(localStorage.getItem("doctors")){
+        doctors = JSON.parse(localStorage.getItem("doctors"));
+      }
+
+      console.log(doctors);
+      
+
 
       
       
