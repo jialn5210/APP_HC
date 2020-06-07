@@ -22,6 +22,17 @@ export default class DoctorModel {
         this._persist();
     }
 
+    sort() {
+        this.doctors.sort(this._compare);
+        this._persist();
+    }
+
+
+    remove(name) {
+        this.doctors = this.doctors.filter(doctor => doctor.name != name)
+        this._persist()
+    }
+
     setCurrentDoctor(id) {
         localStorage.setItem("doctor", id); 
     }
@@ -32,5 +43,12 @@ export default class DoctorModel {
 
     _persist() {
         localStorage.setItem('doctors', JSON.stringify(this.doctors));
+    }
+    _compare(doctorA, doctorB) {
+        if (doctorA.name < doctorB.name)
+            return -1;
+        if (doctorA.name > doctorB.name)
+            return 1;
+        return 0;
     }
 }

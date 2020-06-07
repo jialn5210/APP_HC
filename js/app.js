@@ -7,7 +7,7 @@ class App {
         this.routes = {
           
             'index': [
-                UserView,  
+                UserView  
                 
             ],
             'hc': [
@@ -46,7 +46,7 @@ class App {
     }
 
     _importDataFixtures() {
-        
+      
 
         const users = [
             {
@@ -56,10 +56,7 @@ class App {
                 
             }
         ];
-     
-        if (!localStorage.doctors) {
-            localStorage.setItem('doctors', JSON.stringify(doctors));    
-        }
+       
         if (!localStorage.users) {
             localStorage.setItem('users', JSON.stringify(users));
         }

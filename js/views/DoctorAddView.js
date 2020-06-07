@@ -1,10 +1,10 @@
 import DoctorController from '../controllers/DoctorController.js'
 
 export default class DoctorAddView {
-    constructor(){
+    constructor() {
         this.doctorController = new DoctorController();
 
-        // add band DOM
+        // add doctor DOM
         this.addDoctorForm = document.getElementById('formAddDoctor');
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
@@ -13,9 +13,12 @@ export default class DoctorAddView {
         this.doctorSpecialty = document.getElementById('sltSpecialty');
         this.doctorPhoto = document.getElementById('txtPhoto');
         this.doctorDescription = document.getElementById('txtDescription');
+        this.pCatalog = document.querySelector('#pCatalog')
         this.addDoctorMessage = document.getElementById('addDoctorMessage');
-
         this.bindAddAddDoctorForm();
+        this.renderCatalog(this.doctorController.getDoctors())
+        
+        this.bindRemoveEvent()
     }
 
     bindAddAddDoctorForm() {
@@ -36,10 +39,10 @@ export default class DoctorAddView {
 
                 // Wait 1 second before sending to catalog, so the user can see the login success message
                 setTimeout(() => {
-                    location.href="catalog.html";
+                    location.href = "catalog.html";
                 },
-                1000);
-            } catch(e) {
+                    1000);
+            } catch (e) {
                 this.displayAddDoctorMessage(e, 'danger');
             }
         });
@@ -49,4 +52,10 @@ export default class DoctorAddView {
         this.addDoctorMessage.innerHTML =
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
+
+  
+
+
+
+
 }
