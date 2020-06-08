@@ -44,7 +44,7 @@ export default class AdminDoctorView {
             <td>${doctor.name}</td>
             <td>${doctor.email}</td>
             <td>${doctor.specialty}</td>
-            <td><button id='${doctor.name}' class='remove'>REMOVE</button></td>
+            <td><button id='${doctor.name}' class='btn btn-outline-primary m-2 remove'>REMOVE</button></td>
             </tr>
             `
         }
