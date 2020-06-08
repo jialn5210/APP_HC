@@ -1,6 +1,8 @@
 import UserView from './views/UserView.js'
 import CatalogView from './views/CatalogView.js'
 import DoctorAddView from './views/DoctorAddView.js'
+import AdminDoctorView from './views/AdminDoctorView.js'
+
 
 class App {
     constructor() {
@@ -18,6 +20,9 @@ class App {
             ],
             'catalog':[
                 CatalogView 
+            ],
+            'admin':[
+                AdminDoctorView
             ]
            
         
