@@ -32,7 +32,7 @@ export default class AdminDoctorView {
         let result = ''
         if (doctors.length != 0) {
             result = `
-            <table><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
+            <table class="info"><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
             `
         } else {
             result = `<p class="info">Without any doctors registered!</p>`
@@ -44,7 +44,7 @@ export default class AdminDoctorView {
             <td>${doctor.name}</td>
             <td>${doctor.email}</td>
             <td>${doctor.specialty}</td>
-            <td><button id='${doctor.name}' class='remove'>REMOVE</button></td>
+            <td><button id='${doctor.name}' class='btn btn-outline-primary m-2 remove'>REMOVE</button></td>
             </tr>
             `
         }

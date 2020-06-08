@@ -34,8 +34,17 @@ h1, h2, h3, h4, h5, h6 {
 .info{
   display: flex;
   justify-content: center; 
-  padding-top: 5rem;
+
 }
+td, th {
+  border: 1px solid black;
+height:50px;
+width: 150px;
+text-align: center;
+}
+
+
+
 @media (max-width: 768px) {
   #header #logo h1 {
     font-size: 26px;
