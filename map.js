@@ -279,18 +279,15 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
-          const medicLocation = JSON.stringify(doctors[i].location)
-          console.log(medicLocation);
+          const medicLat = JSON.stringify(doctors[i].latitude)
+          const medicLng = JSON.stringify(doctors[i].longitude)
+          const marker = new google.maps.Marker({
+            position: {lat: medicLat, lng: medicLng},
+            map:map
+          })  
         }
         
-        const lat = 41.366949
-        const lng = -8.738722
-        const coordinates = {lat:lat, lng: lng}
-
-        const marker = new google.maps.Marker({
-          position: coordinates,
-          map:map
-        })  
+        
 
         marker.addListener("click",
           () => infowindow.open(map,marker)
