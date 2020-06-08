@@ -8,7 +8,8 @@ export default class DoctorAddView {
         this.addDoctorForm = document.getElementById('formAddDoctor');
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
-        this.doctorLocation = document.getElementById('txtLocation');
+        this.doctorLatitude = document.getElementById('txtLatitude');
+        this.doctorLongitude = document.getElementById('txtLongitude');
         this.doctorSpecialty = document.getElementById('sltSpecialty');
         this.doctorPhoto = document.getElementById('txtPhoto');
         this.doctorDescription = document.getElementById('txtDescription');
@@ -28,7 +29,8 @@ export default class DoctorAddView {
                 this.doctorController.addDoctor(
                     this.doctorName.value,
                     this.doctorEmail.value,
-                    this.doctorLocation.value,
+                    this.doctorLatitude.value,
+                    this.doctorLongitude.value,
                     this.doctorSpecialty.value,
                     this.doctorPhoto.value,
                     this.doctorDescription.value

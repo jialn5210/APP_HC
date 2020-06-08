@@ -7,12 +7,13 @@ export default class DoctorModel {
         return this.doctors;
     }
     
-    create(name,email ,location ,specialty , photo, description) {
+    create(name,email ,latitude,longitude ,specialty , photo, description) {
         const doctor = {
             id: this.doctors.length > 0 ? this.doctors[this.doctors.length - 1].id + 1 : 1,
             name: name,
             email:email,
-            location: location,
+            latitude: latitude,
+            longitude: longitude,
             specialty:specialty,
             photo: photo,
             description: description,
