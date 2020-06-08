@@ -37,7 +37,7 @@ export default class DoctorView {
         for (const btnSee of document.getElementsByClassName("see")) {
             btnSee.addEventListener('click', event => {
                 this.doctorController.setCurrentDoctor(event.target.id)  
-                location.href='html/band.html';
+                location.href='doctorDetails.html';
             })
         }
     }

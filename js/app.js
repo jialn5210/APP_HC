@@ -2,6 +2,7 @@ import UserView from './views/UserView.js'
 import CatalogView from './views/CatalogView.js'
 import DoctorAddView from './views/DoctorAddView.js'
 import AdminDoctorView from './views/AdminDoctorView.js'
+import DoctorDetailsView from './views/DoctorDetailsView.js';
 
 
 class App {
@@ -23,7 +24,11 @@ class App {
             ],
             'admin':[
                 AdminDoctorView
+            ],
+            'doctorDetails':[
+                DoctorDetailsView
             ]
+
            
         
         };
