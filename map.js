@@ -1,4 +1,13 @@
-//criação e design do mapa
+      
+      
+      //get doctors from local storage
+      let doctors = []
+        if(localStorage.getItem("doctors")){
+          doctors = JSON.parse(localStorage.getItem("doctors"));
+      }
+      
+      
+      //criação e design do mapa
       let map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -267,14 +276,18 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
         
-        const coordinates = {lat:41.366949, lng: -8.738722}
-
-        const esmad = new google.maps.LatLng(coordinates);
-  
-        const marker = new google.maps.Marker({
-          position: esmad,
-          map:map
-        })  
+        console.log(doctors)
+        
+        for (let i = 0; i < doctors.length; i++) {
+          const medicLat = JSON.stringify(doctors[i].latitude)
+          const medicLng = JSON.stringify(doctors[i].longitude)
+          const marker = new google.maps.Marker({
+            position: {lat: medicLat, lng: medicLng},
+            map:map
+          })  
+        }
+        
+        
 
         marker.addListener("click",
           () => infowindow.open(map,marker)
@@ -292,28 +305,10 @@
 
       }
 
-     
       
       
       
-      
-      
-      //get doctors from local storage
-      let doctors = []
-      if(localStorage.getItem("doctors")){
-        doctors = JSON.parse(localStorage.getItem("doctors"));
-      }
-      
-      console.log(doctors)
-      
-      showMedics()
-     
-      function showMedics (){
-        for (let i = 0; i < doctors.length; i++) {
-          const medicLocation = JSON.stringify(doctors[i].location)
-          console.log(medicLocation);
-        }
-      }
+  
       
       
     

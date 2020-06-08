@@ -8,15 +8,16 @@ export default class DoctorAddView {
         this.addDoctorForm = document.getElementById('formAddDoctor');
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
-        this.doctorLocation = document.getElementById('txtLocation');
+        this.doctorLatitude = document.getElementById('txtLatitude');
+        this.doctorLongitude = document.getElementById('txtLongitude');
         this.doctorSpecialty = document.getElementById('sltSpecialty');
         this.doctorPhoto = document.getElementById('txtPhoto');
         this.doctorDescription = document.getElementById('txtDescription');
         this.pCatalog = document.querySelector('#pCatalog')
         this.addDoctorMessage = document.getElementById('addDoctorMessage');
-
-        this.renderCatalog(this.doctorController.getDoctors())
         this.bindAddAddDoctorForm();
+        this.renderCatalog(this.doctorController.getDoctors())
+        
         this.bindRemoveEvent()
     }
 
@@ -28,16 +29,17 @@ export default class DoctorAddView {
                 this.doctorController.addDoctor(
                     this.doctorName.value,
                     this.doctorEmail.value,
-                    this.doctorLocation.value,
+                    this.doctorLatitude.value,
+                    this.doctorLongitude.value,
                     this.doctorSpecialty.value,
                     this.doctorPhoto.value,
                     this.doctorDescription.value
                 );
                 this.displayAddDoctorMessage('Doctor added with success!', 'success');
 
-                // Wait 1 second before sending to catalog, so the user can see the login success message
+               
                 setTimeout(() => {
-                    location.href = "admin.html";
+                    location.href = "catalog.html";
                 },
                     1000);
             } catch (e) {
@@ -51,39 +53,7 @@ export default class DoctorAddView {
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
 
-    bindRemoveEvent() {
-        for (const btnRemove of document.getElementsByClassName('remove')) {
-            btnRemove.addEventListener('click', event => {
-                this.doctorController.removeDoctor(event.target.id)
-                this.renderCatalog(this.doctorController.getDoctors())
-            })
-        }
-    }
-
-
-    renderCatalog(doctors = []) {
-        let result = ''
-        if (doctors.length != 0) {
-            result = `
-                <table><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
-            `
-        } else {
-            result = `<p>Without any doctors registered!</p>`
-        }
-
-        for (const doctor of doctors) {
-            result += `                
-            <td>${doctor.name}</td>
-            <td>${doctor.email}</td>
-            <td>${doctor.specialty}</td>
-            <td><button id='${doctor.name}' class='remove'>REMOVE</button></td>
-            </tr>
-            `
-        }
-        result += `</table>`
-        this.pCatalog.innerHTML= result
-        this.bindRemoveEvent()
-    }
+  
 
 
 
