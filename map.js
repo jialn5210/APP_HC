@@ -279,10 +279,14 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
-          const medicLat = JSON.stringify(doctors[i].latitude)
-          const medicLng = JSON.stringify(doctors[i].longitude)
-          const marker = new google.maps.Marker({
-            position: {lat: medicLat, lng: medicLng},
+          const medicLat = JSON.parse(doctors[i].latitude)
+          const medicLng = JSON.parse(doctors[i].longitude)
+          console.log(medicLat)
+          console.log(medicLng)
+          
+          let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
+            marker = new google.maps.Marker({
+            position: medicLatLng,
             map:map
           })  
         }
