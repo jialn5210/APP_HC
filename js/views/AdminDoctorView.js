@@ -4,7 +4,7 @@ export default class AdminDoctorView {
     constructor() {
         this.doctorController = new DoctorController()
 
-        this.btnAdd = document.querySelector('#btnAdd')
+        
        
         this.doctorCatalog = document.querySelector('#doctorCatalog')
         
