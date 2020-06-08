@@ -8,14 +8,13 @@ export default class AdminDoctorView {
        
         this.doctorCatalog = document.querySelector('#doctorCatalog')
         
-
+   
         this.renderCatalog(this.doctorController.getDoctors())
-        
-        
+
         this.bindRemoveEvent()
     }
 
-    
+
 
     bindRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName('remove')) {
