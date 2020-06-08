@@ -37,7 +37,7 @@ export default class DoctorAddView {
                 );
                 this.displayAddDoctorMessage('Doctor added with success!', 'success');
 
-                // Wait 1 second before sending to catalog, so the user can see the login success message
+               
                 setTimeout(() => {
                     location.href = "catalog.html";
                 },
