@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Home Clinic</title>
+    <title>Doctor catalog</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -81,26 +81,24 @@
                 <div class="menu">
                     <i class="fa fa-bars"></i>
                 </div>
-
-
             </div>
             <div class="logo" id="logo">
                 <a href="#hero"><img src="../img/logo.png"></img></a>
-
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="#hero">Home</a></li>
+                    <li><a href="hc.html">Home</a></li>
                     <li><a href="#covid">Covid-19</a></li>
                     <li><a href="map.html">Services</a></li>
-                    <li class="menu-active"><a href="#doctors">Doctors</a></li>
+                    <li class="menu-active"><a href="catalog.html">Doctors</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                     <li><a id="user" href="#"></a></li>
                 </ul>
             </nav>
         </div>
     </header>
+   
 
       <!--==========================
   Catalog
@@ -109,8 +107,7 @@
   <div class="container-fluid">
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Bands Catalog</h1>
-            <p class="lead">The best bands of the world!</p>
+            <h1 class="display-3">Doctors catalog</h1>
             <hr class="my-2" />
 
             <form class="form-inline">
@@ -168,7 +165,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 <script>
-$(window).on('scroll',function(){
+ $(window).on('scroll',function(){
 if($(window).scrollTop()){
     $('header').addClass('black');
 
@@ -184,19 +181,10 @@ $(".menu .fa-bars").click(function(){
     $("nav ul").toggleClass("active")
 })
 })
-          new WOW().init();
+          new WOW().init(); 
           
 </script>
 <script type="module" src="../js/app.js"></script>
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
