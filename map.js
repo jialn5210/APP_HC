@@ -324,6 +324,11 @@
 
       }
 
+      document.getElementById("btnVoltar").addEventListener("click", showHcMenu);
+      function showHcMenu() {
+        location.replace('../html/hc.html')
+      }
+
       
       
       
