@@ -35,7 +35,7 @@ export default class AdminDoctorView {
             <table><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
             `
         } else {
-            result = `<p>Without any doctors registered!</p>`
+            result = `<p class="info">Without any doctors registered!</p>`
         }
 
         for (const doctor of doctors) {
