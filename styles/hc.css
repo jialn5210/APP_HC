@@ -15,7 +15,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   padding: 0;
 }
-.container2 {
+.container2{
+  display: flex;
+  justify-content: center;
+}
+.stat {
   display: flex;
   justify-content: center;
 }
@@ -36,14 +40,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center; 
   padding-top: 5rem;
 }
-@media (max-width: 768px) {
-  #header #logo h1 {
-    font-size: 26px;
-  }
-  #header #logo img {
-    max-height: 40px;
-  }
-}
+
+
+
 
 /*--------------------------------------------------------------
 # Header
