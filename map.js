@@ -265,7 +265,7 @@
               position => {
                   const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
                   infoWindow.setPosition(pos);
-                  infoWindow.setContent('Você está aqui!');
+                  infoWindow.setContent("You're here!");
                   infoWindow.open(map);
                   map.setCenter(pos);
               }, 
@@ -281,21 +281,36 @@
         for (let i = 0; i < doctors.length; i++) {
           const medicLat = JSON.parse(doctors[i].latitude)
           const medicLng = JSON.parse(doctors[i].longitude)
-          console.log(medicLat)
-          console.log(medicLng)
-          
+          const medicName = JSON.stringify(doctors[i].name)
+          const medicPhoto = JSON.stringify(doctors[i].photo)
+          const medicSpecialty = JSON.stringify(doctors[i].specialty)
+          const medicDescription = JSON.stringify(doctors[i].description)
+
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
             marker = new google.maps.Marker({
             position: medicLatLng,
             map:map
-          })  
+          })
+          
+          let contentString = `
+          <div id="content">
+          <h1 id="doctorName">${medicName}</h1>
+          <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
+          <p> Description: ${medicDescription}</p>
+          <p><img src="${medicPhoto}"></p></div></div>
+          <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button>
+          `
+
+          let infoWindow = new google.maps.InfoWindow({content: contentString})
+
+          marker.addListener("click",() => infoWindow.open(map,marker))
+
+
         }
         
         
 
-        marker.addListener("click",
-          () => infowindow.open(map,marker)
-        )
+        
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
