@@ -5,10 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles/hc.css" >
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
+  rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
   <style>
     .container1 {
@@ -18,33 +22,85 @@
 
     .container {
       height: 100vh;
+    
     }
+    #header {
+  padding: 30px 0;
+  height: 92px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
+  background: rgba(52, 59, 64, 0.9);
+}
+
+#header #logo {
+  float: left;
+  display: block;
+}
+
+#header #logo h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 6px 0;
+  line-height: 1;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#header #logo h1 a, #header #logo h1 a:hover {
+  color: #fff;
+}
+
+#header #logo img {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #header #logo h1 {
+    font-size: 26px;
+  }
+  #header #logo img {
+    max-height: 40px;
+  }
+}
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <img src="../img/logo.png" alt="logo" width="40" height="30" class="d-inline-block align-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ">
-        <a class="nav-item nav-link active" href="#">Stats <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#doctors">Doctors</a>
-        <a class="nav-item nav-link" href="#users">Users</a>
-        <a class="nav-item nav-link" href="#">Logout</a>
+ <section>
+<header id="header">
+  <div class="container">
+      <div class="responsive_bar">
+          <div class="menu">
+              <i class="fa fa-bars"></i>
+          </div>
       </div>
-    </div>
-  </nav>
-</div>
+      <div class="logo" id="logo">
+          <a href="#hero"><img src="../img/logo.png"></img></a>
+      </div>
 
+      <nav id="nav-menu-container">
+          <ul class="nav-menu">
+              <li><a href="stats">Stats</a></li>
+              <li><a href="#doctors">Doctors</a></li>
+              <li><a href="#users">Users</a></li>
+         </ul>
+      </nav>
+  </div>
+</header>
+</section>
 
 
   <!-- Dashboard -->
+  <section>
   <div class="jumbotron ">
-    <div class="container">
+    <div class="container" id="stats">
       <h1 class="display-4 text-center">Stats</h1>
       <p class="lead text-center">The overview of our users, doctors and appointments.</p>
       <hr class="my-4">
@@ -82,8 +138,9 @@
       <div class="container" id="doctors">
         <div class="container1">
           <h1 class="display-4 text-center">Doctors</h1>
-          <button id="btnAdd" type="button" id="doctors" class="btn btn-outline-primary m-2">ADD</button>
-          <p id="pCatalog"></p>
+          <button id="btnAdd" type="button" class="btn btn-outline-primary m-2">ADD</button>
+  <p id="doctorCatalog"></p>
+
         </div>
       </div>
     </section>
@@ -96,7 +153,18 @@
       </div>
     </section>
   </div>
+</section>
 
+  <script type="module" src="../js/app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
   <script>
     const counters = document.querySelectorAll('.counter');
@@ -120,25 +188,30 @@
       updateCount();
     });
 
-    document.getElementById("doctors").addEventListener("click", showAddDoctor);
+    document.getElementById("btnAdd").addEventListener("click", showAddDoctor);
     function showAddDoctor() {
       location.replace('../html/addDoctor.html')
     }
 
-    window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
+    $(window).on('scroll',function(){
+  if($(window).scrollTop()){
+      $('header').addClass('black');
+  
   }
-}
+  else{
+      $('header').removeClass('black');
+  }
+  })
+  $(".counter").counterUp({delay:10,time:1000});
+  
+  $(document).ready(function(){
+  $(".menu .fa-bars").click(function(){
+      $("nav ul").toggleClass("active")
+  })
+  })
+            new WOW().init();
   </script>
-  <script type="module" src="../js/app.js"></script>
+  
 </body>
 
 </html>
