@@ -30,7 +30,7 @@ export default class DoctorController {
     }
 
     getCurrentDoctor() {
-        return thisdoctorModel.getCurrentDoctor()
+        return this.doctorModel.getCurrentDoctor()
     }
 
 

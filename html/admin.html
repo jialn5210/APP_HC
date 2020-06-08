@@ -5,46 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/hc.css" >
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
+  rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
-  <style>
-    .container1 {
-      display: flex;
-      justify-content: center;
-    }
 
-    .container {
-      height: 100vh;
-    }
-  </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <img src="../img/logo.png" alt="logo" width="40" height="30" class="d-inline-block align-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ">
-        <a class="nav-item nav-link active" href="#">Stats <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#doctors">Doctors</a>
-        <a class="nav-item nav-link" href="#users">Users</a>
-        <a class="nav-item nav-link" href="#">Logout</a>
+ <section>
+<header id="header">
+  <div class="container">
+      <div class="responsive_bar">
+          <div class="menu">
+              <i class="fa fa-bars"></i>
+          </div>
       </div>
-    </div>
-  </nav>
+      <div class="logo" id="logo">
+          <a href="#hero"><img src="../img/logo.png"></img></a>
+      </div>
+
+      <nav id="nav-menu-container">
+          <ul class="nav-menu">
+              <li><a href="stats">Stats</a></li>
+              <li><a href="#doctors">Doctors</a></li>
+              <li><a href="#users">Users</a></li>
+         </ul>
+      </nav>
+  </div>
+</header>
+</section>
 
 
   <!-- Dashboard -->
+  <section>
   <div class="jumbotron ">
-    <div class="container">
+    <div class="container1" id="stats">
       <h1 class="display-4 text-center">Stats</h1>
       <p class="lead text-center">The overview of our users, doctors and appointments.</p>
       <hr class="my-4">
-      <div class="container1">
+      <div class="container2">
         <div class="row ">
           <div class="col-sm-4 text-center">
             <div class="card" style="width: 16rem">
@@ -78,8 +83,9 @@
       <div class="container" id="doctors">
         <div class="container1">
           <h1 class="display-4 text-center">Doctors</h1>
-          <button id="btnAdd" type="button" id="doctors" class="btn btn-outline-primary m-2">ADD</button>
-          <p id="pCatalog"></p>
+          <button id="btnAdd" type="button" class="btn btn-outline-primary m-2">ADD</button>
+  <p id="doctorCatalog"></p>
+
         </div>
       </div>
     </section>
@@ -92,7 +98,18 @@
       </div>
     </section>
   </div>
+</section>
 
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
   <script>
     const counters = document.querySelectorAll('.counter');
@@ -116,12 +133,31 @@
       updateCount();
     });
 
-    document.getElementById("doctors").addEventListener("click", showAddDoctor);
+    document.getElementById("btnAdd").addEventListener("click", showAddDoctor);
     function showAddDoctor() {
+      setTimeout
       location.replace('../html/addDoctor.html')
     }
+
+    $(window).on('scroll',function(){
+  if($(window).scrollTop()){
+      $('header').addClass('black');
+  
+  }
+  else{
+      $('header').removeClass('black');
+  }
+  })
+  $(".counter").counterUp({delay:10,time:1000});
+  
+  $(document).ready(function(){
+  $(".menu .fa-bars").click(function(){
+      $("nav ul").toggleClass("active")
+  })
+  })
+            
   </script>
-  <script type="module" src="../js/app.js"></script>
+  
 </body>
 
 </html>
