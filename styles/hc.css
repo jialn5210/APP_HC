@@ -712,3 +712,11 @@ outline: none;
   font-size: 13px;
   color: #ccc;
 }
+
+#doctorTable{
+padding-top: 10rem;
+display: flex;
+justify-content: center;
+
+
+}
