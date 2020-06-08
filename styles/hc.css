@@ -26,6 +26,24 @@ h1, h2, h3, h4, h5, h6 {
   
 
 }
+.addbtn{
+  display: flex;
+  justify-content: center;
+
+}
+.info{
+  display: flex;
+  justify-content: center; 
+  padding-top: 10rem;
+}
+@media (max-width: 768px) {
+  #header #logo h1 {
+    font-size: 26px;
+  }
+  #header #logo img {
+    max-height: 40px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Header
