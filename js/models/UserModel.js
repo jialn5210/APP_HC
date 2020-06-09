@@ -17,8 +17,6 @@ export default class UserModel {
         this._persist();
     }
 
-    
-
     login(username) {
         sessionStorage.setItem('loggedUser', username);
         

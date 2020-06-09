@@ -16,7 +16,7 @@ export default class DoctorAddView {
         this.pCatalog = document.querySelector('#pCatalog')
         this.addDoctorMessage = document.getElementById('addDoctorMessage');
         this.bindAddAddDoctorForm();
-        this.renderCatalog(this.doctorController.getDoctors())
+        this.renderCatalog(this.doctorController.getDoctors());
         
         this.bindRemoveEvent()
     }
@@ -39,7 +39,7 @@ export default class DoctorAddView {
 
                
                 setTimeout(() => {
-                    location.href = "adDoctors.html";
+                    location.href = "adminDoctors.html";
                 },
                     1000);
             } catch (e) {
