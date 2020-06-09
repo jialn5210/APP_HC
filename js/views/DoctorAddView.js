@@ -39,7 +39,7 @@ export default class DoctorAddView {
 
                
                 setTimeout(() => {
-                    location.href = "catalog.html";
+                    location.href = "admin.html";
                 },
                     1000);
             } catch (e) {
