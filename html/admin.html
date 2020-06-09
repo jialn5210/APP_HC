@@ -22,27 +22,20 @@
     <header id="header">
       <div class="container">
         <div class="responsive_bar">
-          <div class="menu">
-            <i class="fa fa-bars"></i>
-          </div>
         </div>
         <div class="logo" id="logo">
           <a href="#hero"><img src="../img/logo.png"></img></a>
         </div>
-
         <nav id="nav-menu-container">
           <ul class="nav-menu">
-            <li><a href="#stats">Stats</a></li>
-            <li><a href="#doctors">Doctors</a></li>
-            <li><a href="#users">Users</a></li>
+            <button id="btnLogout" type="button" class="btn btn-primary m-2"
+              >LOGOUT</button>
           </ul>
         </nav>
       </div>
     </header>
   </section>
 
-
-  <!-- Dashboard -->
   <section>
     <div class="jumbotron ">
       <div class="container1" id="stats">
@@ -53,9 +46,11 @@
           <div class="row ">
             <div class="col-sm-4 text-center stat">
               <div class="card" style="width: 16rem">
+                
                 <div class="card-body">
                   <span class="counter" data-target="60000">0</span>
                   <h3>Users</h3>
+                  <button id="seeUsers" type="button"  class="btn btn-outline-primary m-2 float-center">Details</button>
                 </div>
               </div>
             </div>
@@ -64,6 +59,7 @@
                 <div class="card-body">
                   <span class="counter" data-target="15000">0</span>
                   <h3>Doctors</h3>
+                  <button id="seeDoctors" type="button"  class="btn btn-outline-primary m-2 float-center">Details</button>
                 </div>
               </div>
             </div>
@@ -72,40 +68,15 @@
                 <div class="card-body">
                   <span class="counter" data-target="9000">0</span>
                   <h3>Appointments</h3>
+                  <button id="seeApps" type="button"  class="btn btn-outline-primary m-2 float-center">Details</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-      <section id="doctors">
-        <div class="container1" id="doctors">
-          <div class="container2">
-            <h1 class="display-4 text-center">Doctors</h1>
-          </div>
-          <div class="addBtn">
-            <button id="btnAdd" type="button" class="btn btn-outline-primary m-2">ADD</button>
-          </div>
-          <p id="doctorCatalog"></p>
-        </div>
-
-    
   </section>
-  <section id="users">
-    <div class="container1">
-      <div class="container2">
-        <h1 class="display-4 text-center">Users</h1>
-        <p id="userCatalog"></p>
-      </div>
-    </div>
-  </section>
-
-  </div>
-  </div>
-  </section>
-
+  
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
@@ -139,11 +110,6 @@
       updateCount();
     });
 
-    document.getElementById("btnAdd").addEventListener("click", showAddDoctor);
-    function showAddDoctor() {
-      setTimeout
-      location.replace('../html/addDoctor.html')
-    }
 
     $(window).on('scroll', function () {
       if ($(window).scrollTop()) {
@@ -155,13 +121,27 @@
       }
     })
     $(".counter").counterUp({ delay: 10, time: 1000 });
-
-    $(document).ready(function () {
-      $(".menu .fa-bars").click(function () {
-        $("nav ul").toggleClass("active")
-      })
-    })
-
+//abre a pág. dos users
+    document.getElementById("seeUsers").addEventListener("click", showAdDoctor);
+    function showAdDoctor() {
+      setTimeout
+      location.assign('../html/adUsers.html')
+      
+    }
+//abre a pág. dos doctors
+    document.getElementById("seeDoctors").addEventListener("click", showAdUser);
+    function showAdUser() {
+      setTimeout
+      location.assign('../html/adDoctors.html')
+      
+    }
+//abre a pág. dos appointements
+    document.getElementById("seeApps").addEventListener("click", showAdApp);
+    function showAdApp() {
+      setTimeout
+      location.assign('../html/adApp.html')
+      
+    }
   </script>
   <script type="module" src="../js/app.js"></script>
 </body>
