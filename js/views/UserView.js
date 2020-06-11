@@ -1,7 +1,5 @@
 import UserController from '../controllers/UserController.js'
 
-
-
 export default class UserView {
     constructor() {
         this.userController = new UserController();
@@ -22,7 +20,6 @@ export default class UserView {
         this.loginPassword = document.getElementById('txtPassword');
         this.loginMessage = document.getElementById('mdlLoginMessage');
 
-
         this.bindAddLoginForm();
 
         // buttons DOM
@@ -30,42 +27,14 @@ export default class UserView {
         this.registerButton = document.getElementById('btnRegister');
         this.logoutButton = document.getElementById('btnLogout');
 
-       
-        this.bindAddLogoutEvent();
 
 
-
-
-        // buttons Social painel
-        this.floating_btn = document.querySelector('.floating-btn');
-        this.close_btn = document.querySelector('.close-btn');
-        this.social_panel_container = document.querySelector('.social-panel-container');
-
-        this.bindAddFloating_btn();
-        this.bindAddClose_btn();
-
-        //counter
-        this.Counter = document.querySelector('.counter');
-        this.Counters();
+     
     }
 
 
-    bindAddFloating_btn() {
-        this.floating_btn.addEventListener('click', () => {
-            this.social_panel_container.classList.toggle('visible')
-        });
-    }
-    bindAddClose_btn() {
-        this.close_btn.addEventListener('click', () => {
-            this.social_panel_container.classList.remove('visible')
-
-        });
-    }
-    Counters() {
-        this.Counter.counterUp({ delay: 10, time: 1000 });
-    }
-
-
+  
+   
     bindAddRegisterForm() {
         this.registerForm.addEventListener('submit', event => {
             event.preventDefault();
@@ -94,7 +63,7 @@ export default class UserView {
                 setTimeout(() => {
                     
                     location.replace('html/hc.html')
-                    document.getElementById('user').innerHTML = this.loginUsername.value;
+                    
                     
 
                 },
@@ -106,14 +75,7 @@ export default class UserView {
         });
     }
 
-    bindAddLogoutEvent() {
-        this.logoutButton.addEventListener('click', event => {
-            this.userController.logoutUser();
-            
-            location.replace('index.html')
-        });
-    }
-
+ 
  
 
     displayRegisterMessage(message, type) {

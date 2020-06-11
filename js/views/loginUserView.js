@@ -7,12 +7,13 @@ export default class UserView {
     constructor() {
         this.userController = new UserController();
         
-        this.loginUser = localStorage.getItem('loggedUser')
+        this.loginUser = sessionStorage.getItem('loggedUser')
         this.logoutButton = document.getElementById('btnLogout');
         this.loginUsername();
         this.bindAddLogoutEvent();
 
-        
+      
+
         // buttons Social painel
         this.floating_btn = document.querySelector('.floating-btn');
         this.close_btn = document.querySelector('.close-btn');
@@ -25,6 +26,8 @@ export default class UserView {
 loginUsername(){
     document.getElementById('user').innerHTML = this.loginUser;
 }
+
+
 
 bindAddLogoutEvent() {
     this.logoutButton.addEventListener('click', event => {
