@@ -5,10 +5,10 @@ export default class DoctorDetailsView {
         this.doctorController = new DoctorController();
 
         // DOM References
-        this.doctorName = document.getElementById('txtName');
-        this.doctorSpecialty = document.getElementById('sltSpecialty');
-        this.doctorPhoto = document.getElementById('txtPhoto');
-        this.doctorDescription = document.getElementById('txtDescription');
+        this.doctorName = document.getElementById('doctorName');
+        this.doctorSpecialty = document.getElementById('doctorSpecialty');
+        this.doctorPhoto = document.getElementById('doctorPhoto');
+        this.doctorDescription = document.getElementById('doctorDescription');
         this.btnBack = document.querySelector("#btnBack")
 
         this.fillDoctorData()
