@@ -307,11 +307,16 @@
 
 
         }
-        
-        
-
-        
       }
+
+      function searchFilters(){
+        const txtDistance = document.getElementById("sltDistance").value
+        const txtSpecialty = document.getElementById("sltSpecialty").value
+        console.log(txtDistance)
+        console.log(txtSpecialty)
+
+      }
+      
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -319,15 +324,13 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-      
-      
-
       }
 
-      document.getElementById("btnVoltar").addEventListener("click", showHcMenu);
-      function showHcMenu() {
+      document.getElementById("btnVoltar").addEventListener("click", () =>{
         location.replace('../html/hc.html')
-      }
+      });
+      
+      
 
       
       
