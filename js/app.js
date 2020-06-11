@@ -28,8 +28,10 @@ class App {
             ],
             'doctorDetails':[
                 DoctorDetailsView
+            ],
+            'adminUsers':[  
+            AdminUserView
             ]
-
            
         
         };

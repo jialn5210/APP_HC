@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="../styles/appointment.css" rel="stylesheet">
+</head>
+<body>
+    <!--side bar-->
+  <nav class="navbar navbar-expand-md fixed-top" role="tablist" aria-orientation="vertical">
+    <img src="../img/Logo_tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
+    <button id="btnMarcarConsulta" type="button" class="btn btn-outline-primary">Marcar Consulta</button>
+    <button id="btnVoltar" type="button" class="btn btn-outline-primary">Back</button>
+  </nav>
+
+    <div id="map"></div>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvLh3AGPGlFEKSFArT9azeY_OvFxp7_JM&callback=initMap">
+    </script>
+     
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../appoitment.js"></script> 
+    
+</body>
+</html>

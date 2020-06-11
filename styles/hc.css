@@ -546,31 +546,31 @@ nav ul li{
 
 /* Call To Action Section
 --------------------------------*/
-#call-to-action {
+#contact {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/backbround.jpg) fixed center center;
   background-size: cover;
   padding: 80px 0;
 }
 
-#call-to-action .cta-title {
+#contact .cta-title {
   color: #fff;
   font-size: 28px;
   font-weight: 700;
 }
 
-#call-to-action .cta-text {
+#contact .cta-text {
   color: #fff;
 }
 
 @media (min-width: 769px) {
-  #call-to-action .cta-btn-container {
+  #contact .cta-btn-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
 }
 
-#call-to-action .cta-btn {
+#contact .cta-btn {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -585,7 +585,7 @@ nav ul li{
   color: #fff;
 }
 
-#call-to-action .cta-btn:hover {
+#contact .cta-btn:hover {
   background: #2dc997;
   border: 2px solid #2dc997;
 }
