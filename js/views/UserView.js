@@ -1,7 +1,5 @@
 import UserController from '../controllers/UserController.js'
 
-
-
 export default class UserView {
     constructor() {
         this.userController = new UserController();
@@ -22,7 +20,6 @@ export default class UserView {
         this.loginPassword = document.getElementById('txtPassword');
         this.loginMessage = document.getElementById('mdlLoginMessage');
 
-
         this.bindAddLoginForm();
 
         // buttons DOM
@@ -30,11 +27,8 @@ export default class UserView {
         this.registerButton = document.getElementById('btnRegister');
         this.logoutButton = document.getElementById('btnLogout');
 
-       
+    
         this.bindAddLogoutEvent();
-
-
-
 
         // buttons Social painel
         this.floating_btn = document.querySelector('.floating-btn');

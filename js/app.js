@@ -12,7 +12,6 @@ class App {
           
             'index': [
                 UserView  
-                
             ],
             'hc': [
                UserView            
@@ -23,14 +22,14 @@ class App {
             'catalog':[
                 CatalogView 
             ],
-            'admin':[
+            'adminDoctors':[
                 AdminDoctorView
             ],
             'doctorDetails':[
                 DoctorDetailsView
             ],
             'adminUsers':[  
-            AdminUserView
+                AdminUserView
             ]
            
         
