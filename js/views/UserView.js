@@ -1,7 +1,5 @@
 import UserController from '../controllers/UserController.js'
 
-
-
 export default class UserView {
     constructor() {
         this.userController = new UserController();
@@ -21,7 +19,6 @@ export default class UserView {
         this.loginUsername = document.getElementById('txtUsername');
         this.loginPassword = document.getElementById('txtPassword');
         this.loginMessage = document.getElementById('mdlLoginMessage');
-
 
         this.bindAddLoginForm();
 

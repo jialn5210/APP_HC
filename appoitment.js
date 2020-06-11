@@ -1,4 +1,5 @@
-let map, infoWindow;
+let map, infoWindow
+const pos
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 41.157944, lng: -8.629556},
@@ -253,7 +254,7 @@ let map, infoWindow;
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
               position => {
-                  const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                  pos = { lat: position.coords.latitude, lng: position.coords.longitude };
                   infoWindow.setPosition(pos);
                   infoWindow.setContent("You're here!");
                   infoWindow.open(map);

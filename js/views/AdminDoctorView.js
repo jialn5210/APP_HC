@@ -3,18 +3,13 @@ import DoctorController from '../controllers/DoctorController.js'
 export default class AdminDoctorView {
     constructor() {
         this.doctorController = new DoctorController()
-
-        
        
         this.doctorCatalog = document.querySelector('#doctorCatalog')
-        
    
         this.renderCatalog(this.doctorController.getDoctors())
-
         this.bindRemoveEvent()
+        this.bindEditEvent()
     }
-
-
 
     bindRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName('remove')) {
@@ -26,13 +21,24 @@ export default class AdminDoctorView {
         }
     }
 
+    bindEditEvent(){
+        for (const btnEdit of document.getElementsByClassName('edit')) {
+            
+            btnEdit.addEventListener('click', event => {
+                this.doctorController.setCurrentDoctor(event.target.id)  
+                location.href='addDoctor.html';
+                
+            })
+        }
+
+    }
   
 
     renderCatalog(doctors = []) {
         let result = ''
         if (doctors.length != 0) {
             result = `
-            <table class="info"><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th></tr>
+            <table class="info"><tr><th>Name</th><th>E-mail</th><th>Specialty</th><th></th><th></th></tr>
             `
         } else {
             result = `<p class="info">Without any doctors registered!</p>`
@@ -45,6 +51,7 @@ export default class AdminDoctorView {
             <td>${doctor.email}</td>
             <td>${doctor.specialty}</td>
             <td><button id='${doctor.name}' class='btn btn-outline-primary m-2 remove'>REMOVE</button></td>
+            <td><button id='${doctor.name}' class='btn btn-outline-primary m-2 edit'>EDIT</button></td>
             </tr>
             `
         }

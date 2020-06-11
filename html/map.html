@@ -54,14 +54,6 @@
       <li class="nav-item">
         <button id="btnProcurar" type="button" class="btn btn-outline-primary">Search</button> 
       </li>
-      <!--
-      <li class="nav-item">Do you want your appointment later?</li>
-      <li class="nav-item">
-        <button id="btnAgora" type="button" class="btn btn-primary m-2" disabled>Now</button>
-      </li>
-      <li class="nav-item">
-        <button id="btnMaistarde" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde" disabled>Later</button>
-      </li>-->
     </ul>
     <button id="btnVoltar" type="button" class="btn btn-outline-primary">Back</button>
   </nav>
@@ -79,14 +71,12 @@
                     <li class="nav-item text-center">
                       <img src="../img/doctor1.jpg" class="rounded-circle" id="medico1"><br>
                       <label for="sltMedico1">Dra. Sara Doe <br> Speciality: Geriatric</label><br>
-                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Now</button>
-                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Later</button>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Call!</button>
                     </li>
                     <li class="nav-item text-center">
                       <img src="../img/doctor2.jpg" class="rounded-circle" id="medico2"><br>
                       <label for="sltMedico2">Dr. John Doe <br> Speciality: Pediatrics</label><br>
-                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Now</button>
-                      <button id="btnMaistardeMedico1" type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#mdlMaistarde">Later</button>
+                      <button id="btnAgoraMedico1" type="button" class="btn btn-primary m-2">Call!</button>
                     </li>
                   </ul>
                 </div>
@@ -96,24 +86,6 @@
             </div>
         </div>
     </div>
-  
-    <!-- Mais tarde modal -->
-    <div class="modal fade" id="mdlMaistarde" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Mais tarde</h5>
-                </div>
-                <div class="modal-body">
-                  <form>    Quando pretende a sua consulta?    <input type="datetime-local" name="DayHour"> </form> 
-                  <button id="btnMarcarConsulta" type="button" class="btn btn-primary m-2">Marcar!</button>
-                </div>
-                <div class="modal-footer">
-                    <div id="mdlLaterMessage"></div>
-                </div>
-            </div>
-        </div>
     </div>
     <div id="map"></div>
     <script
