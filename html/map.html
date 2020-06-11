@@ -22,12 +22,12 @@
       <li class="nav-item">
         <form class="form-inline">
           <div class="form-group">
-              <select class="form-control m-2" name="" id="sltDistancia">
+              <select class="form-control m-2" name="" id="sltDistance">
                 <option value="">---</option>
-                <option value="1km">1km</option>
-                <option value="5km">5km</option>
-                <option value="10km">10km</option>
-                <option value="20km">20km</option>
+                <option value="1000">1km</option>
+                <option value="5000">5km</option>
+                <option value="10000">10km</option>
+                <option value="20000">20km</option>
                 <option value="all">All</option>
               </select>
           </div>
@@ -40,7 +40,7 @@
       <li class="nav-item">
         <form class="form-inline">
           <div class="form-group">
-              <select class="form-control m-2" name="" id="sltEspecialidade">
+              <select class="form-control m-2" name="" id="sltSpecialty">
                 <option value="">---</option>
                 <option value="Geriatria">Geriatric</option>
                 <option value="Pediatria">Pediatrics</option>
@@ -52,7 +52,7 @@
         </form>
       </li>
       <li class="nav-item">
-        <button id="btnProcurar" type="button" class="btn btn-outline-primary">Search</button> 
+        <button id="btnProcurar" type="button" class="btn btn-outline-primary" onclick="searchFilters()">Search</button> 
       </li>
     </ul>
     <button id="btnVoltar" type="button" class="btn btn-outline-primary">Back</button>
