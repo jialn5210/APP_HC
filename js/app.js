@@ -4,6 +4,7 @@ import DoctorAddView from './views/DoctorAddView.js'
 import AdminDoctorView from './views/AdminDoctorView.js'
 import DoctorDetailsView from './views/DoctorDetailsView.js'
 import loginUserView from './views/loginUserView.js'
+import AdminUserView from './views/AdminUserView.js'
 
 
 class App {
