@@ -3,7 +3,7 @@ import CatalogView from './views/CatalogView.js'
 import DoctorAddView from './views/DoctorAddView.js'
 import AdminDoctorView from './views/AdminDoctorView.js'
 import DoctorDetailsView from './views/DoctorDetailsView.js'
-import AdminUserView from './views/AdminUserView.js'
+import loginUserView from './views/loginUserView.js'
 
 
 class App {
@@ -14,7 +14,7 @@ class App {
                 UserView  
             ],
             'hc': [
-               UserView            
+               loginUserView            
             ],
             'addDoctor':[
                 DoctorAddView   
