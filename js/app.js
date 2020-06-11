@@ -23,7 +23,7 @@ class App {
             'catalog':[
                 CatalogView 
             ],
-            'admin':[
+            'adminDoctors':[
                 AdminDoctorView
             ],
             'doctorDetails':[
