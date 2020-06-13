@@ -298,7 +298,6 @@
           <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
           <p> Description: ${medicDescription}</p>
           <p><img src="${medicPhoto}"></p></div></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button>
           `
 
           let infoWindow = new google.maps.InfoWindow({content: contentString})
@@ -329,6 +328,29 @@
       document.getElementById("btnVoltar").addEventListener("click", () =>{
         location.replace('../html/hc.html')
       });
+
+      const divInfoWindow = document.getElementById("bodyContent")
+
+      divInfoWindow.addEventListener("load", function (add){
+        add.preventDefault();
+
+        let button = document.createElement("BUTTON")
+        let buttonText = document.createTextNode("Chamar!")
+        button.appendChild(buttonText)
+        button.setAttribute("id", "buttonChamar")
+        button.classList.add("btn btn-outline-primary")
+        divInfoWindow.appendChild(button)
+
+        document.getElementById("buttonChamar").addEventListener("click", () =>{
+          location.replace('../html/appointment.html')
+        });
+
+      })
+
+
+
+      
+      
       
       
 
