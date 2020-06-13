@@ -255,8 +255,11 @@ const pos
           navigator.geolocation.getCurrentPosition(
               position => {
                   pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                  infoWindow.setPosition(pos);
-                  infoWindow.setContent("You're here!");
+                  const marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                  })
                   infoWindow.open(map);
                   map.setCenter(pos);
               }, 
