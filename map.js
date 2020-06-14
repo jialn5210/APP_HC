@@ -264,8 +264,11 @@
           navigator.geolocation.getCurrentPosition(
               position => {
                   const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                  infoWindow.setPosition(pos);
-                  infoWindow.setContent("You're here!");
+                  const marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                  })
                   infoWindow.open(map);
                   map.setCenter(pos);
               }, 
@@ -298,7 +301,6 @@
           <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
           <p> Description: ${medicDescription}</p>
           <p><img src="${medicPhoto}"></p></div></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button>
           `
 
           let infoWindow = new google.maps.InfoWindow({content: contentString})
@@ -307,11 +309,16 @@
 
 
         }
-        
-        
-
-        
       }
+
+      function searchFilters(){
+        const txtDistance = document.getElementById("sltDistance").value
+        const txtSpecialty = document.getElementById("sltSpecialty").value
+        console.log(txtDistance)
+        console.log(txtSpecialty)
+
+      }
+      
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -319,15 +326,36 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-      
-      
-
       }
 
-      document.getElementById("btnVoltar").addEventListener("click", showHcMenu);
-      function showHcMenu() {
+      document.getElementById("btnVoltar").addEventListener("click", () =>{
         location.replace('../html/hc.html')
-      }
+      });
+
+      const divInfoWindow = document.getElementById("bodyContent")
+
+      divInfoWindow.addEventListener("load", function (add){
+        add.preventDefault();
+
+        let button = document.createElement("BUTTON")
+        let buttonText = document.createTextNode("Chamar!")
+        button.appendChild(buttonText)
+        button.setAttribute("id", "buttonChamar")
+        button.classList.add("btn btn-outline-primary")
+        divInfoWindow.appendChild(button)
+
+        document.getElementById("buttonChamar").addEventListener("click", () =>{
+          location.replace('../html/appointment.html')
+        });
+
+      })
+
+
+
+      
+      
+      
+      
 
       
       
