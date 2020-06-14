@@ -62,16 +62,18 @@ export default class DoctorView {
 
     _generateDoctorCard(doctor) {
         let html = `
+        
         <div class="col-sm-4 card ">
             <div class="card-all">
                 <img class="card-img" src="${doctor.photo}" alt="">
                 <div class="card-body">
                     <h4 class="card-title text-center">${doctor.name}</h4>
-                    <p class="card-text">${doctor.specialty}</p>
-                    <button id="${doctor.id}" class="btn btn-primary see">See more</button>           
+                    
+                    <button id="${doctor.id}" class="  see">See more</button>           
                 </div>
             </div>
-        </div>        
+        </div>
+                 
         `
         return html
     }
