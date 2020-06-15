@@ -282,12 +282,12 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
-          const medicLat = JSON.parse(doctors[i].latitude)
-          const medicLng = JSON.parse(doctors[i].longitude)
-          const medicName = JSON.stringify(doctors[i].name)
-          const medicPhoto = JSON.stringify(doctors[i].photo)
-          const medicSpecialty = JSON.stringify(doctors[i].specialty)
-          const medicDescription = JSON.stringify(doctors[i].description)
+          const medicLat = doctors[i].latitude
+          const medicLng = doctors[i].longitude
+          const medicName = doctors[i].name
+          const medicPhoto = doctors[i].photo
+          const medicSpecialty = doctors[i].specialty
+          const medicDescription = doctors[i].description
 
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
             marker = new google.maps.Marker({
@@ -300,17 +300,23 @@
           <h1 id="doctorName">${medicName}</h1>
           <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
           <p> Description: ${medicDescription}</p>
-          <p><img src="${medicPhoto}"></p></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button></div>
+          <p><img src="${medicPhoto}" width="150px" height ="100px"></p></div>
+          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Chamar!</button></div>
           `
 
-          let infoWindow = new google.maps.InfoWindow({content: contentString})
+          let infoWindow = new google.maps.InfoWindow({
+            content:    contentString,
+            
+          });
+
 
           marker.addListener("click",() => infoWindow.open(map,marker))
 
-
         }
       }
+      
+      
+      
 
       function searchFilters(){
         const txtDistance = document.getElementById("sltDistance").value
@@ -333,25 +339,9 @@
         location.replace('../html/hc.html')
       });
 
-      const divInfoWindow = document.getElementById("bodyContent")
-
-      /* divInfoWindow.addEventListener("load", function (add){
-        add.preventDefault();
-
-        let button = document.createElement("BUTTON")
-        let buttonText = document.createTextNode("Chamar!")
-        button.appendChild(buttonText)
-        button.setAttribute("id", "buttonChamar")
-        button.classList.add("btn btn-outline-primary")
-        divInfoWindow.appendChild(button)
-
-        
-
-      }) */
+  
       
-      document.getElementById("btnChamar").addEventListener("click", () =>{
-          location.replace('../html/appointment.html')
-        });
+  
 
 
 
