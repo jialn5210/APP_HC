@@ -284,6 +284,7 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
+
           const medicLat = doctors[i].latitude
           const medicLng = doctors[i].longitude
           const medicName = doctors[i].name
@@ -316,9 +317,7 @@
             }
             infoWindow.open(map, marker);
             infoWindow.setPosition(event.latLng);;
-
           });
-
 
         }
       }
