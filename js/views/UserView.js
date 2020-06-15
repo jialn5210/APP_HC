@@ -6,11 +6,16 @@ export default class UserView {
 
         // register DOM
         this.registerForm = document.getElementById('frmRegister');
+
+        this.registerLoadUserPhoto = document.getElementById("userPhoto")
+        this.registerPhoto = document.getElementById("txtUserphoto")
+        
         this.registerUsername = document.getElementById('txtUsernameRegister');
         this.registerPassword = document.getElementById('txtPasswordRegister');
         this.registerPassword2 = document.getElementById('txtPasswordRegister2');
         this.registerMessage = document.getElementById('mdlRegisterMessage');
-
+        
+        
         this.bindAddRegisterForm();
 
         // login DOM
@@ -42,9 +47,17 @@ export default class UserView {
             try {
                 if (this.registerPassword.value !== this.registerPassword2.value) {
                     throw Error('Password and Confirm Password are not equal');
-                }
+                }else{
+                    if(this.registerUsername.value === ""  || this.registerPassword.value === "" || this.registerPassword2.value === "" ){
+                        throw Error('Please field all the fields');
+                    }else{
+
+                    
                 this.userController.createUser(this.registerUsername.value, this.registerPassword.value);
+                this.registerLoadUserPhoto.setAttribute("src",this.registerPhoto.value)
                 this.displayRegisterMessage('User registered with success!', 'success');
+                    }
+                }
             } catch (e) {
                 this.displayRegisterMessage(e, 'danger');
             }

@@ -4,14 +4,15 @@ export default class UserModel {
     }
 
     getAll() {
-        return this.users;
+        return this.users
     }
 
-    create(username, password) {
+    create(username, password, photo) {
         const user = {
             id: this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1,
             username: username,
-            password: password
+            password: password,
+            photo: photo
         }
         this.users.push(user);
         this._persist();
@@ -25,10 +26,13 @@ export default class UserModel {
     login(username) {
         sessionStorage.setItem('loggedUser', username);
         
+        
+        
     }
 
     logout() {
         sessionStorage.removeItem('loggedUser');
+        sessionStorage.removeItem("userPhoto");
     }
 
     isLogged() {
