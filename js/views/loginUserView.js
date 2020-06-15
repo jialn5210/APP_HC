@@ -12,7 +12,7 @@ export default class UserView {
         this.loginUsername();
         this.bindAddLogoutEvent();
 
-      this.render(data);
+      
 
         // buttons Social painel
         this.floating_btn = document.querySelector('.floating-btn');

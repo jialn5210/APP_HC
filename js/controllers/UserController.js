@@ -29,4 +29,8 @@ export default class UserController {
     checkLoginStatus() {
         return this.userModel.isLogged();
     }
+
+    removeUser(username) {
+        this.userModel.remove(username)
+    }
 }

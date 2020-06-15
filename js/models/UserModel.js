@@ -17,6 +17,11 @@ export default class UserModel {
         this._persist();
     }
 
+    remove(username) {
+        localStorage.removeItem(username);
+        this._persist()
+    }
+
     login(username) {
         sessionStorage.setItem('loggedUser', username);
         
