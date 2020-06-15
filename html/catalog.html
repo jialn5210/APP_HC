@@ -45,6 +45,8 @@
                     <li class="menu-active"><a href="catalog.html">Doctors</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                     <li><a id="user" href="#"></a></li>
+                    <button id="btnLogout" type="button" class="btn btn-primary m-2"
+                    >LOGOUT</button>
                 </ul>
             </nav>
         </div>
@@ -62,7 +64,7 @@
             <br>
             <hr class="my-3" />
 
-            <form class="form-inline da">
+            <form class="form-inline filter">
                 <div class="form-group ">
 
                   <label for="sltSpecialty">Specialty:</label>
@@ -78,16 +80,59 @@
                     <input id="txtDoctor" type="text" class="form-control m-2" />
                 </div>
             
-                <button id="btnFilter" type="button" class="btn btn-primary">FILTER</button>
-                <button id="btnSort" type="button" class="btn btn-primary m-2">SORT</button>
+                <button id="btnFilter" type="button" class="btnFilter">FILTER</button>
                 
             </form>
             <hr class="my-3" />
             <br>
-            <p id="myCatalog" class="text-center"></p>
+            <div class="container">
+                <p id="myCatalog" class="text-center"></p>
+            </div>
+            
         </div>
     </div>
 </div>
+
+<button class="floating-btn">
+    Segue-nos
+</button>
+<div id="painel" class="social-panel-container">
+    <div class="social-panel">
+        <p>Segue-nos </p>
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <h4>Redes Sociais</h4>
+        <ul>
+            <li>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>HC</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="#">HomeClinic</a>
+        </div>
+    </div>
+</footer>
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -95,10 +140,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
  $(window).on('scroll',function(){
 if($(window).scrollTop()){
@@ -109,14 +155,14 @@ else{
     $('header').removeClass('black');
 }
 })
-$(".counter").counterUp({delay:10,time:1000});
-
 $(document).ready(function(){
 $(".menu .fa-bars").click(function(){
     $("nav ul").toggleClass("active")
 })
 })
+
           new WOW().init(); 
+
           
 </script>
 <script type="module" src="../js/app.js"></script>
