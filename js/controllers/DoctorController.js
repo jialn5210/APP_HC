@@ -34,11 +34,9 @@ export default class DoctorController {
     }
 
 
-    getDoctors(filterName='', filterSpecialty='', isSorted=false) {
+    getDoctors(filterName='', filterSpecialty='') {
 
-        if (isSorted) {
-            this.doctorModel.sort()
-        }
+      
 
         const doctors = this.doctorModel.getAll()
         

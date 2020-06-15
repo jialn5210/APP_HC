@@ -21,8 +21,10 @@ class App {
             'addDoctor': [
                 DoctorAddView
             ],
-            'catalog': [
-                CatalogView
+            'catalog':[
+                CatalogView,
+                loginUserView 
+                
             ],
             'adminDoctors': [
                 AdminDoctorView
