@@ -18,7 +18,7 @@ export default class UserModel {
     }
 
     remove(username) {
-        localStorage.removeItem(username);
+        this.users = this.users.filter(user => user.username != username)
         this._persist()
     }
 

@@ -284,7 +284,7 @@
         for (let i = 0; i < doctors.length; i++) {
           const medicLat = JSON.parse(doctors[i].latitude)
           const medicLng = JSON.parse(doctors[i].longitude)
-          const medicName = JSON.stringify(doctors[i].name)
+          const medicName = JSON.parse(doctors[i].name)
           const medicPhoto = JSON.stringify(doctors[i].photo)
           const medicSpecialty = JSON.stringify(doctors[i].specialty)
           const medicDescription = JSON.stringify(doctors[i].description)
@@ -307,7 +307,7 @@
           let infoWindow = new google.maps.InfoWindow({content: contentString})
 
           marker.addListener("click",() => infoWindow.open(map,marker))
-
+console.log(doctors[i])
 
         }
       }

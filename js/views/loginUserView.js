@@ -33,7 +33,7 @@ bindAddLogoutEvent() {
     this.logoutButton.addEventListener('click', event => {
         this.userController.logoutUser();
         
-        location.replace('Site_HC/index.html')
+        location.replace('../index.html')
     });
 }
 
