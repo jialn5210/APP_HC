@@ -257,7 +257,9 @@
 
         
         });
-        
+  
+        let infoWindowsArray = [];
+
         //obtenção da localização do utilizador
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -282,12 +284,12 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
-          const medicLat = JSON.parse(doctors[i].latitude)
-          const medicLng = JSON.parse(doctors[i].longitude)
-          const medicName = JSON.stringify(doctors[i].name)
-          const medicPhoto = JSON.stringify(doctors[i].photo)
-          const medicSpecialty = JSON.stringify(doctors[i].specialty)
-          const medicDescription = JSON.stringify(doctors[i].description)
+          const medicLat = doctors[i].latitude
+          const medicLng = doctors[i].longitude
+          const medicName = doctors[i].name
+          const medicPhoto = doctors[i].photo
+          const medicSpecialty = doctors[i].specialty
+          const medicDescription = doctors[i].description
 
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
             marker = new google.maps.Marker({
@@ -304,9 +306,18 @@
           <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button></div>
           `
 
-          let infoWindow = new google.maps.InfoWindow({content: contentString})
+          let infoWindow = new google.maps.InfoWindow({ content: contentString })
 
-          marker.addListener("click",() => infoWindow.open(map,marker))
+          infoWindowsArray.push(infoWindow);
+
+          marker.addListener('click', function (event) {
+            for (var i = 0; i < infoWindowsArray.length; i++) {
+              infoWindowsArray[i].close();
+            }
+            infoWindow.open(map, marker);
+            infoWindow.setPosition(event.latLng);;
+
+          });
 
 
         }
