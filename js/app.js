@@ -114,6 +114,10 @@ class App {
         if (!localStorage.users) {
             localStorage.setItem('users', JSON.stringify(users));
         }
+
+        if (!localStorage.doctors) {
+            localStorage.setItem('doctors', JSON.stringify(doctors));
+        }
     }
 }
 

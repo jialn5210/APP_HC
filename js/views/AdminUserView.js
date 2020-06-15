@@ -1,13 +1,15 @@
 import UserController from '../controllers/UserController.js'
+import UserModel from '../models/UserModel.js'
 
 export default class AdminUserView {
     constructor() {
         this.userController = new UserController()
+        this.userModel= new UserModel()
 
         this.userCatalog = document.querySelector('#userCatalog')
         
    
-        this.renderCatalog1(this.userController.getUsers())
+        this.renderCatalog1(this.userModel.getAll())
         this.bindRemoveEvent()
     }
 
@@ -16,7 +18,7 @@ export default class AdminUserView {
             
             btnRemove.addEventListener('click', event => {
                 this.userController.removeUser(event.target.id)
-                this.renderCatalog(this.userController.getUsers())
+                this.renderCatalog1(this.userModel.getAll())
             })
         }
     }
