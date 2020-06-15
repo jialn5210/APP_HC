@@ -301,7 +301,7 @@
           <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
           <p> Description: ${medicDescription}</p>
           <p><img src="${medicPhoto}" width="150px" height ="100px"></p></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Chamar!</button></div>
+          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
           `
 
           let infoWindow = new google.maps.InfoWindow({
