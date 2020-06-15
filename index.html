@@ -30,6 +30,7 @@
    
 
     <!-- Register Modal -->
+    
     <div class="modal fade" id="mdlRegister" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -42,29 +43,39 @@
                 </div>
                 <div class="modal-body">
                     <form id="frmRegister">
-                        <div class="form-group">
-                            <label for="txtUsernameRegister">Username</label>
-                            <input type="text" class="form-control" id="txtUsernameRegister"
-                                placeholder="Enter username" />
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPasswordRegister">Password</label>
-                            <input type="password" class="form-control" id="txtPasswordRegister"
-                                placeholder="Enter password" />
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPasswordRegister2">Confirm Password</label>
-                            <input type="password" class="form-control" id="txtPasswordRegister2"
-                                placeholder="Enter password" />
-                        </div>
-                        <div class="float-right">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                        <div class="d-flex justify-content-center">
+                            <img width="150" height="100" id="userPhoto" src="https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png">
+                          </div>
+                          <div class="file d-flex justify-content-center  mb-3">
+                            <input type="text" class="form-control col-lg-6 mt-2 modalField" id="txtUserphoto"
+                             placeholder="Insert photo link">  
+                          </div>
+
+                          <div class="form-group d-flex justify-content-center">
+                            <input type="text" class="form-control col-lg-6 mt-2 modalField" id="txtUsernameRegister"
+                              placeholder="Enter username">
+                          </div>
+                          <div class="form-group d-flex justify-content-center">
+                            <input type="password" class="form-control col-lg-6 mt-2 modalField" id="txtPasswordRegister"
+                              placeholder="Enter password">
+                          </div>
+                          <div class="form-group d-flex justify-content-center">
+                            <input type="password" class="form-control col-lg-6 mt-2 modalField" id="txtPasswordRegister2"
+                              placeholder="Confirm password">
+                          </div>
+                       
+                          <div class="d-flex justify-content-center mb-3">
+                            <button type="button" class="btn btn-secondary navButton mr-1 col-lg-3 "
+                              data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary navButton col-lg-3" id="btnRegister">Register</button>
+              
+                          </div>
+                       
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <div id="mdlRegisterMessage"></div>
+                    <div id="mdlRegisterMessage"class="col-lg-12 d-flex justify-content-center"></div>
                 </div>
             </div>
         </div>
@@ -75,36 +86,49 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
+                    
+                    <h5 class="modal-title" style="text-align: center;justify-content: center;">Login</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+            
+                    </div>
+                 
                 <div class="modal-body">
                     <form id="frmLogin">
-                        <div class="form-group">
-                            <label for="txtUsername">Username</label>
-                            <input type="text" class="form-control" id="txtUsername" placeholder="Enter username" />
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPassword">Password</label>
-                            <input type="password" class="form-control" id="txtPassword" placeholder="Enter password" />
-                        </div>
-                        <div class="float-right">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
-                </div>
-             
-                <div class="modal-footer">
-                    <a href="#mdlRegister"id="btnRegister" type="submit" data-dismiss="modal" data-toggle="modal">First Time?</a>
-                    <div id="mdlLoginMessage"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <img class="img-lg-responsive logoModal" src="img/login.png" style=" display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px; width: 100px;height: 70px;">
+                         
+            <div class="form-group d-flex justify-content-center">
+                <input type="text" class="form-control col-lg-6  modalField" id="txtUsername"
+                   placeholder="Enter username">
+              </div>
 
+              <div class="form-group d-flex justify-content-center">
+                <input type="password" class="form-control col-lg-6 m-2 modalField" id="txtPassword"
+                  placeholder="Enter password">
+              </div>
+
+
+              <div class="d-flex justify-content-center mb-3">
+                <button type="button" class="btn btn-secondary navButton mr-1 col-lg-3 "
+                  data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary navButton col-lg-3" id="btnSubmit">Log In</button>
+  
+              </div>
+              <a href="#mdlRegister"id="btnRegister" class="col-lg-3 d-flex justify-content-right "type="submit" data-dismiss="modal" data-toggle="modal">First Time?</a>
+              <div id="mdlLoginMessage" class="col-lg-12 d-flex justify-content-center">
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>     
+                      
+                  
+             
     
 
 

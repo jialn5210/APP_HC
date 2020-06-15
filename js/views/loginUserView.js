@@ -9,7 +9,10 @@ export default class UserView {
         
         this.loginUser = sessionStorage.getItem('loggedUser')
         this.logoutButton = document.getElementById('btnLogout');
-        this.loginUsername();
+        
+        this.getUserPhoto=document.getElementById('UserPhoto')
+        
+        this.LoginUser();
         this.bindAddLogoutEvent();
 
       
@@ -23,8 +26,9 @@ export default class UserView {
         this.bindAddClose_btn();
     }
 
-loginUsername(){
+LoginUser(){
     document.getElementById('user').innerHTML = this.loginUser;
+    this.getUserPhoto.setAttribute("src",sessionStorage.getItem("userPhoto"))
 }
 
 
