@@ -300,7 +300,8 @@
           <h1 id="doctorName">${medicName}</h1>
           <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
           <p> Description: ${medicDescription}</p>
-          <p><img src="${medicPhoto}"></p></div></div>
+          <p><img src="${medicPhoto}"></p></div>
+          <button id="btnChamar" type="button" class="btn btn-outline-primary">Chamar!</button></div>
           `
 
           let infoWindow = new google.maps.InfoWindow({content: contentString})
@@ -334,7 +335,7 @@
 
       const divInfoWindow = document.getElementById("bodyContent")
 
-      divInfoWindow.addEventListener("load", function (add){
+      /* divInfoWindow.addEventListener("load", function (add){
         add.preventDefault();
 
         let button = document.createElement("BUTTON")
@@ -344,11 +345,13 @@
         button.classList.add("btn btn-outline-primary")
         divInfoWindow.appendChild(button)
 
-        document.getElementById("buttonChamar").addEventListener("click", () =>{
+        
+
+      }) */
+      
+      document.getElementById("btnChamar").addEventListener("click", () =>{
           location.replace('../html/appointment.html')
         });
-
-      })
 
 
 
