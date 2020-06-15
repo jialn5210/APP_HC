@@ -282,21 +282,12 @@
         console.log(doctors)
         
         for (let i = 0; i < doctors.length; i++) {
-<<<<<<< HEAD
           const medicLat = doctors[i].latitude
           const medicLng = doctors[i].longitude
           const medicName = doctors[i].name
           const medicPhoto = doctors[i].photo
           const medicSpecialty = doctors[i].specialty
           const medicDescription = doctors[i].description
-=======
-          const medicLat = JSON.parse(doctors[i].latitude)
-          const medicLng = JSON.parse(doctors[i].longitude)
-          const medicName = JSON.parse(doctors[i].name)
-          const medicPhoto = JSON.stringify(doctors[i].photo)
-          const medicSpecialty = JSON.stringify(doctors[i].specialty)
-          const medicDescription = JSON.stringify(doctors[i].description)
->>>>>>> 418eb487541e51d91a985d49685943065ec13b33
 
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
             marker = new google.maps.Marker({
@@ -318,13 +309,7 @@
             
           });
 
-<<<<<<< HEAD
-
           marker.addListener("click",() => infoWindow.open(map,marker))
-=======
-          marker.addListener("click",() => infoWindow.open(map,marker))
-console.log(doctors[i])
->>>>>>> 418eb487541e51d91a985d49685943065ec13b33
 
         }
       }
