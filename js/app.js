@@ -6,7 +6,7 @@ import DoctorDetailsView from './views/DoctorDetailsView.js'
 import loginUserView from './views/loginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import EditDoctorView from './views/EditDoctorView.js'
-
+import MapView from './views/MapView.js'
 
 class App {
     constructor() {
@@ -38,6 +38,9 @@ class App {
             ],
             'editDoctor': [
                 EditDoctorView
+            ],
+            'map':[
+                MapView
             ]
 
 
