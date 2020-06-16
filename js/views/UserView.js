@@ -53,7 +53,7 @@ export default class UserView {
                     }else{
 
                     
-                this.userController.createUser(this.registerUsername.value, this.registerPassword.value);
+                this.userController.createUser(this.registerUsername.value, this.registerPassword.value,this.registerPhoto.value,"user");
                 this.registerLoadUserPhoto.setAttribute("src",this.registerPhoto.value)
                 this.displayRegisterMessage('User registered with success!', 'success');
                     }
@@ -71,11 +71,18 @@ export default class UserView {
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
                 this.displayLoginMessage('User logged in with success!', 'success');
-
+                let LoadPage;
+                if(sessionStorage.getItem("userType")==="user")
+                {
+                    LoadPage="html/hc.html"
+                }else
+                {
+                    LoadPage="html/admin.html"
+                }
                 // Wait 1 second before reloading, so the user can see the login success message    
                 setTimeout(() => {
                     
-                    location.replace('html/hc.html')
+                    location.href=LoadPage
                     
                     
 
