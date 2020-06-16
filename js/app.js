@@ -6,8 +6,7 @@ import DoctorDetailsView from './views/DoctorDetailsView.js'
 import loginUserView from './views/loginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import EditDoctorView from './views/EditDoctorView.js'
-import AdminView from './views/AdminView.js'
-
+import MapView from './views/MapView.js'
 
 class App {
     constructor() {
@@ -53,6 +52,9 @@ class App {
             ],
             'editDoctor': [
                 EditDoctorView
+            ],
+            'map':[
+                MapView
             ]
 
 
@@ -90,7 +92,8 @@ class App {
                 longitude:'-8.587833',
                 specialty:'Emergency',
                 description:"Master's degree in medicine with 10 years of experience",
-                photo:'https://iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg'
+                photo:'https://iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg',
+                status: 'true'
             },
 
             {
@@ -101,7 +104,8 @@ class App {
                 longitude:'-8.573749',
                 specialty:'Pediatrics',
                 description:"Master's degree in medicine with 10 years of experience",
-                photo:'https://www.abrale.org.br/revista-online/wp-content/uploads/2016/12/imagem-medico.jpg'
+                photo:'https://www.abrale.org.br/revista-online/wp-content/uploads/2016/12/imagem-medico.jpg',
+                status: 'true'
             },
 
             {
@@ -112,7 +116,8 @@ class App {
                 longitude:'-8.618667',
                 specialty:'Geriatrics',
                 description:"Master's degree in medicine with 10 years of experience",
-                photo:'https://s.calendarr.com/upload/datas/me/di/medico_c.jpg'
+                photo:'https://s.calendarr.com/upload/datas/me/di/medico_c.jpg',
+                status: 'true'
             }
         ];
 
@@ -122,16 +127,16 @@ class App {
                 username: 'user',
                 password: 'user',
                 photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png',
-                type:'user'
+                type:'user',
+                status: 'true'
             },
-
             {
                 id: 2,
                 username: 'admin',
                 password: 'admin',
                 photo:'https://p7.hiclipart.com/preview/701/653/267/computer-icons-system-administrator-clip-art-administrator-icon.jpg',
-                type: 'admin'
-
+                type: 'admin',
+                status: 'true'
             }
         ];
 

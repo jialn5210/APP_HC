@@ -258,6 +258,8 @@
         
         });
         
+        let infoWindowsArray = [];
+
         //obtenção da localização do utilizador
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -304,28 +306,44 @@
           <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
           `
 
-          let infoWindow = new google.maps.InfoWindow({
-            content:    contentString,
-            
-          });
+          let infoWindow = new google.maps.InfoWindow({content:    contentString,});
 
-          marker.addListener("click",() => infoWindow.open(map,marker))
+          infoWindowsArray.push(infoWindow);
 
+          marker.addListener('click', function (event) {
+            for (var i = 0; i < infoWindowsArray.length; i++) {
+              infoWindowsArray[i].close();
+            }
+            infoWindow.open(map, marker);
+            infoWindow.setPosition(event.latLng);;
+
+        })
+      }
+      
+     /*  document.getElementById('btnProcurar').addEventListener('click',
+        () => {
+          const txtDistance = document.getElementById("sltDistance").value
+          const txtSpecialty = document.getElementById("sltSpecialty").value
+          let pos
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                }, 
+                () => handleLocationError(true, infoWindow, map.getCenter())
+            );
+          
+          }
+          console.log(pos);
+          const request = {
+            location: pos,
+            radius: txtDistance
+          };
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
         }
-      }
-      
-      
-      
-
-      function searchFilters(){
-        const txtDistance = document.getElementById("sltDistance").value
-        const txtSpecialty = document.getElementById("sltSpecialty").value
-        console.log(txtDistance)
-        console.log(txtSpecialty)
-
-      }
-      
-
+      ) */
+    
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -360,4 +378,4 @@
 
       
       
-    
+      }

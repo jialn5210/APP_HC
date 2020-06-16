@@ -7,7 +7,7 @@ export default class DoctorModel {
         return this.doctors;
     }
     
-    create(name,email ,latitude,longitude ,specialty , photo, description) {
+    create(name,email ,latitude,longitude ,specialty , photo, description,status) {
         const doctor = {
             id: this.doctors.length > 0 ? this.doctors[this.doctors.length - 1].id + 1 : 1,
             name: name,
@@ -17,6 +17,7 @@ export default class DoctorModel {
             specialty:specialty,
             photo: photo,
             description: description,
+            status:status,
         }
         this.doctors.push(doctor);
         this._persist();

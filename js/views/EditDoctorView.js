@@ -4,6 +4,7 @@ export default class EditDoctorView {
     constructor() {
         this.doctorController = new DoctorController();
 
+       
         // DOM References
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
@@ -18,14 +19,26 @@ export default class EditDoctorView {
     }
     
     fillDoctorData() {
-        const doctors= this.doctorController.getDoctors()
-        this.doctorName.innerHTML = doctors[1].value
-        this.doctorEmail.innerHTML =  doctors[2]
-        this.doctorLatitude.innerHTML =  doctors[3]
-        this.doctorLongitude.innerHTML = doctors[4]
-        this.doctorSpecialty.innerHTML =  doctors[5]
-        this.doctorDescription.innerHTML =  doctors[6]
-        this.doctorPhoto.src = doctors[7]
+        this.doctors = []
+        if(localStorage.getItem("doctors")){
+          this.doctors = JSON.parse(localStorage.getItem("doctors"));
+      }
+       
+        for (let i = 0; i < this.doctors.length; i++) {
+            this.doctorName = doctors[i].name
+            this.doctorEmail = this.doctors[i]
+            this.doctorLatitude = this.doctors[i]
+            this.doctorLongitude = this.doctors[i]
+            this.doctorSpecialty= this.doctors[i]
+            this.doctorDescription = this.doctors[i]
+            this.doctorPhoto = this.doctors[i]
+
+
+
+
+        }
+       
+       
     } 
 
 }

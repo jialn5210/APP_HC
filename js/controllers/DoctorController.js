@@ -5,7 +5,7 @@ export default class DoctorController {
         this.doctorModel = new DoctorModel()
     }
 
-    addDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
+    addDoctor(name,email ,latitude,longitude ,specialty , photo, description,status) {
         if (!this.doctorModel.getAll().some(doctor => doctor.name === name)) {
             this.doctorModel.create(
                 name,
@@ -14,7 +14,8 @@ export default class DoctorController {
                 longitude,
                 specialty,
                 photo,
-                description
+                description,
+                status
             );
         } else {
             throw Error(`The doctor "${name}" already exists!`);
