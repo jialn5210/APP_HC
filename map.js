@@ -314,18 +314,30 @@
         }
       }
       
-      
-      
-
-      function searchFilters(){
-        const txtDistance = document.getElementById("sltDistance").value
-        const txtSpecialty = document.getElementById("sltSpecialty").value
-        console.log(txtDistance)
-        console.log(txtSpecialty)
-
-      }
-      
-
+      document.getElementById('btnProcurar').addEventListener('click',
+        () => {
+          const txtDistance = document.getElementById("sltDistance").value
+          const txtSpecialty = document.getElementById("sltSpecialty").value
+          let pos
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                }, 
+                () => handleLocationError(true, infoWindow, map.getCenter())
+            );
+          
+          }
+          console.log(pos);
+          const request = {
+            location: pos,
+            radius: txtDistance
+          };
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+        }
+      )
+    
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
