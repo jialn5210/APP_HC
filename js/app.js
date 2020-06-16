@@ -109,8 +109,8 @@ class App {
                 id: 1,
                 username: 'user',
                 password: 'user',
-                photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png'
-
+                photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png',
+                status: 'true'
             }
         ];
 
