@@ -3,10 +3,12 @@ import UserController from '../controllers/UserController.js'
 
 
 
+
 export default class UserView {
     constructor() {
         this.userController = new UserController();
-        
+
+
         this.loginUser = sessionStorage.getItem('loggedUser')
         this.logoutButton = document.getElementById('btnLogout');
         
@@ -22,6 +24,7 @@ export default class UserView {
         this.bindAddLogoutEvent();
         this.bindAddFloating_btn();
         this.bindAddClose_btn();
+        
         
     }
 
