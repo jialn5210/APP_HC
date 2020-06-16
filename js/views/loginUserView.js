@@ -57,7 +57,7 @@ bindAddClose_btn() {
 
 //comentários
 /* render(data){
-    var comment ="<div class='commentBox'><div class='panel'><span>"+data.name+"</span><div class='date'>"+data.date+"</div><p>"+data.body+"</p>";
+    var comment ="<div class='commentBox'><div class='panel'><span>"+data.username+"</span><div class='date'>"+data.date+"</div><p>"+data.body+"</p>";
     $('#container').append(comment);
 }
 
