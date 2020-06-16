@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <link href="../img/logo.png" rel="icon">
-    <link rel="stylesheet" href="../styles/hc.css" >
+    <link rel="stylesheet" href="../styles/hc.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
         rel="stylesheet">
@@ -48,10 +48,28 @@
                     <li><a href="map.html">Services</a></li>
                     <li><a href="catalog.html">Doctors</a></li>
                     <li><a href="#contact">More info</a></li>
-                    <li><a id="user" href="#"></a></li>
-                    <img id="UserPhoto" src="" width="40" height="40" class="rounded-circle profileIMG">
-                    <button id="btnLogout" type="button" class="btn btn-primary m-2"
-                    >LOGOUT</button>
+                    <li>
+                        <div class="dropdown">
+                            <img id="UserPhoto" src="" width="40" height="40" class="rounded-circle dropbtn">
+                            <div class="dropdown-content">
+                                <a href="#">Perfil</a>
+                                <a href="#">Appointment</a>
+                                <a href="#">Achievements</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="welcome" id="user">
+                    </li>
+                    <li>
+                        <button id="btnLogout" type="button" ><i class="fas fa-sign-out-alt"></i></button>
+                    </li>
+
+
+
+
+
                 </ul>
             </nav>
         </div>
@@ -71,66 +89,72 @@
         </div>
     </section>
 
-    
 
-        <!--==========================
+
+    <!--==========================
       About Us Section
     ============================-->
-        <section id="about">
-            <div class="container">
-                <div class="row about-container">
+    <section id="about">
+        <div class="container">
+            <div class="row about-container">
 
-                    <div class="col-lg-6 content order-lg-1 order-2">
-                        <h2 class="title">Few Words About Us</h2>
-                        <p>
-                            Home Clinic is a project created by 3 studants of ESMAD, Bruno Sério, Catarina Fonseca and Jialong Ye. They attend to the course named <i>"Licenciatura em Tecnologias e Sistemas para a Informação Web"</i> .
-                        </p>
+                <div class="col-lg-6 content order-lg-1 order-2">
+                    <h2 class="title">Few Words About Us</h2>
+                    <p>
+                        Home Clinic is a project created by 3 studants of ESMAD, Bruno Sério, Catarina Fonseca and
+                        Jialong Ye. They attend to the course named <i>"Licenciatura em Tecnologias e Sistemas para a
+                            Informação Web"</i> .
+                    </p>
 
-                        <p>
-                            The main goal of this project is to provide medical appointements to everyone in the comfort of their home and with that we can avoid the tedious waiting lines in health centers.
-                        </p>
+                    <p>
+                        The main goal of this project is to provide medical appointements to everyone in the comfort of
+                        their home and with that we can avoid the tedious waiting lines in health centers.
+                    </p>
 
-                        <p>During the process of making the web application the students used html,css and javasript in Visual Studio Code.  </p>
+                    <p>During the process of making the web application the students used html,css and javasript in
+                        Visual Studio Code. </p>
 
-                        
 
-                    </div>
 
-                    <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
                 </div>
 
+                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
             </div>
-        </section>
 
-        <!--==========================
+        </div>
+    </section>
+
+    <!--==========================
       Services Section
     ============================-->
-        <section id="services">
-            <div class="container wow fadeIn">
-                <div class="section-header">
-                    <h3 class="section-title">Services</h3>
-                    <p class="section-description">Provided by the best medical team.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="box">
-                            <div class="icon"><a href="#"><i class="fas fa-clinic-medical"></i></a></div>
-                            <h4 class="title">Home consultation</h4>
-                            <p class="description">Choose the doctor of your preference to attend you in the comfort of your home.</p>
-                        </div>
-                    </div>
-                   
-                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="box">
-                            <div class="icon"><a href="#"><i class="fas fa-comment-medical"></i></a></div>
-                            <h4 class="title">Video conference</h4>
-                            <p class="description">If you need a simple and quick diagnosis this is the perfect solution and you can also recieve a doctor's prescription.</p> 
-                        </div>
+    <section id="services">
+        <div class="container wow fadeIn">
+            <div class="section-header">
+                <h3 class="section-title">Services</h3>
+                <p class="section-description">Provided by the best medical team.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="box">
+                        <div class="icon"><a href="#"><i class="fas fa-clinic-medical"></i></a></div>
+                        <h4 class="title">Home consultation</h4>
+                        <p class="description">Choose the doctor of your preference to attend you in the comfort of your
+                            home.</p>
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="box">
+                        <div class="icon"><a href="#"><i class="fas fa-comment-medical"></i></a></div>
+                        <h4 class="title">Video conference</h4>
+                        <p class="description">If you need a simple and quick diagnosis this is the perfect solution and
+                            you can also recieve a doctor's prescription.</p>
+                    </div>
+                </div>
             </div>
-        </section>
+
+        </div>
+    </section>
 
     <!--==========================
       Facts Section
@@ -169,8 +193,8 @@
         </div>
     </section>
 
-    
-        <!--==========================
+
+    <!--==========================
     Call To Action Section
     ============================-->
     <section id="contact">
@@ -204,47 +228,47 @@
                                 <p>Porto</p>
                                 <p>Vila do Conde</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
     </section>
 
 
-        <button class="floating-btn">
-            Segue-nos
-        </button>
-        <div id="painel" class="social-panel-container">
-            <div class="social-panel">
-                <p>Segue-nos </p>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
-                <h4>Redes Sociais</h4>
-                <ul>
-                    <li>
-                        <a href="https://twitter.com" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://facebook.com" target="_blank">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <button class="floating-btn">
+        Segue-nos
+    </button>
+    <div id="painel" class="social-panel-container">
+        <div class="social-panel">
+            <p>Segue-nos </p>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h4>Redes Sociais</h4>
+            <ul>
+                <li>
+                    <a href="https://twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-       
+    </div>
 
-    
+
+
 
     <!--==========================
     Footer
@@ -259,8 +283,8 @@
             </div>
         </div>
     </footer>
-    <script type="module" src="../js/app.js" ></script>
-    
+    <script type="module" src="../js/app.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -271,26 +295,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
     <script>
-$(window).on('scroll',function(){
-    if($(window).scrollTop()){
-        $('header').addClass('black');
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('header').addClass('black');
 
-    }
-    else{
-        $('header').removeClass('black');
-    }
-})
-$(".counter").counterUp({delay:10,time:1000});
+            }
+            else {
+                $('header').removeClass('black');
+            }
+        })
+        $(".counter").counterUp({ delay: 10, time: 1000 });
 
-$(document).ready(function(){
-    $(".menu .fa-bars").click(function(){
-        $("nav ul").toggleClass("active")
-    })
-})
-              new WOW().init();
-              
+        $(document).ready(function () {
+            $(".menu .fa-bars").click(function () {
+                $("nav ul").toggleClass("active")
+            })
+        })
+        new WOW().init();
+
     </script>
-    
+
 
 
 

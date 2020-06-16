@@ -11,23 +11,24 @@ export default class UserView {
         this.logoutButton = document.getElementById('btnLogout');
         
         this.getUserPhoto=document.getElementById('UserPhoto')
-        
-        this.LoginUser();
-        this.bindAddLogoutEvent();
-
-      
+     
 
         // buttons Social painel
         this.floating_btn = document.querySelector('.floating-btn');
         this.close_btn = document.querySelector('.close-btn');
         this.social_panel_container = document.querySelector('.social-panel-container');
 
+        this.LoginUser();
+        this.bindAddLogoutEvent();
         this.bindAddFloating_btn();
         this.bindAddClose_btn();
+        
     }
 
+         
+
 LoginUser(){
-    document.getElementById('user').innerHTML = this.loginUser;
+    document.getElementById('user').innerHTML = ("Welcome,   " + this.loginUser);
     this.getUserPhoto.setAttribute("src",sessionStorage.getItem("userPhoto"))
 }
 

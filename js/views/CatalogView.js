@@ -16,7 +16,7 @@ export default class DoctorView {
         this.renderCatalog(this.doctorController.getDoctors())
         
         this.bindAddFilterEvent()
-        this.bindAddSortEvent()
+      
         
     }
   
@@ -26,12 +26,7 @@ export default class DoctorView {
         })
     }
 
-    bindAddSortEvent() {
-        this.btnSort.addEventListener('click', () => {
-            this.renderCatalog(this.doctorController.getDoctors(this.txtDoctor.value, this.sltSpecialty.value, true))
-        })
-    }
-
+   
 
 
     bindAddSeeMoreEvent() {

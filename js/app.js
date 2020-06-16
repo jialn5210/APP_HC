@@ -6,6 +6,7 @@ import DoctorDetailsView from './views/DoctorDetailsView.js'
 import loginUserView from './views/loginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import EditDoctorView from './views/EditDoctorView.js'
+import AdminView from './views/AdminView.js'
 
 
 class App {
@@ -16,7 +17,6 @@ class App {
                 UserView
             ],
             'hc': [
-                
                 loginUserView
             ],
             'addDoctor': [
@@ -28,13 +28,28 @@ class App {
                 
             ],
             'adminDoctors': [
-                AdminDoctorView
+                AdminDoctorView,
+                loginUserView 
             ],
             'doctorDetails': [
                 DoctorDetailsView
             ],
             'adminUsers': [
-                AdminUserView
+                
+                AdminUserView,
+                loginUserView 
+                
+            ],
+            'adminApp': [
+                
+                
+                loginUserView 
+                
+            ],
+            'admin': [
+                AdminView,
+                loginUserView 
+                
             ],
             'editDoctor': [
                 EditDoctorView
@@ -106,7 +121,16 @@ class App {
                 id: 1,
                 username: 'user',
                 password: 'user',
-                photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png'
+                photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png',
+                type:'user'
+            },
+
+            {
+                id: 2,
+                username: 'admin',
+                password: 'admin',
+                photo:'https://p7.hiclipart.com/preview/701/653/267/computer-icons-system-administrator-clip-art-administrator-icon.jpg',
+                type: 'admin'
 
             }
         ];

@@ -7,12 +7,13 @@ export default class UserModel {
         return this.users
     }
 
-    create(username, password, photo) {
+    create(username, password, photo,type) {
         const user = {
             id: this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1,
             username: username,
             password: password,
-            photo: photo
+            photo: photo,
+            type:type
         }
         this.users.push(user);
         this._persist();
