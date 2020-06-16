@@ -258,6 +258,8 @@
         
         });
         
+        let infoWindowsArray = [];
+
         //obtenção da localização do utilizador
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -304,17 +306,21 @@
           <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
           `
 
-          let infoWindow = new google.maps.InfoWindow({
-            content:    contentString,
-            
-          });
+          let infoWindow = new google.maps.InfoWindow({content:    contentString,});
 
-          marker.addListener("click",() => infoWindow.open(map,marker))
+          infoWindowsArray.push(infoWindow);
 
-        }
+          marker.addListener('click', function (event) {
+            for (var i = 0; i < infoWindowsArray.length; i++) {
+              infoWindowsArray[i].close();
+            }
+            infoWindow.open(map, marker);
+            infoWindow.setPosition(event.latLng);;
+
+        })
       }
       
-      document.getElementById('btnProcurar').addEventListener('click',
+     /*  document.getElementById('btnProcurar').addEventListener('click',
         () => {
           const txtDistance = document.getElementById("sltDistance").value
           const txtSpecialty = document.getElementById("sltSpecialty").value
@@ -336,7 +342,7 @@
           service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
         }
-      )
+      ) */
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -372,4 +378,4 @@
 
       
       
-    
+      }

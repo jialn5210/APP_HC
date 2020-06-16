@@ -1,20 +1,25 @@
-import DoctorController from '../controllers/DoctorController'
+import DoctorController from '../controllers/DoctorController.js'
 
-export default class DoctorModel {
+export default class MapView {
     constructor(){
+        this.doctorController = new DoctorController()
 
-
+        this.btnSearch = document.getElementById("btnSearch")
+        this.btnBack = document.getElementById("btnBack")
+        
         this.bindBackButton()
         this.showMap()
+        this.addMyMarker()
+        this.addDocMarker(this.doctorController.getDoctors())
     }
     
     bindBackButton() {
         this.btnBack.addEventListener('click', () => {
-            history.back();
+            location.replace('../html/hc.html')
         })
     }
 
-    showMapAndMarkers(){
+    showMap(){
         let map, infoWindow;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -265,59 +270,12 @@ export default class DoctorModel {
               
             });
 
-            infoWindow = new google.maps.InfoWindow;
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-              position => {
-                  const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                  const marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                  })
-                  infoWindow.open(map);
-                  map.setCenter(pos);
-              }, 
-              () => handleLocationError(true, infoWindow, map.getCenter())
-          );
-        } else {
-          
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
         
-        console.log(doctors)
         
-        for (let i = 0; i < doctors.length; i++) {
-          const medicLat = doctors[i].latitude
-          const medicLng = doctors[i].longitude
-          const medicName = doctors[i].name
-          const medicPhoto = doctors[i].photo
-          const medicSpecialty = doctors[i].specialty
-          const medicDescription = doctors[i].description
-
-          let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
-            marker = new google.maps.Marker({
-            position: medicLatLng,
-            map:map
-          })
-          
-          let contentString = `
-          <div id="content">
-          <h1 id="doctorName">${medicName}</h1>
-          <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
-          <p> Description: ${medicDescription}</p>
-          <p><img src="${medicPhoto}" width="150px" height ="100px"></p></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
-          `
-
-          let infoWindow = new google.maps.InfoWindow({content:    contentString,});
-
-          marker.addListener("click",() => infoWindow.open(map,marker))
-
-        }
+        
       }
       
-      document.getElementById('btnProcurar').addEventListener('click',() => {
+        /* document.getElementById('btnProcurar').addEventListener('click',() => {
           const txtDistance = document.getElementById("sltDistance").value
           const txtSpecialty = document.getElementById("sltSpecialty").value
           let pos
@@ -336,17 +294,84 @@ export default class DoctorModel {
           };
           service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
-        })
+        }) */
     
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        
+        
+    }
+
+    addMyMarker(){
+        this.infoWindow = new this.google.maps.InfoWindow;
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+              position => {
+                  const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                  const marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                  })
+                  infoWindow.open(map);
+                  map.setCenter(pos);
+              }, 
+              () => handleLocationError(true, infoWindow, map.getCenter())
+          );
+        } else {
+          
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
             infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-        
+
     }
 
+    addDocMarker(doctors = []){
+        console.log(doctors)
+        for (let i = 0; i < doctors.length; i++) {
+          this.medicLat = doctors[i].latitude
+          this.medicLng = doctors[i].longitude
+          this.medicName = doctors[i].name
+          this.medicPhoto = doctors[i].photo
+          this.medicSpecialty = doctors[i].specialty
+          this.medicDescription = doctors[i].description
+
+          this.medicLatLng = new google.maps.LatLng(medicLat, medicLng)
+            marker = new google.maps.Marker({
+            position: medicLatLng,
+            map:map
+          })
+          
+          let contentString = `
+          <div id="content">
+          <h1 id="doctorName">${medicName}</h1>
+          <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
+          <p> Description: ${medicDescription}</p>
+          <p><img src="${medicPhoto}" width="150px" height ="100px"></p></div>
+          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
+          `
+
+          this.infoWindow = new google.maps.InfoWindow({content:    contentString,});
+
+          marker.addListener("click",() => infoWindow.open(map,marker))
+
+          this.bindAddSeeMoreEvent()
+        }
+    }
+
+    bindAddSeeMoreEvent() {
+        for (const btnSee of document.getElementsByClassName("see")) {
+            btnSee.addEventListener('click', event => {
+                this.doctorController.setCurrentDoctor(event.target.id)  
+                location.href='appointment.html';
+            })
+        }
+    }
+ 
 
 }
