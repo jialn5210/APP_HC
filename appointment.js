@@ -285,7 +285,13 @@ console.log(medicLatLng);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       position => {
-        myPos = { lat: position.coords.latitude, lng: position.coords.longitude }
+        myPos = { lat: position.coords.latitude, lng: position.coords.longitude };
+        const marker = new google.maps.Marker({
+          position: myPos,
+          map: map,
+          icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        })
+        infoWindow.open(map);
         map.setCenter(myPos)
       },
       () => handleLocationError(true, infoWindow, map.getCenter())
