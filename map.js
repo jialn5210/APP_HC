@@ -330,11 +330,10 @@ if(localStorage.getItem("doctors")){
       
       
 
-     /*  document.getElementById('btnProcurar').addEventListener('click',
-        () => {
-          const txtDistance = document.getElementById("sltDistance").value
-          const txtSpecialty = document.getElementById("sltSpecialty").value
-          let pos
+       /* document.getElementById('btnSearch').addEventListener('click',() => {
+          const txtDistance = document.getElementById("sltDistance")
+          const txtSpecialty = document.getElementById("sltSpecialty")
+          let pos = {}
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
@@ -347,12 +346,12 @@ if(localStorage.getItem("doctors")){
           console.log(pos);
           const request = {
             location: pos,
-            radius: txtDistance
+            radius: txtDistance.value
           };
           service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
         }
-      ) */
+      )  */
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);

@@ -335,16 +335,21 @@ document.getElementById("btnSubmit").addEventListener("click", () =>{
   
   let doctor = sessionStorage.getItem('doctorSelected')
   let user = sessionStorage.getItem('loggedUser')
-  let presciption = document.getElementById("Prescription").value
-  let diagnosis = document.getElementById("Diagnosis").value
-  let rating = document.getElementById("sltRating").value
+  let presciption = document.getElementById("Prescription")
+  let diagnosis = document.getElementById("Diagnosis")
+  let rating = document.getElementById("sltRating")
 
+  console.log(doctor);
+  console.log(user);
+  
+  
+  
   let doctorReport ={
-    User: user,
-    Doctor: doctor,
-    Diagnosis: diagnosis,
-    Presciption: presciption,
-    Rating: rating
+    "User": user,
+    "Doctor": doctor,
+    "Diagnosis": diagnosis.value,
+    "Presciption": presciption.value,
+    "Rating": rating.value
   }
 
   console.log(doctorReport)
