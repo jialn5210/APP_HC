@@ -3,7 +3,7 @@ if(localStorage.getItem("doctors")){
   doctors = JSON.parse(localStorage.getItem("doctors"));
 }
 
-let myDoctor = localStorage.getItem('doctorSelected')
+let myDoctor = sessionStorage.getItem('doctorSelected')
 
 /* localStorage.removeItem('doctorSelected'); */
 
@@ -330,3 +330,23 @@ document.getElementById("btnVoltar").addEventListener("click", showMapMenu);
 function showMapMenu() {
     location.replace('../html/map.html')
 }}
+
+document.getElementById("btnSubmit").addEventListener("click", () =>{
+  
+  let doctor = sessionStorage.getItem('doctorSelected')
+  let user = sessionStorage.getItem('loggedUser')
+  let presciption = document.getElementById("Prescription").value
+  let diagnosis = document.getElementById("Diagnosis").value
+  let rating = document.getElementById("sltRating").value
+
+  let doctorReport ={
+    User: user,
+    Doctor: doctor,
+    Diagnosis: diagnosis,
+    Presciption: presciption,
+    Rating: rating
+  }
+
+  console.log(doctorReport)
+
+})
