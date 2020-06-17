@@ -53,4 +53,21 @@ export default class DoctorModel {
             return 1;
         return 0;
     }
+
+    editDoctor(name,email ,latitude,longitude ,specialty , photo, description){
+        const DoctorNew = {
+            
+            name: name,
+            email:email,
+            latitude: latitude,
+            longitude: longitude,
+            specialty:specialty,
+            photo: photo,
+            description: description
+            
+        }
+        
+        this.doctors= this.doctors.map(doctor=>doctor.name==DoctorNew.name?DoctorNew:user)
+        this._persist()
+    }
 }
