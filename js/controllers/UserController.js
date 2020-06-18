@@ -5,9 +5,9 @@ export default class UserController {
         this.userModel = new UserModel();
     }
 
-    createUser(username, password, photo, status) {
+    createUser(username, password, photo, type ,status) {
         if (!this.userModel.getAll().some(user => user.username === username)) {
-            this.userModel.create(username, password, photo,status);
+            this.userModel.create(username, password, photo,type,status);
         } else {
             throw Error(`User with username "${username}" already exists!`);
         }
@@ -20,6 +20,7 @@ export default class UserController {
             for (let i = 0; i <= [this.userModel.users.length - 1]; i++) {
                 if (this.userCompare[i].username === sessionStorage.getItem('loggedUser')) {
                     sessionStorage.setItem('userPhoto', this.userPhotoLink = JSON.parse(localStorage.getItem('users'))[i].photo);
+                    sessionStorage.setItem('userType', this.userType = JSON.parse(localStorage.getItem('users'))[i].type)
                 }
             }
             return true;

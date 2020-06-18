@@ -7,8 +7,7 @@ export default class AdminDoctorView {
         this.doctorCatalog = document.querySelector('#doctorCatalog')
    
         this.renderCatalog(this.doctorController.getDoctors())
-        this.bindRemoveEvent()
-        this.bindEditEvent()
+        
     }
 
     bindRemoveEvent() {
@@ -58,6 +57,7 @@ export default class AdminDoctorView {
         result += `</table>`
         this.doctorCatalog.innerHTML = result
         this.bindRemoveEvent()
+        this.bindEditEvent()
     }
 
     

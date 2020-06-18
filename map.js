@@ -1,10 +1,10 @@
       
       
-      //get doctors from local storage
-      let doctors = []
-        if(localStorage.getItem("doctors")){
-          doctors = JSON.parse(localStorage.getItem("doctors"));
-      }
+//get doctors from local storage
+let doctors = []
+if(localStorage.getItem("doctors")){
+   doctors = JSON.parse(localStorage.getItem("doctors"));
+}
       
       
       //criação e design do mapa
@@ -290,6 +290,7 @@
           const medicPhoto = doctors[i].photo
           const medicSpecialty = doctors[i].specialty
           const medicDescription = doctors[i].description
+          const medicStatus = doctors[i].medicStatus
 
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
             marker = new google.maps.Marker({
@@ -299,27 +300,36 @@
           
           let contentString = `
           <div id="content">
-          <h1 id="doctorName">${medicName}</h1>
-          <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
-          <p> Description: ${medicDescription}</p>
-          <p><img src="${medicPhoto}" width="150px" height ="100px"></p></div>
-          <button id="btnChamar" type="button" class="btn btn-outline-primary" onclick="window.location.href='../html/appointment.html';">Call!</button></div>
+            <h1 id="doctorName">${medicName}</h1>
+            <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
+              <p> Description: ${medicDescription}</p>
+              <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
+            </div>
+            <button id="${medicName}" type="button" class="btn btn-outline-primary" onclick="location.replace('../html/appointment.html')">Call!</button>
+          </div>
           `
-
-          let infoWindow = new google.maps.InfoWindow({content:    contentString,});
-
+          
+          let infoWindow = new google.maps.InfoWindow({content: contentString,});
+        
           infoWindowsArray.push(infoWindow);
 
           marker.addListener('click', function (event) {
             for (var i = 0; i < infoWindowsArray.length; i++) {
               infoWindowsArray[i].close();
+              
+              sessionStorage.setItem( 'doctorSelected', medicName)
             }
             infoWindow.open(map, marker);
             infoWindow.setPosition(event.latLng);;
 
-        })
-      }
+          })
+        
+    }
+
+
       
+      
+
      /*  document.getElementById('btnProcurar').addEventListener('click',
         () => {
           const txtDistance = document.getElementById("sltDistance").value
@@ -352,7 +362,7 @@
         infoWindow.open(map);
       }
 
-      document.getElementById("btnVoltar").addEventListener("click", () =>{
+      document.getElementById("btnBack").addEventListener("click", () =>{
         location.replace('../html/hc.html')
       });
 

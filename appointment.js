@@ -1,3 +1,28 @@
+let doctors = []
+if(localStorage.getItem("doctors")){
+  doctors = JSON.parse(localStorage.getItem("doctors"));
+}
+
+let myDoctor = sessionStorage.getItem('doctorSelected')
+
+/* localStorage.removeItem('doctorSelected'); */
+
+console.log(myDoctor);
+
+
+let medicLat = 0
+let medicLng = 0
+
+for (let i = 0; i < doctors.length; i++) {
+
+  if(doctors[i].name == myDoctor){
+    medicLat = doctors[i].latitude
+    medicLng = doctors[i].longitude
+  }
+}
+console.log(medicLat);
+console.log(medicLng);
+
 let map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -245,34 +270,83 @@ function initMap() {
       }
     ]
   });
-  
-  //obtenção da localização do utilizador
-  infoWindow = new google.maps.InfoWindow;
+
+
+
+
+
+let myPos;
+const directionsService = new google.maps.DirectionsService();
+const directionsRenderer = new google.maps.DirectionsRenderer();
+directionsRenderer.setMap(map); 
+let medicLatLng = {lat: medicLat, lng: medicLng}
+console.log(medicLatLng);
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-        position => {
-            const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            const marker = new google.maps.Marker({
-              position: pos,
-              map: map,
-              icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-            })
-            infoWindow.open(map);
-            map.setCenter(pos);
-        }, 
-        () => handleLocationError(true, infoWindow, map.getCenter())
+      position => {
+        myPos = { lat: position.coords.latitude, lng: position.coords.longitude };
+        const marker = new google.maps.Marker({
+          position: myPos,
+          map: map,
+          icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        })
+        infoWindow.open(map);
+        map.setCenter(myPos)
+      },
+      () => handleLocationError(true, infoWindow, map.getCenter())
     );
   } else {
+    // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
+
+  calcRoute(directionsService, directionsRenderer)
+
+  function calcRoute(directionsService, directionsRenderer) {
+    const request = {
+      origin: myPos,
+      destination: medicLatLng,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsRenderer.setMap(map);
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsRenderer.setDirections(response);
+      }
+    });
+    
+  }
+
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+  }
+
 document.getElementById("btnVoltar").addEventListener("click", showMapMenu);
 function showMapMenu() {
     location.replace('../html/map.html')
 }}
+
+document.getElementById("btnSubmit").addEventListener("click", () =>{
+  
+  let doctor = sessionStorage.getItem('doctorSelected')
+  let user = sessionStorage.getItem('loggedUser')
+  let presciption = document.getElementById("Prescription").value
+  let diagnosis = document.getElementById("Diagnosis").value
+  let rating = document.getElementById("sltRating").value
+
+  let doctorReport ={
+    User: user,
+    Doctor: doctor,
+    Diagnosis: diagnosis,
+    Presciption: presciption,
+    Rating: rating
+  }
+
+  console.log(doctorReport)
+
+})

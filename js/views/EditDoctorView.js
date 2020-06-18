@@ -4,7 +4,7 @@ export default class EditDoctorView {
     constructor() {
         this.doctorController = new DoctorController();
 
-       
+
         // DOM References
         this.doctorName = document.getElementById('txtName');
         this.doctorEmail = document.getElementById('txtEmail');
@@ -13,33 +13,57 @@ export default class EditDoctorView {
         this.doctorSpecialty = document.getElementById('sltSpecialty');
         this.doctorPhoto = document.getElementById('txtPhoto');
         this.doctorDescription = document.getElementById('txtDescription');
+        this.editBtn = document.querySelector("#btnEdit")
+        this.editMessage = document.querySelector("#editDoctorMessage")
 
-        this.fillDoctorData()
-        
+       /*  this.fillDoctorInfo() */
+       this.bindEditDoctor();
+
     }
-    
-    fillDoctorData() {
-        this.doctors = []
-        if(localStorage.getItem("doctors")){
-          this.doctors = JSON.parse(localStorage.getItem("doctors"));
+    /* fillDoctorInfo() {
+        const currentDoctor = this.doctorController.getCurrentDoctor()
+        this.doctorName.innerHTML = currentDoctor.name
+        this.doctorEmail.innerHTML = currentDoctor.email
+        this.doctorLatitude.innerHTML = currentDoctor.latitude
+        this.doctorLongitude.innerHTML = currentDoctor.longitude
+        this.doctorSpecialty.innerHTML = currentDoctor.specialty
+        this.doctorPhoto.src = currentDoctor.photo
+        this.doctorDescription.innerHTML = currentDoctor.description
+        
+    }  */
+
+     bindEditDoctor() {
+
+        this.editBtn.addEventListener("click", event => {
+            try {
+               
+                    if (this.doctorName.value != "" && this.doctorEmail.value != "" && this.doctorLatitude.value != "" && this.doctorLongitude.value != "" && this.doctorSpecialty.value != "" && this.doctorPhoto.value != "" && this.doctorDescription.value != "")
+                     {
+                        
+                            this.doctorController.EditDoctor(this.doctorName.value, this.doctorEmail.value, this.doctorLatitude.value, this.doctorLongitude.value, this.doctorSpecialty.value, this.doctorPhoto.value, this.doctorDescription.value,this.doctorController)
+                            this.displayEditMessage("Doctor edited with success", 'success')
+                            setTimeout(() => {
+                                location.href = "admin.html";
+                            },
+                                1000)
+                        
+                    }
+                    else {
+                        throw Error("There are empty fields")
+                    }
+                }
+            
+            catch (e) {
+                this.displayEditMessage(e, "danger")
+            }
+        
+        
+        })
+    }
+
+    displayEditMessage(message, type) {
+        this.editMessage.innerHTML =
+          `<div class="alert alert-${type} d-flex justify-content-center" role="alert">${message}</div>`;
       }
-       
-        for (let i = 1; i < this.doctors.id; i++) {
-            this.doctorName.innerHTML = this.doctors[i].name
-            console.log(this.doctor[i].name)
-            /* this.doctorEmail = this.doctors[i]
-            this.doctorLatitude = this.doctors[i]
-            this.doctorLongitude = this.doctors[i]
-            this.doctorSpecialty= this.doctors[i]
-            this.doctorDescription = this.doctors[i]
-            this.doctorPhoto = this.doctors[i]
- */
-
-
-
-        }
-       
-       
-    } 
-
+ 
 }

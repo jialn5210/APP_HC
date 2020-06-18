@@ -1,4 +1,3 @@
-
 body {
   background: #fff;
   color: #666666;
@@ -209,6 +208,7 @@ text-align: center;
 #hero .btn-get-started:hover {
   background: #2dc997;
   border: 2px solid #2dc997;
+  text-decoration: none;
 }
 
 /* Nav Menu  */
@@ -238,6 +238,7 @@ text-align: center;
 .nav-menu li:hover > ul,
 .nav-menu li.sfHover > ul {
   display: block;
+  text-decoration: none;
 }
 
 .nav-menu ul ul {
@@ -293,16 +294,19 @@ text-align: center;
   visibility: visible;
   -webkit-transform: scaleX(5);
   transform: scaleX(1);
+  text-decoration: none;
 }
 
-.nav-menu ul {
-  margin: 4px 0 0 0;
-  border: 1px solid #e7e7e7;
+.nav-menu li a {
+  text-decoration: none;
 }
 
-.nav-menu ul li {
-  background: #fff;
+.nav-menu li a:hover {
+  color: #2dc997;
 }
+
+
+
 
 .responsive_bar{
   display: none;
@@ -372,6 +376,7 @@ nav ul li{
   left: 40%;
   
 }
+
 }
 
 /* Sections Header
@@ -396,6 +401,7 @@ nav ul li{
 #about {
   background: white;
   padding: 80px 0;
+  
 }
 
 #about .about-container .background {
@@ -785,3 +791,92 @@ hr{
   border: 1px solid black;
   background-color: #2dc997;
 }
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  top: -5px;
+  left: 30%;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-radius: 5%;
+  background-color: #3d3d3df6;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5%;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: black;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  
+}
+
+.welcome{
+  position: relative;
+  left: 20%;
+  top: 3px;
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+
+}
+#btnLogout{
+
+  background-color: transparent;
+  border: transparent;
+  position: relative;
+  left: 50px;
+  top: -2px;
+  font-size: 20px;
+  color: white;
+}
+#btnLogout:hover{
+color: #2dc997;
+}
+@media(max-width:768px){
+
+
+  .dropdown {
+    position: relative;
+    top: 5px;
+    left: 0%;
+  }
+  .welcome{
+    position: relative;
+    left: 0%;
+    top: 10px;
+    
+  
+  }
+
+  #btnLogout{
+
+   
+    left: 70px;
+    top: -15px;
+    
+  }
+
+}
+
