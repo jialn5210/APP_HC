@@ -339,11 +339,6 @@ document.getElementById("btnSubmit").addEventListener("click", () =>{
   let diagnosis = document.getElementById("Diagnosis")
   let rating = document.getElementById("sltRating")
 
-  console.log(doctor);
-  console.log(user);
-  
-  
-  
   let doctorReport ={
     "User": user,
     "Doctor": doctor,
@@ -351,7 +346,18 @@ document.getElementById("btnSubmit").addEventListener("click", () =>{
     "Presciption": presciption.value,
     "Rating": rating.value
   }
-
   console.log(doctorReport)
-
+  
+  let reports = []
+  if(localStorage.Reports){
+    reports = JSON.parse(localStorage.getItem('Reports'))
+    reports.push(doctorReport)
+    localStorage.setItem('Reports', JSON.stringify(reports))
+    location.replace('../html/hc.html')
+  } else { 
+    reports.push(doctorReport)
+    localStorage.setItem('Reports', JSON.stringify(reports))
+    location.replace('../html/hc.html')
+  }
+  
 })
