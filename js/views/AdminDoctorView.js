@@ -7,8 +7,7 @@ export default class AdminDoctorView {
         this.doctorCatalog = document.querySelector('#doctorCatalog')
    
         this.renderCatalog(this.doctorController.getDoctors())
-        this.bindRemoveEvent()
-        this.bindEditEvent()
+        
     }
 
     bindRemoveEvent() {
@@ -25,7 +24,7 @@ export default class AdminDoctorView {
         for (const btnEdit of document.getElementsByClassName('edit')) {
             
             btnEdit.addEventListener('click', event => {
-                this.doctorController.setCurrentDoctor(event.target.id)  
+                this.doctorController.getCurrentDoctor(event.target.id)  
                 location.href='editDoctor.html';
                 
             })
@@ -58,6 +57,7 @@ export default class AdminDoctorView {
         result += `</table>`
         this.doctorCatalog.innerHTML = result
         this.bindRemoveEvent()
+        this.bindEditEvent()
     }
 
     

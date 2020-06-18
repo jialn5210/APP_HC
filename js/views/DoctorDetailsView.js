@@ -11,8 +11,17 @@ export default class DoctorDetailsView {
         this.doctorDescription = document.getElementById('doctorDescription');
         this.btnBack = document.querySelector("#btnBack")
 
+        //comments
+        this.name= document.getElementById('txtName');
+        this.date = document.getElementById('txtDate');
+        this.comment = document.getElementById('comment');
+        this.btnComment=document.getElementById('btnComment')
+
+
         this.fillDoctorData()
         this.bindBackButton()
+        this.fillCommentData()
+        this.bindCommentButton()
     }
 
     bindBackButton() {
@@ -28,5 +37,37 @@ export default class DoctorDetailsView {
         this.doctorDescription.innerHTML = currentDoctor.description
         this.doctorPhoto.src = currentDoctor.photo
     } 
+
+    fillCommentData(){
+        let html="<div class='commentBox'><div class='name'><span>"+ this.comment['name']+"</span><div class='date'><span>"+this.comment['date']+"</div><p>"+this.comment['comment']+"</p></div></div>";
+        $('.container').append(html)
+
+    }
+    
+    bindCommentButton(){
+        let comment=[
+                {"name":"maria", 
+                "date":"10 Apr, 2016", 
+                "comment":"this is a comment"}
+            ];
+    
+            for (let i = 0; i < comment.length; i++) {
+                this.fillCommentData(comment[i]);
+            }
+
+        this.btnComment.addEventListener('click', () => {
+            this.addObj={
+                "name":$('#name').val(), 
+                "date":$('#date').val(), 
+                "comment":$('#comment').val()
+            };
+            console.log(this.addObj);
+            comment.push(this.addObj);
+            this.fillCommentData(this.addObj);
+        })
+
+    }
+
+    
 
 }
