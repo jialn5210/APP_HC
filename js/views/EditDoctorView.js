@@ -24,15 +24,16 @@ export default class EditDoctorView {
           this.doctors = JSON.parse(localStorage.getItem("doctors"));
       }
        
-        for (let i = 0; i < this.doctors.length; i++) {
-            this.doctorName = doctors[i].name
-            this.doctorEmail = this.doctors[i]
+        for (let i = 1; i < this.doctors.id; i++) {
+            this.doctorName.innerHTML = this.doctors[i].name
+            console.log(this.doctor[i].name)
+            /* this.doctorEmail = this.doctors[i]
             this.doctorLatitude = this.doctors[i]
             this.doctorLongitude = this.doctors[i]
             this.doctorSpecialty= this.doctors[i]
             this.doctorDescription = this.doctors[i]
             this.doctorPhoto = this.doctors[i]
-
+ */
 
 
 
