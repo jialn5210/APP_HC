@@ -6,13 +6,13 @@ export default class EditDoctorView {
 
 
         // DOM References
-        this.doctorName = document.getElementById('txtName');
-        this.doctorEmail = document.getElementById('txtEmail');
-        this.doctorLatitude = document.getElementById('txtLatitude');
-        this.doctorLongitude = document.getElementById('txtLongitude');
-        this.doctorSpecialty = document.getElementById('sltSpecialty');
-        this.doctorPhoto = document.getElementById('txtPhoto');
-        this.doctorDescription = document.getElementById('txtDescription');
+        this.docName = document.getElementById('txtName');
+        this.docEmail = document.getElementById('txtEmail');
+        this.docLatitude = document.getElementById('txtLatitude');
+        this.docLongitude = document.getElementById('txtLongitude');
+        this.docSpecialty = document.getElementById('sltSpecialty');
+        this.docPhoto = document.getElementById('txtPhoto');
+        this.docDescription = document.getElementById('txtDescription');
         this.editBtn = document.querySelector("#btnEdit")
         this.editMessage = document.querySelector("#editDoctorMessage")
 
@@ -20,29 +20,30 @@ export default class EditDoctorView {
        
 
     }
-     fillDoctorInfo() {
-        const currentDoctor = this.doctorController.getCurrentDoctor()
-        this.doctorName.innerHTML = currentDoctor.name
-        this.doctorEmail.innerHTML = currentDoctor.email
-        this.doctorLatitude.innerHTML = currentDoctor.latitude
-        this.doctorLongitude.innerHTML = currentDoctor.longitude
-        this.doctorSpecialty.innerHTML = currentDoctor.specialty
-        this.doctorPhoto.src = currentDoctor.photo
-        this.doctorDescription.innerHTML = currentDoctor.description
+      fillDoctorInfo() {
+        const currentDoc = this.doctorController.getCurrentDoctor()
+        this.docName.innerHTML = currentDoc.name
+        this.docEmail.innerHTML = currentDoc.email
+        this.docLatitude.innerHTML = currentDoc.latitude
+        this.docLongitude.innerHTML = currentDoc.longitude
+        this.docSpecialty.innerHTML = currentDoc.specialty
+        this.docPhoto.src = currentDoc.photo
+        this.docDescription.innerHTML = currentDoc.description
 
         this.bindEditDoctor();
         
-    }  
+    }   
 
      bindEditDoctor() {
 
         this.editBtn.addEventListener("click", event => {
+            event.preventDefault();
             try {
                
-                    if (this.doctorName.value != "" && this.doctorEmail.value != "" && this.doctorLatitude.value != "" && this.doctorLongitude.value != "" && this.doctorSpecialty.value != "" && this.doctorPhoto.value != "" && this.doctorDescription.value != "")
+                    if (this.docName.value != "" && this.docEmail.value != "" && this.docLatitude.value != "" && this.docLongitude.value != "" && this.docSpecialty.value != "" && this.docPhoto.value != "" && this.docDescription.value != "")
                      {
                         
-                            this.doctorController.EditDoctor(this.doctorName.value, this.doctorEmail.value, this.doctorLatitude.value, this.doctorLongitude.value, this.doctorSpecialty.value, this.doctorPhoto.value, this.doctorDescription.value,this.doctorController)
+                            this.doctorController.editDoctor(this.docName.value, this.docEmail.value, this.docLatitude.value, this.docLongitude.value, this.docSpecialty.value, this.docPhoto.value, this.docDescription.value)
                             this.displayEditMessage("Doctor edited with success", 'success')
                             setTimeout(() => {
                                 location.href = "admin.html";

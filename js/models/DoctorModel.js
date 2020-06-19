@@ -67,7 +67,7 @@ export default class DoctorModel {
             
         }
         
-        this.doctors= this.doctors.map(doctor=>doctor.name==DoctorNew.name?DoctorNew:user)
+        this.doctors= this.doctors.map(doctor=>doctor.name==DoctorNew.name?DoctorNew:doctor)
         this._persist()
     }
 }
