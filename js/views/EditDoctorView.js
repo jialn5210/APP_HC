@@ -16,11 +16,11 @@ export default class EditDoctorView {
         this.editBtn = document.querySelector("#btnEdit")
         this.editMessage = document.querySelector("#editDoctorMessage")
 
-       /*  this.fillDoctorInfo() */
-       this.bindEditDoctor();
+         this.fillDoctorInfo() ;
+       
 
     }
-    /* fillDoctorInfo() {
+     fillDoctorInfo() {
         const currentDoctor = this.doctorController.getCurrentDoctor()
         this.doctorName.innerHTML = currentDoctor.name
         this.doctorEmail.innerHTML = currentDoctor.email
@@ -29,8 +29,10 @@ export default class EditDoctorView {
         this.doctorSpecialty.innerHTML = currentDoctor.specialty
         this.doctorPhoto.src = currentDoctor.photo
         this.doctorDescription.innerHTML = currentDoctor.description
+
+        this.bindEditDoctor();
         
-    }  */
+    }  
 
      bindEditDoctor() {
 
