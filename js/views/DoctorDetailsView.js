@@ -33,19 +33,7 @@ export default class DoctorDetailsView {
     }
 
     fillDoctorData() {
-        const currentDoctor = {
-          id: 1,
-          name:'Michael Doe',
-          email:'michaeldoe@gmail.com',
-          latitude:'41.188272',
-          longitude:'-8.587833',
-          specialty:'Emergency',
-          description:"Master's degree in medicine with 10 years of experience",
-          photo:'https://iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg',
-          status: 'true'
-      };
-
-        console.log(currentDoctor);
+        const currentDoctor = this.doctorController.getCurrentDoctor()
         this.doctorName.innerHTML = currentDoctor.name
         this.doctorSpecialty.innerHTML = currentDoctor.specialty
         this.doctorDescription.innerHTML = currentDoctor.description

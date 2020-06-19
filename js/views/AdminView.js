@@ -3,11 +3,8 @@
 export default class AdminView {
     constructor() {
 
-
-
-
-        /*  this.numberOfUsers = localStorage.getItem('users').length; */
-        /* console.log(localStorage.getItem('users').length) */
+         this.numberOfUsers = localStorage.getItem('users').length
+        console.log(localStorage.getItem('users').length) 
         this.user = document.getElementById("seeUsers")
         this.doctors = document.getElementById("seeDoctors")
         this.apps = document.getElementById("seeApps")
