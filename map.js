@@ -326,10 +326,6 @@ if(localStorage.getItem("doctors")){
         
     }
 
-
-      
-      
-
        /* document.getElementById('btnSearch').addEventListener('click',() => {
           const txtDistance = document.getElementById("sltDistance")
           const txtSpecialty = document.getElementById("sltSpecialty")

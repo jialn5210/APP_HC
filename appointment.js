@@ -276,12 +276,8 @@ function initMap() {
 
 
 let myPos;
-const directionsService = new google.maps.DirectionsService();
-const directionsRenderer = new google.maps.DirectionsRenderer();
-directionsRenderer.setMap(map); 
-let medicLatLng = {lat: medicLat, lng: medicLng}
-console.log(medicLatLng);
-
+let medicPos = {lat: medicLat, lng: medicLng}
+console.log(medicPos);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -291,7 +287,6 @@ console.log(medicLatLng);
           map: map,
           icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
         })
-        infoWindow.open(map);
         map.setCenter(myPos)
       },
       () => handleLocationError(true, infoWindow, map.getCenter())
@@ -301,20 +296,45 @@ console.log(medicLatLng);
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  calcRoute(directionsService, directionsRenderer)
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
 
-  function calcRoute(directionsService, directionsRenderer) {
+  showDirection(myPos, medicPos)
+  
+  function showDirection(myPos, medicPos) {
+      
+    //directionsRenderer.suppressMarkers = true;
+
+    //directionsRenderer.setMap(map);
+
+    // Creation of a DirectionsRequest object 
     const request = {
       origin: myPos,
-      destination: medicLatLng,
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
+      destination: medicPos,
+      travelMode: google.maps.TravelMode['DRIVING']
     };
-    directionsRenderer.setMap(map);
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        directionsRenderer.setDirections(response);
-      }
-    });
+
+    // call DirectionsService.route() to initiate a request to the Directions service
+    // passing it a DirectionsRequest object literal containing the input terms and a callback method 
+    // to execute upon receipt of the response.
+    directionsService.route(request,
+      (result, status) => {
+        if (status == 'OK') {
+          directionsRenderer.setDirections(result);
+          const directionsData = result.routes[0].legs[0]; // Get data about the mapped route
+          if (directionsData) {
+            document.getElementById("#info").innerHTML = `
+              Driving distance is ${directionsData.distance.text} (${directionsData.duration.text})
+            `
+          }
+          else {
+            document.getElementById("#info").innerHTML = 'Directions request failed'
+          }
+        } else {
+          document.getElementById("#info").innerHTML = status
+        }
+      });
+    
     
   }
 
