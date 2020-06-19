@@ -22,12 +22,8 @@ export default class DoctorController {
         }
     }
     editDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
-        if (!this.doctorModel.getAll().some(doctor => doctor.name === name))
-        {
             this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
-        } else {
-            throw Error(`Doctor with name "${name}" already exists!`)
-        }
+        
     }
 
     removeDoctor(name) {

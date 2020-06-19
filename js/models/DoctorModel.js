@@ -55,8 +55,10 @@ export default class DoctorModel {
     }
 
     editDoctor(name,email ,latitude,longitude ,specialty , photo, description){
+        const currentDoctor = this.getCurrentDoctor() 
+
         const DoctorNew = {
-            
+            id: currentDoctor.id,
             name: name,
             email:email,
             latitude: latitude,
@@ -67,7 +69,7 @@ export default class DoctorModel {
             
         }
         
-        this.doctors= this.doctors.map(doctor=>doctor.name==DoctorNew.name?DoctorNew:doctor)
+        this.doctors= this.doctors.map(doctor=>doctor.id==currentDoctor.id?DoctorNew:doctor)
         this._persist()
     }
 }

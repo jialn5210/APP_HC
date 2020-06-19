@@ -22,13 +22,13 @@ export default class EditDoctorView {
     }
       fillDoctorInfo() {
         const currentDoc = this.doctorController.getCurrentDoctor()
-        this.docName.innerHTML = currentDoc.name
-        this.docEmail.innerHTML = currentDoc.email
-        this.docLatitude.innerHTML = currentDoc.latitude
-        this.docLongitude.innerHTML = currentDoc.longitude
-        this.docSpecialty.innerHTML = currentDoc.specialty
-        this.docPhoto.src = currentDoc.photo
-        this.docDescription.innerHTML = currentDoc.description
+        this.docName.value = currentDoc.name
+        this.docEmail.value = currentDoc.email
+        this.docLatitude.value = currentDoc.latitude
+        this.docLongitude.value = currentDoc.longitude
+        this.docSpecialty.value = currentDoc.specialty
+        this.docPhoto.value = currentDoc.photo
+        this.docDescription.value = currentDoc.description
 
         
         
