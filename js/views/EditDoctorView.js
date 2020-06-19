@@ -16,8 +16,8 @@ export default class EditDoctorView {
         this.editBtn = document.querySelector("#btnEdit")
         this.editMessage = document.querySelector("#editDoctorMessage")
 
-         this.fillDoctorInfo() ;
-       
+         /* this.fillDoctorInfo() ; */
+         this.bindEditDoctor();
 
     }
       fillDoctorInfo() {
@@ -30,7 +30,7 @@ export default class EditDoctorView {
         this.docPhoto.src = currentDoc.photo
         this.docDescription.innerHTML = currentDoc.description
 
-        this.bindEditDoctor();
+        
         
     }   
 
