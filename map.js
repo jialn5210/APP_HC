@@ -283,6 +283,8 @@ if(localStorage.getItem("doctors")){
         }
         
         console.log(doctors)
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
         
         for (let i = 0; i < doctors.length; i++) {
           const medicLat = doctors[i].latitude
@@ -304,9 +306,10 @@ if(localStorage.getItem("doctors")){
             <h1 id="doctorName">${medicName}</h1>
             <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
               <p> Description: ${medicDescription}</p>
+              <p id='extra'></p>
               <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
             </div>
-            <button id="${medicName}" type="button" class="btn btn-outline-primary" onclick="location.replace('../html/appointment.html')">Call!</button>
+            <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Call!</button>
           </div>
           `
           
@@ -322,7 +325,7 @@ if(localStorage.getItem("doctors")){
             }
             infoWindow.open(map, marker);
             infoWindow.setPosition(event.latLng);;
-
+            showDirection(pos, event.latLng)
           })
         }
 
@@ -334,8 +337,8 @@ if(localStorage.getItem("doctors")){
     
           // Creation of a DirectionsRequest object 
           const request = {
-            origin: homePos,
-            destination: doctorPos,
+            origin: doctorPos,
+            destination: homePos,
             travelMode: google.maps.TravelMode['DRIVING']
           };
     
@@ -394,6 +397,38 @@ if(localStorage.getItem("doctors")){
       document.getElementById("btnBack").addEventListener("click", () =>{
         location.replace('../html/hc.html')
       });
+
+
+      document.getElementById("btnSubmit").addEventListener("click", () =>{
+  
+        let doctor = sessionStorage.getItem('doctorSelected')
+        let user = sessionStorage.getItem('loggedUser')
+        let presciption = document.getElementById("Prescription")
+        let diagnosis = document.getElementById("Diagnosis")
+        let rating = document.getElementById("sltRating")
+      
+        let doctorReport ={
+          "User": user,
+          "Doctor": doctor,
+          "Diagnosis": diagnosis.value,
+          "Presciption": presciption.value,
+          "Rating": rating.value
+        }
+        console.log(doctorReport)
+        
+        let reports = []
+        if(localStorage.Reports){
+          reports = JSON.parse(localStorage.getItem('Reports'))
+          reports.push(doctorReport)
+          localStorage.setItem('Reports', JSON.stringify(reports))
+          location.replace('../html/hc.html')
+        } else { 
+          reports.push(doctorReport)
+          localStorage.setItem('Reports', JSON.stringify(reports))
+          location.replace('../html/hc.html')
+        }
+        
+      })
 
   
       
