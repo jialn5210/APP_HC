@@ -12,8 +12,8 @@ export default class DoctorDetailsView {
         this.btnBack = document.querySelector("#btnBack")
 
         //comments
-        this.name= document.getElementById('txtName');
-        this.date = document.getElementById('txtDate');
+        this.name= document.getElementById('name');
+        this.date = document.getElementById('date');
         this.comment = document.getElementById('comment');
         this.btnComment=document.getElementById('btnComment')
 
@@ -38,35 +38,49 @@ export default class DoctorDetailsView {
         this.doctorPhoto.src = currentDoctor.photo
     } 
 
-    fillCommentData(){
-        let html="<div class='commentBox'><div class='name'><span>"+ this.comment['name']+"</span><div class='date'><span>"+this.comment['date']+"</div><p>"+this.comment['comment']+"</p></div></div>";
-        $('.container').append(html)
-
+    fillCommentData(dataObject){
+         if (dataObject !== undefined) {
+        let html="<div class='commentBox'><div class='name'><span>"+dataObject.name+"</span><div class='date'><span>"+dataObject.date+"</div><p>"+dataObject.comment+"</p></div></div>";
+          $('.container1').append(html)
+        }
     }
-    
+
     bindCommentButton(){
-        let comment=[
-                {"name":"maria", 
-                "date":"10 Apr, 2016", 
-                "comment":"this is a comment"}
-            ];
+        const currentDoctor = this.doctorController.getCurrentDoctor()
+        let comment=[];
+
+        if(!localStorage.commentData){
+            localStorage.commentData=[]
+        }else{
+            comment=JSON.parse(localStorage.commentData)
+        }
+        
     
             for (let i = 0; i < comment.length; i++) {
                 this.fillCommentData(comment[i]);
             }
 
         this.btnComment.addEventListener('click', () => {
-            this.addObj={
-                "name":$('#name').val(), 
-                "date":$('#date').val(), 
-                "comment":$('#comment').val()
+           let addObj={
+               "doctorName":this.doctorName.innerHTML,
+                "name":this.name.value, 
+                "date":this.date.value, 
+                "comment":this.comment.value
             };
-            console.log(this.addObj);
-            comment.push(this.addObj);
-            this.fillCommentData(this.addObj);
+            console.log(addObj);
+            comment.push(addObj);
+            console.log(this.doctorName.innerHTML)
+            if(addObj[0].includes(currentDoctor.name)){
+            
+                
+                this.fillCommentData(addObj);
+                localStorage.commentData=JSON.stringify(comment)
+            }
+           
         })
-
     }
+
+    
 
     
 

@@ -21,7 +21,8 @@ export default class DoctorController {
             throw Error(`The doctor "${name}" already exists!`);
         }
     }
-    EditDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
+    
+    editDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
         if (!this.doctorModel.getAll().some(doctor => doctor.name === name))
         {
             this.userModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
