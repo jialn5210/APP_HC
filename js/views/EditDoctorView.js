@@ -16,7 +16,7 @@ export default class EditDoctorView {
         this.editBtn = document.querySelector("#btnEdit")
         this.editMessage = document.querySelector("#editDoctorMessage")
 
-         /* this.fillDoctorInfo() ; */
+          this.fillDoctorInfo() ; 
          this.bindEditDoctor();
 
     }
