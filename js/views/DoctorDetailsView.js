@@ -14,8 +14,8 @@ export default class DoctorDetailsView {
 
 
         //comments
-        this.name= document.getElementById('txtName');
-        this.date = document.getElementById('txtDate');
+        this.name= document.getElementById('name');
+        this.date = document.getElementById('date');
         this.comment = document.getElementById('comment');
         this.btnComment=document.getElementById('btnComment')
 
@@ -33,16 +33,31 @@ export default class DoctorDetailsView {
     }
 
     fillDoctorData() {
-        const currentDoctor = this.doctorController.getCurrentDoctor()
+        const currentDoctor = {
+          id: 1,
+          name:'Michael Doe',
+          email:'michaeldoe@gmail.com',
+          latitude:'41.188272',
+          longitude:'-8.587833',
+          specialty:'Emergency',
+          description:"Master's degree in medicine with 10 years of experience",
+          photo:'https://iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg',
+          status: 'true'
+      };
+
+        console.log(currentDoctor);
         this.doctorName.innerHTML = currentDoctor.name
         this.doctorSpecialty.innerHTML = currentDoctor.specialty
         this.doctorDescription.innerHTML = currentDoctor.description
         this.doctorPhoto.src = currentDoctor.photo
     } 
 
-    fillCommentData(){
-        let html="<div class='commentBox'><div class='name'><span>"+ this.comment['name']+"</span><div class='date'><span>"+this.comment['date']+"</div><p>"+this.comment['comment']+"</p></div></div>";
-        $('.container').append(html)
+    fillCommentData(dataObject){
+        if (dataObject !== undefined) {
+          let html="<div class='commentBox'><div class='name'><span>"+dataObject.name+"</span><div class='date'><span>"+dataObject.date+"</div><p>"+dataObject.comment+"</p></div></div>";
+          $('.container').append(html)
+        }
+
 
     }
     
@@ -58,14 +73,14 @@ export default class DoctorDetailsView {
             }
 
         this.btnComment.addEventListener('click', () => {
-            this.addObj={
-                "name":$('#name').val(), 
-                "date":$('#date').val(), 
-                "comment":$('#comment').val()
+            let addObj={
+                "name":this.name.value, 
+                "date":this.date.value, 
+                "comment":this.comment.value
             };
-            console.log(this.addObj);
-            comment.push(this.addObj);
-            this.fillCommentData(this.addObj);
+            console.log(addObj);
+            comment.push(addObj);
+            this.fillCommentData(addObj);
         })
 
     }
