@@ -309,7 +309,7 @@ if(localStorage.getItem("doctors")){
               <p id='extra'></p>
               <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
             </div>
-            <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Call!</button>
+            <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Register Appointment!</button>
           </div>
           `
           
@@ -382,6 +382,20 @@ if(localStorage.getItem("doctors")){
             service.nearbySearch(request, callback);
         }
       )
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (const result of results) {
+              createMarker(result);          
+          }
+          map.setCenter(pos);
+        }
+      }
+  
+      function createMarker(place) {
+        const marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
     }
 
     
@@ -429,27 +443,4 @@ if(localStorage.getItem("doctors")){
         }
         
       })
-
-  
-      
-  
-
-
-
-      
-      
-      
-      
-
-      
-      
-      
-  
-      
-      
-    
-
-
-      
-      
-      
+      }  
