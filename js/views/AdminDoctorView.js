@@ -24,7 +24,7 @@ export default class AdminDoctorView {
         for (const btnEdit of document.getElementsByClassName('edit')) {
             
             btnEdit.addEventListener('click', event => {
-                this.doctorController.setCurrentDoctor(event.target.id)  
+                this.doctorController.getCurrentDoctor(event.target.id)  
                 location.href='editDoctor.html';
                 
             })
