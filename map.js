@@ -259,13 +259,14 @@ if(localStorage.getItem("doctors")){
         });
         
         let infoWindowsArray = [];
+        let pos = {}
 
         //obtenção da localização do utilizador
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
               position => {
-                  const pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                  pos = { lat: position.coords.latitude, lng: position.coords.longitude };
                   const marker = new google.maps.Marker({
                     position: pos,
                     map: map,
@@ -282,6 +283,8 @@ if(localStorage.getItem("doctors")){
         }
         
         console.log(doctors)
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
         
         for (let i = 0; i < doctors.length; i++) {
           const medicLat = doctors[i].latitude
@@ -293,7 +296,7 @@ if(localStorage.getItem("doctors")){
           const medicStatus = doctors[i].medicStatus
 
           let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
-            marker = new google.maps.Marker({
+          marker = new google.maps.Marker({
             position: medicLatLng,
             map:map
           })
@@ -303,9 +306,10 @@ if(localStorage.getItem("doctors")){
             <h1 id="doctorName">${medicName}</h1>
             <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
               <p> Description: ${medicDescription}</p>
+              <p id='extra'></p>
               <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
             </div>
-            <button id="${medicName}" type="button" class="btn btn-outline-primary" onclick="location.replace('../html/appointment.html')">Call!</button>
+            <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Register Appointment!</button>
           </div>
           `
           
@@ -321,33 +325,80 @@ if(localStorage.getItem("doctors")){
             }
             infoWindow.open(map, marker);
             infoWindow.setPosition(event.latLng);;
-
+            showDirection(pos, event.latLng)
           })
-        
+        }
+
+        function showDirection(homePos, doctorPos) {
+      
+          //directionsRenderer.suppressMarkers = true;
+    
+          //directionsRenderer.setMap(map);
+    
+          // Creation of a DirectionsRequest object 
+          const request = {
+            origin: doctorPos,
+            destination: homePos,
+            travelMode: google.maps.TravelMode['DRIVING']
+          };
+    
+          // call DirectionsService.route() to initiate a request to the Directions service
+          // passing it a DirectionsRequest object literal containing the input terms and a callback method 
+          // to execute upon receipt of the response.
+          directionsService.route(request,
+            (result, status) => {
+              if (status == 'OK') {
+                directionsRenderer.setDirections(result);
+                const directionsData = result.routes[0].legs[0]; // Get data about the mapped route
+                if (directionsData) {
+                  document.querySelector("#extra").innerHTML = `
+                    Driving distance is ${directionsData.distance.text} (${directionsData.duration.text})
+                  `
+                }
+                else {
+                  document.querySelector("#extra").innerHTML = 'Directions request failed'
+                }
+              } else {
+                document.querySelector("#extra").innerHTML = status
+              }
+            });
+          console.log(homePos);
+          console.log(doctorPos);
+          
+          
+        }
+
+        const txtDistance = document.getElementById("sltDistance")
+        const txtSpecialty = document.getElementById("sltSpecialty")
+        console.log(pos);
+        const request = {
+          location: pos,
+          radius: txtDistance.value
+        };
+
+        document.getElementById('btnSearch').addEventListener('click',
+          () => {
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+        }
+      )
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (const result of results) {
+              createMarker(result);          
+          }
+          map.setCenter(pos);
+        }
+      }
+  
+      function createMarker(place) {
+        const marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
     }
 
-       /* document.getElementById('btnSearch').addEventListener('click',() => {
-          const txtDistance = document.getElementById("sltDistance")
-          const txtSpecialty = document.getElementById("sltSpecialty")
-          let pos = {}
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                position => {
-                    pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                }, 
-                () => handleLocationError(true, infoWindow, map.getCenter())
-            );
-          
-          }
-          console.log(pos);
-          const request = {
-            location: pos,
-            radius: txtDistance.value
-          };
-          service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
-        }
-      )  */
+    
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -361,26 +412,35 @@ if(localStorage.getItem("doctors")){
         location.replace('../html/hc.html')
       });
 
+
+      document.getElementById("btnSubmit").addEventListener("click", () =>{
   
+        let doctor = sessionStorage.getItem('doctorSelected')
+        let user = sessionStorage.getItem('loggedUser')
+        let presciption = document.getElementById("Prescription")
+        let diagnosis = document.getElementById("Diagnosis")
+        let rating = document.getElementById("sltRating")
       
-  
-
-
-
-      
-      
-      
-      
-
-      
-      
-      
-  
-      
-      
-    
-
-
-      
-      
-      }
+        let doctorReport ={
+          "User": user,
+          "Doctor": doctor,
+          "Diagnosis": diagnosis.value,
+          "Presciption": presciption.value,
+          "Rating": rating.value
+        }
+        console.log(doctorReport)
+        
+        let reports = []
+        if(localStorage.Reports){
+          reports = JSON.parse(localStorage.getItem('Reports'))
+          reports.push(doctorReport)
+          localStorage.setItem('Reports', JSON.stringify(reports))
+          location.replace('../html/hc.html')
+        } else { 
+          reports.push(doctorReport)
+          localStorage.setItem('Reports', JSON.stringify(reports))
+          location.replace('../html/hc.html')
+        }
+        
+      })
+      }  
