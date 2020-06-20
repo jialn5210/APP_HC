@@ -1,10 +1,15 @@
 export default class DoctorModel {
     constructor() {
         this.doctors = localStorage.doctors ? JSON.parse(localStorage.doctors) : [];
+        this.comments = localStorage.comments ? JSON.parse(localStorage.comments) : [];
     }
 
     getAll() {
         return this.doctors;
+    }
+
+    getAllComments(){
+        return this.comments;
     }
     
     create(name,email ,latitude,longitude ,specialty , photo, description,status) {
@@ -22,6 +27,18 @@ export default class DoctorModel {
         this.doctors.push(doctor);
         this._persist();
     }
+
+    createComment(name,date,text){
+        const currentDoctor = this.getCurrentDoctor() 
+        const comment = {
+            doctorName:currentDoctor.name,
+            name:name,
+            date:date,
+            text:text,
+        }
+        this.comments.push(comment);
+        this._persistcomment();
+    } 
 
     sort() {
         this.doctors.sort(this._compare);
@@ -44,6 +61,11 @@ export default class DoctorModel {
 
     _persist() {
         localStorage.setItem('doctors', JSON.stringify(this.doctors));
+
+    }
+    _persistcomment(){
+        localStorage.setItem('comments', JSON.stringify(this.comments));
+
     }
 
     _compare(doctorA, doctorB) {
@@ -72,4 +94,6 @@ export default class DoctorModel {
         this.doctors= this.doctors.map(doctor=>doctor.id==currentDoctor.id?DoctorNew:doctor)
         this._persist()
     }
+
+
 }

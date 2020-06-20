@@ -15,8 +15,14 @@ export default class AdminDoctorView {
         for (const btnRemove of document.getElementsByClassName('remove')) {
             
             btnRemove.addEventListener('click', event => {
+              let decide = confirm('Are you sure you want to delete?');
+              if(decide==true){
                 this.doctorController.removeDoctor(event.target.id)
                 this.renderCatalog(this.doctorController.getDoctors())
+              }else{
+              console.log('ok')
+              }
+                
             })
         }
     }

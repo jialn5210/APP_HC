@@ -10,8 +10,6 @@ export default class DoctorDetailsView {
         this.doctorPhoto = document.getElementById('doctorPhoto');
         this.doctorDescription = document.getElementById('doctorDescription');
         this.btnBack = document.querySelector("#btnBack")
-        
-
 
         //comments
         this.name= document.getElementById('name');
@@ -50,14 +48,8 @@ export default class DoctorDetailsView {
     }
 
     bindCommentButton(){
-        const currentDoctor = this.doctorController.getCurrentDoctor()
-        let comment=[];
-
-        if(!localStorage.commentData){
-            localStorage.commentData=[]
-        }else{
-            comment=JSON.parse(localStorage.commentData)
-        }
+        const currentDoctor = this.doctorController.getCurrentDoctor();
+        const comment = this.doctorModel.getAllComments()
         
     
             for (let i = 0; i < comment.length; i++) {
@@ -75,7 +67,7 @@ export default class DoctorDetailsView {
             this.fillCommentData(addObj);
         })
     }
-
+ 
     
 
     

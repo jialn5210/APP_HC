@@ -7,18 +7,45 @@ export default class AdminUserView {
         this.userModel= new UserModel()
 
         this.userCatalog = document.querySelector('#userCatalog')
-        
+        this.status=localStorage.getItem('status')
    
         this.renderCatalog1(this.userModel.getAll())
         this.bindRemoveEvent()
+        this.bindBlockEvent()
+    }
+
+
+    bindBlockEvent() {
+        for (const btnBlock of document.getElementsByClassName('block')) {
+            
+            btnBlock.addEventListener('click', event => {
+                let decide = confirm('Are you sure you want to block?');
+                if(decide==true){
+                    this.status==='false'
+                    
+                    console.log(this.status);
+                    
+                   document.querySelector('td').style.backgroundColor="red"
+                }else{
+                console.log('ok')
+                }
+                
+            })
+        }
     }
 
     bindRemoveEvent() {
         for (const btnRemove of document.getElementsByClassName('remove')) {
             
             btnRemove.addEventListener('click', event => {
-                this.userController.removeUser(event.target.id)
-                this.renderCatalog1(this.userModel.getAll())
+                let decide = confirm('Are you sure you want to delete?');
+                if(decide==true){
+                    this.userController.removeUser(event.target.id)
+                    this.renderCatalog1(this.userModel.getAll())
+                }else{
+                console.log('ok')
+                }
+                
             })
         }
     }
