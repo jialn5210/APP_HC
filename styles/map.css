@@ -1,35 +1,66 @@
 #map {
-    height: 100%;
-    width: 89%;
-    position: absolute;
-    left: 200px;
-  }
-   nav{
-     background-color: #70c5c0;
-     color: white;
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 200px;
-     height: 100%;
-   }
-   #logo{
-     height: 60px;
-     width: 170px;
-     position: fixed;
-     top: 17px;
-     left: 13px
-   }
-   #medico1{
-     height: 50px;
-     width: 50px;
-   }
-   #medico2{
-     height: 50px;
-     width: 50px;
-   }
-   #btnBack{
-     position: fixed;
-     bottom: 20px;
-     left: 60px;
-   }
+  height: 100%;
+  width: 89%;
+  position: absolute;
+  left: 200px;
+}
+nav{
+  background-color: #70c5c0;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+}
+#logo{
+  height: 60px;
+  width: 170px;
+  position: fixed;
+  top: 17px;
+  left: 13px
+}
+#btnRecommended{
+position: fixed;
+left: 17px;
+top: 300px;
+}
+#lblDistance{
+  position: fixed;
+  left: 17px;
+  top: 350px;
+}
+#sltDistance{
+  position: fixed;
+  left: 8px;
+  top: 380px;
+}
+#lblSpecialty{
+  position: fixed;
+  left: 17px;
+  top: 440px;
+}
+#sltSpecialty{
+  position: fixed;
+  left: 8px;
+  top: 470px;
+}
+#btnSearch{
+  position: fixed;
+  left: 17px;
+  top: 540px;
+}
+#medico1{
+  height: 50px;
+  width: 50px;
+}
+#medico2{
+  height: 50px;
+  width: 50px;
+}
+#btnBack{
+  position: fixed;
+  bottom: 20px;
+  left: 15px;
+}
+
