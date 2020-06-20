@@ -21,7 +21,7 @@ export default class ProfileView {
 
     fillProfileInfo()  {
         const userLogged = this.userController.checkLoginStatus()
-        this.userName.value = userLogged.name
+        this.userName.value = userLogged.username
         this.userEmail.value = userLogged.email
         this.userAge.value = userLogged.age
         this.userAdress.value = userLogged.adress
