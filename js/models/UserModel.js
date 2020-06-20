@@ -45,4 +45,24 @@ export default class UserModel {
     _persist() {
         localStorage.setItem('users', JSON.stringify(this.users));
     }
+
+    editDoctor(username, password, photo, type ,status, age, adress, email){
+        const userLogged = this.userController.checkLoginStatus()
+
+        const UserNew = {
+            id: userLogged.id,
+            username: username,
+            password: password,
+            photo: photo,
+            type:type,
+            status:status,
+            age:age,
+            adress:adress,
+            email:email
+            
+        }
+        
+        this.users= this.users.map(user=>user.id==userLogged.id?UserNew:user)
+        this._persist()
+    }
 }

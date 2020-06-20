@@ -40,4 +40,9 @@ export default class UserController {
     removeUser(username) {
         this.userModel.remove(username)
     }
+
+    editProfile(username, password, photo, type ,status, age, adress, email) {
+        this.userModel.editProfile(username, password, photo, type ,status, age, adress, email)
+        
+    }
 }

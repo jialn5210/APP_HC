@@ -370,15 +370,69 @@ let map, infoWindow;
           
         }
 
-        let markers = []
+        
+        var markersArray = [];
 
+        function clearOverlays() {
+          
+        }
         document.getElementById('btnSearch').addEventListener('click',
           () => {
             const txtDistance = document.getElementById("sltDistance")
             const txtSpecialty = document.getElementById("sltSpecialty")
             console.log(txtDistance.value);
-            
-            const request = {
+            console.log(txtSpecialty.value);
+            clearOverlays()
+            for (let i = 0; i < doctors.length; i++) {
+              const medicLat = doctors[i].latitude
+              const medicLng = doctors[i].longitude
+              const medicName = doctors[i].name
+              const medicPhoto = doctors[i].photo
+              const medicSpecialty = doctors[i].specialty
+              const medicDescription = doctors[i].description
+              const medicStatus = doctors[i].medicStatus
+              let distance = 0
+              let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
+              
+
+
+              if(txtSpecialty.value == medicSpecialty){
+                marker = new google.maps.Marker({
+                  position: medicLatLng,
+                  map:map
+                })
+                
+                let contentString = `
+                <div id="content">
+                  <h1 id="doctorName">${medicName}</h1>
+                  <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
+                    <p> Description: ${medicDescription}</p>
+                    <p id='extra'></p>
+                    <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
+                  </div>
+                  <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Register Appointment!</button>
+                </div>
+                `
+                
+                let infoWindow = new google.maps.InfoWindow({content: contentString,});
+              
+                infoWindowsArray.push(infoWindow);
+      
+                marker.addListener('click', function (event) {
+                  for (var i = 0; i < infoWindowsArray.length; i++) {
+                    infoWindowsArray[i].close();
+                    
+                    sessionStorage.setItem( 'doctorSelected', medicName)
+                  }
+                  infoWindow.open(map, marker);
+                  infoWindow.setPosition(event.latLng);;
+                  showDirection(pos, event.latLng)
+                })
+              }
+              
+            }
+          })
+            /* const request = {
               location: pos,
               radius: txtDistance.value
             };
@@ -388,7 +442,7 @@ let map, infoWindow;
               marker.setMap(null);
             });
             marker.setMap(null);
-            markers = [];
+            markers = []; 
         }
       )
       function callback(results, status) {
@@ -404,9 +458,11 @@ let map, infoWindow;
         const marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
-        });
-    }
+        }
+        );
+    }*/
 
+        
     
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
