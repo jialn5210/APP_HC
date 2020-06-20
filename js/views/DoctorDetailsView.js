@@ -31,7 +31,7 @@ export default class DoctorDetailsView {
     }
 
     fillDoctorData() {
-        const currentDoctor = this.doctorController.getCurrentDoctor()
+        
         this.doctorName.innerHTML = currentDoctor.name
         this.doctorSpecialty.innerHTML = currentDoctor.specialty
         this.doctorDescription.innerHTML = currentDoctor.description
