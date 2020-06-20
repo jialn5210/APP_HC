@@ -2,7 +2,7 @@ body {
   background: #fff;
   color: #666666;
   font-family: "Open Sans", sans-serif;
- min-height: calc(100vh - 20px - 30px );
+ 
 }
 
 p {
@@ -727,8 +727,32 @@ outline: none;
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
 #footer {
- 
+  
+
+  position: absolute;
+  width: 100%;
+  padding:30px;
+  background: #343b40;
+  color: #fff;
+  font-size: 14px;
+}
+#footer .copyright {
+  text-align: center;
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+}
+
+#footer1 {
+  
+  margin-left: -2.45%;
+  position: absolute;
   width: 100%;
   padding:30px;
   background: #343b40;
@@ -736,11 +760,11 @@ outline: none;
   font-size: 14px;
 }
 
-#footer .copyright {
+#footer1 .copyright {
   text-align: center;
 }
 
-#footer .credits {
+#footer1 .credits {
   padding-top: 10px;
   text-align: center;
   font-size: 13px;
