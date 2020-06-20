@@ -3,7 +3,7 @@ import CatalogView from './views/CatalogView.js'
 import DoctorAddView from './views/DoctorAddView.js'
 import AdminDoctorView from './views/AdminDoctorView.js'
 import DoctorDetailsView from './views/DoctorDetailsView.js'
-import loginUserView from './views/loginUserView.js'
+import LoginUserView from './views/LoginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import AdminView from './views/AdminView.js'
 import EditDoctorView from './views/EditDoctorView.js'
@@ -17,19 +17,19 @@ class App {
                 UserView
             ],
             'hc': [
-                loginUserView
+                LoginUserView
             ],
             'addDoctor': [
                 DoctorAddView
             ],
             'catalog':[
                 CatalogView,
-                loginUserView 
+                LoginUserView 
                 
             ],
             'adminDoctors': [
                 AdminDoctorView,
-                loginUserView 
+                LoginUserView 
             ],
             'doctorDetails': [
                 DoctorDetailsView
@@ -37,18 +37,18 @@ class App {
             'adminUsers': [
                 
                 AdminUserView,
-                loginUserView 
+                LoginUserView 
                 
             ],
             'adminApp': [
                 
                 
-                loginUserView 
+                LoginUserView 
                 
             ],
             'admin': [
                 AdminView,
-                loginUserView 
+                LoginUserView 
                 
             ],
            
@@ -85,8 +85,8 @@ class App {
         const doctors = [
             {
                 id: 1,
-                name:'Michael Doe',
-                email:'michaeldoe@gmail.com',
+                name:'Miguel Santos',
+                email:'miguelsantos@gmail.com',
                 latitude:'41.188272',
                 longitude:'-8.587833',
                 specialty:'Emergency',
@@ -97,8 +97,8 @@ class App {
 
             {
                 id: 2,
-                name:'John Doe',
-                email:'johndoe@gmail.com',
+                name:'João Ferreira',
+                email:'joaoferreira@gmail.com',
                 latitude:'41.162853',
                 longitude:'-8.573749',
                 specialty:'Pediatrics',
@@ -109,15 +109,76 @@ class App {
 
             {
                 id: 3,
-                name:'Sara Doe',
-                email:'saradoe@gmail.com',
+                name:'Sara Costa',
+                email:'saracosta@gmail.com',
                 latitude:'41.164301',
                 longitude:'-8.618667',
                 specialty:'Geriatrics',
-                description:"Master's degree in medicine with 10 years of experience",
+                description:"Master's degree in medicine with 15 years of experience.",
                 photo:'https://s.calendarr.com/upload/datas/me/di/medico_c.jpg',
                 status: 'true'
-            }
+            },
+
+            {
+                id: 4,
+                name:'Mónica Silva',
+                email:'monicasilva@gmail.com',
+                latitude:'41.168701',
+                longitude:'-8.590734',
+                specialty:'General Medicine',
+                description:"Master's degree in medicine with 7 years of experience.",
+                photo:'https://telemedicinamorsch.com.br/wp-content/uploads/2018/05/carreira-medica.jpg',
+                status: 'true'
+            },
+
+            {
+                id: 5,
+                name:'Paula Coimbra',
+                email:'paulacoimbra@gmail.com',
+                latitude:'41.168168',
+                longitude:'-8.628499',
+                specialty:'Geriatrics',
+                description:"Master's degree in medicine with 4 years of experience.",
+                photo:'https://heci.com.br/wp-content/uploads/2016/11/O6TRVV0-540x280.jpg?i=8337',
+                status: 'true'
+            },
+
+            {
+                id: 6,
+                name:'Maria Fonseca',
+                email:'mariafonseca@gmail.com',
+                latitude:'41.170733',
+                longitude:'-8.612417',
+                specialty:'Geriatrics',
+                description:"Master's degree in medicine with 5 years of experience.",
+                photo:'https://veja.abril.com.br/wp-content/uploads/2016/12/istock-508387030.jpg',
+                status: 'true'
+            },
+
+            {
+                id: 7,
+                name:'Patricia Matos',
+                email:'patriciamatos@gmail.com',
+                latitude:'41.145987',
+                longitude:'-8.571133',
+                specialty:'General Medicine',
+                description:"Master's degree in medicine with 10 years of experience.",
+                photo:'https://www.alphals.org/wp-content/uploads/2019/01/solucoes-medicas-detalhes.jpg',
+                status: 'true'
+            },
+
+            {
+                id: 8,
+                name:'Filipe Almeida',
+                email:'filipealmeida@gmail.com',
+                latitude:'41.153482',
+                longitude:'-8.619565',
+                specialty:'Pediatrics',
+                description:"Master's degree in medicine with 3 years of experience.",
+                photo:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOlQqzKwckvdEyJDD4xt_aS8lJqF7ozmUajDymHs2Hnky_PNlF&usqp=CAU',
+                status: 'true'
+            } 
+
         ];
 
         const users = [
@@ -125,7 +186,7 @@ class App {
                 id: 1,
                 username: 'user',
                 password: 'user',
-                photo:'https://f0.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png',
+                photo:'https://f.pngfuel.com/png/636/141/computer-icons-user-s-included-png-clip-art.png',
                 type:'user',
                 status: 'true'
             },

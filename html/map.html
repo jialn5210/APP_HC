@@ -11,50 +11,30 @@
     <!--side bar-->
   <nav class="navbar navbar-expand-md fixed-top" role="tablist" aria-orientation="vertical">
     <img src="../img/Logo_tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
-    <ul class="nav navbar-nav navbar-right ml-auto" id="opcoes"> 
-      <li class="nav-item">
-          <button id="btnRecommended" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRecomendados">Recommended</button> 
-        </li>
-      <li class="nav-item">
-        <label for="sltDistance">Distance: </label>
-      </li>
-      <li class="nav-item"></li>
-      <li class="nav-item">
-        <form class="form-inline">
-          <div class="form-group">
-              <select class="form-control m-2" name="" id="sltDistance">
-                <option value="">---</option>
-                <option value="1000">1km</option>
-                <option value="5000">5km</option>
-                <option value="10000">10km</option>
-                <option value="20000">20km</option>
-                <option value="all">All</option>
-              </select>
-          </div>
-        </form>
-      </li>
-      <li class="nav-item">
-        <label for="sltEspecialidade">Specialty: </label>
-      </li>
-      <li class="nav-item"></li>
-      <li class="nav-item">
-        <form class="form-inline">
-          <div class="form-group">
-              <select class="form-control m-2" name="" id="sltSpecialty">
-                <option value="">---</option>
-                <option value="Geriatria">Geriatric</option>
-                <option value="Pediatria">Pediatrics</option>
-                <option value="Urgência">Emergency</option>
-                <option value="Geral">General medicine</option>
-                <option value="all">All</option>
-              </select>
-          <hr></div>
-        </form>
-      </li>
-      <li class="nav-item">
-        <button id="btnSearch" type="button" class="btn btn-outline-primary" onclick="searchFilters()">Search</button> 
-      </li>
-    </ul>
+    <button id="btnRecommended" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRecomendados">Recommended</button> 
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="sltDistance" id="lblDistance">Distance: </label>
+        <select class="form-control m-2" name="" id="sltDistance">
+          <option value="">---</option>
+          <option value="1000">1km</option>
+          <option value="5000">5km</option>
+          <option value="10000">10km</option>
+          <option value="20000">20km</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sltSpecialty" id="lblSpecialty">Specialty: </label>
+        <select class="form-control m-2" name="" id="sltSpecialty">
+          <option value="">---</option>
+          <option value="Geriatric">Geriatric</option>
+          <option value="Pediatrics">Pediatrics</option>
+          <option value="Emergency">Emergency</option>
+          <option value="General">General medicine</option>
+        </select>
+      </div>
+    </form>
+    <button id="btnSearch" type="button" class="btn btn-outline-primary" onclick="searchFilters()">Search</button> 
     <button id="btnBack" type="button" class="btn btn-outline-primary">Back</button>
   </nav>
 
@@ -128,7 +108,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvLh3AGPGlFEKSFArT9azeY_OvFxp7_JM&callback=initMap">
     </script>
      
-    <script src="../map.js"></script>
+    <script src="../js/views/mapView.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

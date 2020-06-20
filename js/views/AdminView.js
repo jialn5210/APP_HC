@@ -2,26 +2,31 @@
 
 export default class AdminView {
     constructor() {
-
-
-
-
-        /*  this.numberOfUsers = localStorage.getItem('users').length; */
-        /* console.log(localStorage.getItem('users').length) */
         this.user = document.getElementById("seeUsers")
         this.doctors = document.getElementById("seeDoctors")
         this.apps = document.getElementById("seeApps")
- this.Users()
+        
+        //counters
+        this.Users()
+        this.Doctors()
 
+        //mudar de página
         this.UsersConfig();
         this.DoctorsConfig();
         this.AppConfig();
     }
 
- Users(){
-    document.getElementById('allUsers').innerHTML= localStorage.getItem('users').length; //valor errado
+    Users(){
+        let qttUser=JSON.parse(localStorage.getItem('users'))
+        document.getElementById('allUsers').innerHTML= qttUser.length;
+        
+    }
 
- }
+     Doctors(){
+        let qttDoctor=JSON.parse(localStorage.getItem('doctors'))
+        document.getElementById('allDoctors').innerHTML= qttDoctor.length;
+        
+    } 
 
     UsersConfig() {
         this.user.addEventListener("click", () => {
@@ -56,4 +61,6 @@ export default class AdminView {
 
         });
     }
+
+    
 }

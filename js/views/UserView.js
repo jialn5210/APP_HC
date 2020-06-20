@@ -31,14 +31,8 @@ export default class UserView {
         this.loginButton = document.getElementById('btnLogin');
         this.registerButton = document.getElementById('btnRegister');
         this.logoutButton = document.getElementById('btnLogout');
-
-
-
      
     }
-
-
-  
    
     bindAddRegisterForm() {
         this.registerForm.addEventListener('submit', event => {
@@ -95,9 +89,6 @@ export default class UserView {
         });
     }
 
- 
- 
-
     displayRegisterMessage(message, type) {
         this.registerMessage.innerHTML =
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
@@ -107,8 +98,6 @@ export default class UserView {
         this.loginMessage.innerHTML =
             `<div class="alert alert-${type}" role="alert">${message}</div>`;
     }
-
-   
 
 
 }

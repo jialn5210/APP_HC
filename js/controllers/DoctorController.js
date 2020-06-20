@@ -21,8 +21,21 @@ export default class DoctorController {
             throw Error(`The doctor "${name}" already exists!`);
         }
     }
+
+    addComment(name,date,text){
+        if (!this.doctorModel.getAllComments().some(comment => comment.name === name)) {
+            this.doctorModel.create(
+                name,
+               date,
+               text
+            );
+        } else {
+            throw Error(`You've already commented!`);
+        }
+    }
+
     editDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
-            this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
+        this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
         
     }
 
@@ -40,8 +53,6 @@ export default class DoctorController {
 
 
     getDoctors(filterName='', filterSpecialty='') {
-
-      
 
         const doctors = this.doctorModel.getAll()
         

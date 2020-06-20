@@ -68,7 +68,7 @@
             <div class="col-sm-4 text-center stat">
               <div class="card" style="width: 16rem">
                 <div class="card-body">
-                  <span class="counter" data-target="15000">0</span>
+                  <span class="counter" data-target="allDoctors" id="allDoctors">0</span>
                   <h3>Doctors</h3>
                   <button id="seeDoctors" type="button"  class="btn btn-outline-primary m-2 float-center">Details</button>
                 </div>
@@ -101,26 +101,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
   <script>
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // The lower the slower
 
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-        if (count < target) {
-
-          counter.innerText = count + inc;
-
-          setTimeout(updateCount, 5);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      updateCount();
-    });
 
 
     $(window).on('scroll', function () {

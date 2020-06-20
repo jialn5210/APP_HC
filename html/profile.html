@@ -27,11 +27,41 @@
   <div class="container-fluid">
     <div class="jumbotron" id="box">
         <div class="container">
-            <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*">
-        <input type="submit">
+            <h1 class="display-3">My Profile</h1>
+            <hr class="my-2">
+            <img id="UserPhoto" src="" width="100" height="100" class="rounded-circle ">
+            <br><br>
+            <div class="form-group">
+                <label for="txtPhoto">Insert photo</label>
+                <input type="url" class="form-control" id="txtPhoto"  required>
+            </div> 
+            <div class="form-group">
+                <label for="txtName">Name</label>
+                <input type="text" class="form-control" id="txtName" required>
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">E-mail</label>
+                <input type="email" class="form-control" id="txtEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="txtAge">Age</label>
+                <input type="number" class="form-control" id="txtAge" min="18" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="txtAdress">Adress</label>
+                <input type="adress" class="form-control" id="txtAdress" required>
+            </div>
+            <br>
+            <button id="btnEdit" type="submit" class="btn btn-primary">Edit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </form>
+    </div>
+    <br>
+    <div id="editProfileMessage"></div>
         </div>
     </div>
+</div>
+ 
 </div>
   
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
