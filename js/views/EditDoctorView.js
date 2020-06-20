@@ -44,7 +44,7 @@ export default class EditDoctorView {
                      {
                         
                             this.doctorController.editDoctor(this.docName.value, this.docEmail.value, this.docLatitude.value, this.docLongitude.value, this.docSpecialty.value, this.docPhoto.value, this.docDescription.value)
-                            this.displayEditMessage("Doctor edited with success", 'success')
+                            this.displayEditMessage( 'success')
                             setTimeout(() => {
                                 location.href = "admin.html";
                             },
@@ -64,9 +64,9 @@ export default class EditDoctorView {
         })
     }
 
-    displayEditMessage(message, type) {
+    displayEditMessage(type) {
         this.editMessage.innerHTML =
-          `<div class="alert alert-${type} d-flex justify-content-center" role="alert">${message}</div>`;
+          `<div class="alert alert-${type} d-flex justify-content-center"</div>`;
       }
  
 }

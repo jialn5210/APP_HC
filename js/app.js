@@ -51,9 +51,7 @@ class App {
                 loginUserView 
                 
             ],
-            'editDoctor': [
-                EditDoctorView
-            ],
+           
             'map':[
                 MapView
             ]
