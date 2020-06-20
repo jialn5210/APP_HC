@@ -51,19 +51,10 @@ class App {
                 LoginUserView 
                 
             ],
-<<<<<<< HEAD
             'editDoctor': [
                 EditDoctorView
             ],
             
-=======
-           
-            'map':[
-                MapView
-            ]
-
-
->>>>>>> 3d9d68f7242739ab79768df47d233c8271fa4043
         };
 
         // import dummy data for testing purposes
