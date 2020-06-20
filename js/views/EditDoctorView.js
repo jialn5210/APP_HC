@@ -30,8 +30,6 @@ export default class EditDoctorView {
         this.docPhoto.value = currentDoc.photo
         this.docDescription.value = currentDoc.description
 
-        
-        
     }   
 
      bindEditDoctor() {

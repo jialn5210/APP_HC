@@ -20,12 +20,13 @@ export default class ProfileView {
     }
 
     fillProfileInfo()  {
-        const userLogged = this.userController.checkLoginStatus()
-        this.userName.value = userLogged.username
-        this.userEmail.value = userLogged.email
-        this.userAge.value = userLogged.age
-        this.userAdress.value = userLogged.adress
-        this.userPhoto.value = userLogged.photo
+        const currentUser = this.userController.getUserId(sessionStorage.getItem("userid"))
+        console.log(currentUser)
+        /* this.userName.value = currentUser.username
+        this.userEmail.value = currentUser.email
+        this.userAge.value = currentUser.age
+        this.userAdress.value = currentUser.adress
+        this.userPhoto.value = currentUser.photo */
     }
     
     bindEditProfile() {

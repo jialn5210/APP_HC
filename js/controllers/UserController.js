@@ -29,6 +29,22 @@ export default class UserController {
         }    
     }
 
+  /*   setCurrentUser(id) {
+        this.userModel.setCurrentUser(id)
+    }
+
+    getCurrentUser() {
+        return this.userModel.getCurrentUser()
+    } */
+    getUserId(id){
+        for (const user of this.userModel.users) {
+           if(user.id==id){
+               return user;
+           }
+            
+        }
+    }
+
     logoutUser() {
         this.userModel.logout();
     }

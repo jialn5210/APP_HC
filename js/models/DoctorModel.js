@@ -7,10 +7,6 @@ export default class DoctorModel {
     getAll() {
         return this.doctors;
     }
-
-    getAllComments(){
-        return this.comments;
-    }
     
     create(name,email ,latitude,longitude ,specialty , photo, description,status) {
         const doctor = {
@@ -27,18 +23,6 @@ export default class DoctorModel {
         this.doctors.push(doctor);
         this._persist();
     }
-
-    createComment(name,date,text){
-        const currentDoctor = this.getCurrentDoctor() 
-        const comment = {
-            doctorName:currentDoctor.name,
-            name:name,
-            date:date,
-            text:text,
-        }
-        this.comments.push(comment);
-        this._persistcomment();
-    } 
 
     sort() {
         this.doctors.sort(this._compare);
@@ -61,10 +45,6 @@ export default class DoctorModel {
 
     _persist() {
         localStorage.setItem('doctors', JSON.stringify(this.doctors));
-
-    }
-    _persistcomment(){
-        localStorage.setItem('comments', JSON.stringify(this.comments));
 
     }
 

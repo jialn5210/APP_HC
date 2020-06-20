@@ -20,8 +20,6 @@ export default class DoctorDetailsView {
 
         this.fillDoctorData()
         this.bindBackButton()
-        this.fillCommentData()
-        this.bindCommentButton()
     }
 
     bindBackButton() {
@@ -31,45 +29,14 @@ export default class DoctorDetailsView {
     }
 
     fillDoctorData() {
-        
+        const currentDoctor = this.doctorController.getCurrentDoctor()
         this.doctorName.innerHTML = currentDoctor.name
         this.doctorSpecialty.innerHTML = currentDoctor.specialty
         this.doctorDescription.innerHTML = currentDoctor.description
         this.doctorPhoto.src = currentDoctor.photo
     } 
 
-    fillCommentData(dataObject){
-        if (dataObject !== undefined) {
-          let html="<div class='commentBox'><div class='name'><span>"+dataObject.name+"</span><div class='date'><span>"+dataObject.date+"</div><p>"+dataObject.comment+"</p></div></div>";
-          $('.container').append(html)
-        }
-
-
-    }
-
-    bindCommentButton(){
-        const currentDoctor = this.doctorController.getCurrentDoctor()
-        let comment=[];
-        
-    
-            for (let i = 0; i < comment.length; i++) {
-                this.fillCommentData(comment[i]);
-            }
-
-        this.btnComment.addEventListener('click', () => {
-            let addObj={
-                "name":this.name.value, 
-                "date":this.date.value, 
-                "comment":this.comment.value
-            };
-            console.log(addObj);
-            comment.push(addObj);
-            this.fillCommentData(addObj);
-        })
-    }
- 
-    
-
+   
     
 
 }
