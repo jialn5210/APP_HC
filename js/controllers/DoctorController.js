@@ -34,8 +34,6 @@ export default class DoctorController {
         }
     }
 
-
-
     editDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
         this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
         
@@ -55,8 +53,6 @@ export default class DoctorController {
 
 
     getDoctors(filterName='', filterSpecialty='') {
-
-      
 
         const doctors = this.doctorModel.getAll()
         

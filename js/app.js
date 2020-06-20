@@ -3,7 +3,7 @@ import CatalogView from './views/CatalogView.js'
 import DoctorAddView from './views/DoctorAddView.js'
 import AdminDoctorView from './views/AdminDoctorView.js'
 import DoctorDetailsView from './views/DoctorDetailsView.js'
-import loginUserView from './views/loginUserView.js'
+import LoginUserView from './views/LoginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import AdminView from './views/AdminView.js'
 import EditDoctorView from './views/EditDoctorView.js'
@@ -17,19 +17,19 @@ class App {
                 UserView
             ],
             'hc': [
-                loginUserView
+                LoginUserView
             ],
             'addDoctor': [
                 DoctorAddView
             ],
             'catalog':[
                 CatalogView,
-                loginUserView 
+                LoginUserView 
                 
             ],
             'adminDoctors': [
                 AdminDoctorView,
-                loginUserView 
+                LoginUserView 
             ],
             'doctorDetails': [
                 DoctorDetailsView
@@ -37,18 +37,18 @@ class App {
             'adminUsers': [
                 
                 AdminUserView,
-                loginUserView 
+                LoginUserView 
                 
             ],
             'adminApp': [
                 
                 
-                loginUserView 
+                LoginUserView 
                 
             ],
             'admin': [
                 AdminView,
-                loginUserView 
+                LoginUserView 
                 
             ],
             'editDoctor': [

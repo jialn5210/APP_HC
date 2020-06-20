@@ -48,8 +48,8 @@ export default class DoctorDetailsView {
     }
 
     bindCommentButton(){
-        const currentDoctor = this.doctorController.getCurrentDoctor();
-        const comment = this.doctorModel.getAllComments()
+        const currentDoctor = this.doctorController.getCurrentDoctor()
+        let comment=[];
         
     
             for (let i = 0; i < comment.length; i++) {
