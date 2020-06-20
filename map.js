@@ -370,7 +370,8 @@ if(localStorage.getItem("doctors")){
 
         const txtDistance = document.getElementById("sltDistance")
         const txtSpecialty = document.getElementById("sltSpecialty")
-        console.log(pos);
+        console.log(txtDistance.value);
+        
         const request = {
           location: pos,
           radius: txtDistance.value
