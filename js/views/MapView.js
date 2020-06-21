@@ -437,7 +437,7 @@ let map, infoWindow;
   
         let doctor = sessionStorage.getItem('doctorSelected')
         let user = sessionStorage.getItem('loggedUser')
-        let presciption = document.getElementById("Prescription")
+        let prescription = document.getElementById("Prescription")
         let diagnosis = document.getElementById("Diagnosis")
         let rating = document.getElementById("sltRating")
       
@@ -445,7 +445,7 @@ let map, infoWindow;
           "User": user,
           "Doctor": doctor,
           "Diagnosis": diagnosis.value,
-          "Presciption": presciption.value,
+          "Prescription": prescription.value,
           "Rating": rating.value
         }
         console.log(doctorReport)

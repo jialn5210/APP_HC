@@ -8,6 +8,7 @@ import AdminUserView from './views/AdminUserView.js'
 import AdminView from './views/AdminView.js'
 import ProfileView from './views/ProfileView.js'
 import AdminAppView from './views/AdminAppView.js'
+import AppsView from './views/AppsView.js'
 
 
 class App {
@@ -56,7 +57,11 @@ class App {
             ],
             'profile':[
                 ProfileView
+            ],
+            'appointments':[
+                AppsView
             ]
+
             
         };
 
