@@ -9,6 +9,7 @@ export default class AdminView {
         //counters
         this.Users()
         this.Doctors()
+        this.Apps()
 
         //mudar de página
         this.UsersConfig();
@@ -22,11 +23,15 @@ export default class AdminView {
         
     }
 
-     Doctors(){
+    Doctors(){
         let qttDoctor=JSON.parse(localStorage.getItem('doctors'))
         document.getElementById('allDoctors').innerHTML= qttDoctor.length;
         
     } 
+    Apps(){
+        let qttApp=JSON.parse(localStorage.getItem('Reports'))
+        document.getElementById('allApps').innerHTML= qttApp.length;
+    }
 
     UsersConfig() {
         this.user.addEventListener("click", () => {

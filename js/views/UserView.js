@@ -47,7 +47,7 @@ export default class UserView {
                     }else{
 
                     
-                this.userController.createUser(this.registerUsername.value, this.registerPassword.value,this.registerPhoto.value,"user");
+                this.userController.createUser(this.registerUsername.value, this.registerPassword.value,this.registerPhoto.value,"user", "true", "","","");
                 this.registerLoadUserPhoto.setAttribute("src",this.registerPhoto.value)
                 this.displayRegisterMessage('User registered with success!', 'success');
                     }
@@ -69,6 +69,8 @@ export default class UserView {
                 if(sessionStorage.getItem("userType")==="user")
                 {
                     LoadPage="html/hc.html"
+                    
+                    
                 }else
                 {
                     LoadPage="html/admin.html"
@@ -82,12 +84,17 @@ export default class UserView {
 
                 },
                     1000);
+                    
 
             } catch (e) {
                 this.displayLoginMessage(e, 'danger');
             }
+            
         });
+        
     }
+
+    
 
     displayRegisterMessage(message, type) {
         this.registerMessage.innerHTML =

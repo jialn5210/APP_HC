@@ -7,17 +7,17 @@ export default class UserModel {
         return this.users
     }
 
-    create(username, password, photo, type, status, age, adress, email) {
+    create(username, password, photo, type, age, adress, email, status) {
         const user = {
             id: this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1,
             username: username,
             password: password,
             photo: photo,
             type:type,
-            status:status,
             age:age,
             adress:adress,
-            email:email
+            email:email,
+            status:status,
         }
         this.users.push(user);
         this._persist();
@@ -26,6 +26,9 @@ export default class UserModel {
     remove(username) {
         this.users = this.users.filter(user => user.username != username)
         this._persist()
+    }
+    block(username){
+        this.users = this.users.filter(user => user.username != username)
     }
 
     login(username) {
@@ -42,15 +45,23 @@ export default class UserModel {
         return sessionStorage.getItem('loggedUser') !== null ? true : false;
     }
 
+   /*  setCurrentUser(id) {
+        localStorage.setItem("user", id); 
+    }
+
+    getCurrentUser() {
+        return this.users.find(user => user.id === +localStorage.user)
+    } */
+
     _persist() {
         localStorage.setItem('users', JSON.stringify(this.users));
     }
 
-    editDoctor(username, password, photo, type ,status, age, adress, email){
-        const userLogged = this.userController.checkLoginStatus()
+    editProfile(username, password, photo, type ,status, age, adress, email){
+        const currentUser = this.userController.getCurrentUser()
 
         const UserNew = {
-            id: userLogged.id,
+            id: currentUser.id,
             username: username,
             password: password,
             photo: photo,
@@ -62,7 +73,7 @@ export default class UserModel {
             
         }
         
-        this.users= this.users.map(user=>user.id==userLogged.id?UserNew:user)
+        this.users= this.users.map(user=>user.id==currentUser.id?UserNew:user)
         this._persist()
     }
 }

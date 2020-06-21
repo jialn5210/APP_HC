@@ -5,7 +5,7 @@ export default class DoctorController {
         this.doctorModel = new DoctorModel()
     }
 
-    addDoctor(name,email ,latitude,longitude ,specialty , photo, description,status) {
+    addDoctor(name,email ,latitude,longitude ,specialty , photo, description,status,rating) {
         if (!this.doctorModel.getAll().some(doctor => doctor.name === name)) {
             this.doctorModel.create(
                 name,
@@ -15,22 +15,11 @@ export default class DoctorController {
                 specialty,
                 photo,
                 description,
-                status
+                status,
+                rating
             );
         } else {
             throw Error(`The doctor "${name}" already exists!`);
-        }
-    }
-
-    addComment(name,date,text){
-        if (!this.doctorModel.getAllComments().some(comment => comment.name === name)) {
-            this.doctorModel.create(
-                name,
-               date,
-               text
-            );
-        } else {
-            throw Error(`You've already commented!`);
         }
     }
 
