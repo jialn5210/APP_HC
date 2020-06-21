@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>My Profile</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="../img/logo.png" rel="icon">
     <link href="../styles/profile.css" rel="stylesheet">
@@ -17,47 +17,58 @@
     <img src="../img/Logo_tipográfico.png" class="img-fluid" alt="Responsive image" id="logo">
     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
         <a class="nav-link " id="active" data-toggle="pill" href="profile.html" role="tab" aria-selected="true"><i class="far fa-user-circle"></i>
-        Profile</a>
-        <a class="nav-link" data-toggle="pill"  href="appointments.html" role="tab" aria-selected="false"><i class="fas fa-clipboard-list"></i>Appointment reports</a>
-        <a class="nav-link " id="active" data-toggle="pill" href="#achievements" role="tab" aria-selected="true"><i class="far fa-user-circle"></i>
+         My Profile</a>
+        <a class="nav-link" data-toggle="pill"  href="appointments.html" role="tab" aria-selected="false"><i class="fas fa-clipboard-list"></i>My Appointments</a>
+        <a class="nav-link " id="active" data-toggle="pill" href="achievements.html" role="tab" aria-selected="true"><i class="far fa-user-circle"></i>
             Achievements</a>
       </div>
       <button id="btnLogout" type="button" class="btn btn-outline-primary">LOGOUT</button>
   </nav>
   <div class="container-fluid">
     <div class="jumbotron" id="box">
-        <div class="container">
-            <h1 class="display-3">My Profile</h1>
+        <div class="container Profile">
+            <h1 class="display-3 text-center">My Profile</h1>
             <hr class="my-2">
+            
             <img id="UserPhoto" src="" width="100" height="100" class="rounded-circle ">
             <br><br>
-            <div class="form-group">
-                <label for="txtPhoto">Insert photo</label>
-                <input type="url" class="form-control" id="txtPhoto"  required>
+            <label for="txtPhoto">Insert photo</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="url" class="form-control col-lg-4 mt-2" id="txtPhoto"  required>
             </div> 
-            <div class="form-group">
-                <label for="txtName">Name</label>
-                <input type="text" class="form-control" id="txtName" required>
+            <label for="txtName">Name</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="text" class="form-control col-lg-4 mt-2" id="txtName" required>
             </div>
-            <div class="form-group">
-                <label for="txtEmail">E-mail</label>
-                <input type="email" class="form-control" id="txtEmail" required>
+            <label for="txtPassword">Password</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="password" class="form-control col-lg-4 mt-2" id="txtPassword" required>
             </div>
-            <div class="form-group">
-                <label for="txtAge">Age</label>
-                <input type="number" class="form-control" id="txtAge" min="18" max="100" required>
+            <label for="txtEmail">E-mail</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="email" class="form-control col-lg-4 mt-2" id="txtEmail" required>
             </div>
-            <div class="form-group">
-                <label for="txtAdress">Adress</label>
-                <input type="adress" class="form-control" id="txtAdress" required>
+            <label class="text-center" for="txtAge">Age</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="number" class="form-control col-lg-4 mt-2" id="txtAge" min="18" max="100" required>
+            </div>
+            <label for="txtAdress">Adress</label>
+            <div class="form-group d-flex justify-content-center">
+                
+                <input type="adress" class="form-control col-lg-4 mt-2" id="txtAdress" required>
             </div>
             <br>
-            <button id="btnEdit" type="submit" class="btn btn-primary">Edit</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
-        </form>
+            <button id="btnEdit" type="submit" class="btn btn-primary col-lg-4 mt-2">Save</button>
+            
+        
     </div>
     <br>
-    <div id="editProfileMessage"></div>
+    <div class="col-lg-4 mt-2 d-flex justify-content-center editMessage" id="editProfileMessage"></div>
         </div>
     </div>
 </div>

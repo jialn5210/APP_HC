@@ -52,3 +52,16 @@ nav{
   color: white;
 }
 
+  label {
+    display: flex;
+    justify-content: center;
+    
+  }
+.form-group input{
+  text-align: center;
+}
+#btnEdit{
+ position: relative;
+ left: 33.5%;
+    
+}

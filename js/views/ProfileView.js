@@ -12,7 +12,7 @@ export default class ProfileView {
         this.userAge = document.getElementById('txtAge');
         this.userAdress = document.getElementById('txtAdress');
         this.userPhoto = document.getElementById('txtPhoto');
-
+        this.userPassword = document.getElementById('txtPassword');
         this.editBtn = document.querySelector("#btnEdit");
         this.editMessage = document.querySelector("#editProfileMessage");
 
@@ -25,7 +25,8 @@ export default class ProfileView {
         
         const currentUser = this.userController.getCurrentUser()
         
-        this.userName.value = currentUser.username
+         this.userName.value = currentUser.username
+         this.userPassword.value = currentUser.password
         this.userEmail.value = currentUser.email
         this.userAge.value = currentUser.age
         this.userAdress.value = currentUser.adress
@@ -38,7 +39,7 @@ export default class ProfileView {
             try {
                     if (this.userName.value != "" && this.userEmail.value != "" && this.userAge.value != "" && this.userAdress.value != "" && this.userPhoto.value != "")
                      {
-                            this.userController.editProfile(this.userName.value, this.userEmail.value, this.userAge.value, this.userAdress.value, this.userPhoto.value)
+                            this.userController.editProfile(this.userName.value,this.userPassword.value,this.userPhoto.value,"user",this.userAge.value,this.userAdress.value,this.userEmail.value,"true")
                             this.displayEditMessage("Profile edited with success", 'success')
                             setTimeout(() => {
                                 location.href = "profile.html";
