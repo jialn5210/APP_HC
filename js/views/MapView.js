@@ -449,16 +449,6 @@ let map, infoWindow;
         }
         console.log(doctorReport)
         
-        let nrAppointments 
-        if(localStorage.NrAppointment){
-          nrAppointments = JSON.parse(localStorage.getItem('NrAppointment'))
-          nrAppointments = nrAppointments + 1
-          localStorage.setItem('NrAppointment', JSON.stringify(nrAppointments))
-        } else { 
-          nrAppointments = 1
-          localStorage.setItem('NrAppointment', JSON.stringify(nrAppointments))
-        }
-
         let reports = []
         if(localStorage.Reports){
           reports = JSON.parse(localStorage.getItem('Reports'))
