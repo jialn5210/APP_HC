@@ -18,7 +18,7 @@ export default class DoctorDetailsView {
 
     bindBackButton() {
         this.btnBack.addEventListener('click', () => {
-            history.back();
+            location.href="html/catalog.html"
         })
     }
 

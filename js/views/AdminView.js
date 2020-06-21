@@ -6,31 +6,33 @@ export default class AdminView {
         this.doctors = document.getElementById("seeDoctors")
         this.apps = document.getElementById("seeApps")
         
-        //counters
-        this.Users()
-        this.Doctors()
-        this.Apps()
+       
 
         //mudar de página
         this.UsersConfig();
         this.DoctorsConfig();
         this.AppConfig();
+
+         //counters
+         this.Users()
+         this.Doctors()
+         this.Apps()
     }
 
     Users(){
         let qttUser=JSON.parse(localStorage.getItem('users'))
-        document.getElementById('allUsers').innerHTML= qttUser.length;
+        document.getElementById('allUsers').innerHTML= qttUser.length
         
     }
 
     Doctors(){
         let qttDoctor=JSON.parse(localStorage.getItem('doctors'))
-        document.getElementById('allDoctors').innerHTML= qttDoctor.length;
+        document.getElementById('allDoctors').innerHTML= qttDoctor.length
         
     } 
     Apps(){
         let qttApp=JSON.parse(localStorage.getItem('Reports'))
-        document.getElementById('allApps').innerHTML= qttApp.length;
+        document.getElementById('allApps').innerHTML= qttApp.length
     }
 
     UsersConfig() {

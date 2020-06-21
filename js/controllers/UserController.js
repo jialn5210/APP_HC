@@ -21,6 +21,8 @@ export default class UserController {
                 if (this.userCompare[i].username === sessionStorage.getItem('loggedUser')) {
                     sessionStorage.setItem('userPhoto', this.userPhotoLink = JSON.parse(localStorage.getItem('users'))[i].photo);
                     sessionStorage.setItem('userType', this.userType = JSON.parse(localStorage.getItem('users'))[i].type)
+                    sessionStorage.setItem('userStatus', this.userStatus = JSON.parse(localStorage.getItem('users'))[i].status)
+                    localStorage.setItem('user',this.user=JSON.parse(localStorage.getItem('users'))[i].id)
                 }
             }
             return true;
@@ -28,14 +30,14 @@ export default class UserController {
             throw Error('Invalid login!');
         }    
     }
-
-  /*   setCurrentUser(id) {
+/* 
+   setCurrentUser(id) {
         this.userModel.setCurrentUser(id)
-    }
+    } */
 
     getCurrentUser() {
         return this.userModel.getCurrentUser()
-    } */
+    } 
     /* getUserId(id){
         for (const user of this.userModel.users) {
            if(user.id==id){
@@ -61,8 +63,8 @@ export default class UserController {
         this.userModel.block(username)
     }
 
-    editProfile(username, password, photo, type ,status, age, adress, email) {
-        this.userModel.editProfile(username, password, photo, type ,status, age, adress, email)
+    editProfile(username, password, photo, type , age, adress, email,status) {
+        this.userModel.editProfile(username, password, photo, type , age, adress, email,status)
         
     }
 }

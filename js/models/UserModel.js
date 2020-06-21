@@ -47,18 +47,18 @@ export default class UserModel {
 
    /*  setCurrentUser(id) {
         localStorage.setItem("user", id); 
-    }
+    } */
 
     getCurrentUser() {
         return this.users.find(user => user.id === +localStorage.user)
-    } */
+    } 
 
     _persist() {
         localStorage.setItem('users', JSON.stringify(this.users));
     }
 
-    editProfile(username, password, photo, type ,status, age, adress, email){
-        const currentUser = this.userController.getCurrentUser()
+    editProfile(username, password, photo, type , age, adress, email,status){
+        const currentUser = this.getCurrentUser()
 
         const UserNew = {
             id: currentUser.id,
@@ -66,10 +66,10 @@ export default class UserModel {
             password: password,
             photo: photo,
             type:type,
-            status:status,
             age:age,
             adress:adress,
-            email:email
+            email:email,
+            status:status,
             
         }
         

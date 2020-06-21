@@ -11,6 +11,7 @@ export default class AdminUserView {
         this.renderCatalog1(this.userModel.getAll())
         this.bindRemoveEvent()
         this.bindBlockEvent()
+        this.bindUnlockEvent()
     }
 
 
@@ -18,39 +19,39 @@ export default class AdminUserView {
         for (const btnBlock of document.getElementsByClassName('block')) {
             
             btnBlock.addEventListener('click', event => {
-                let decide = confirm('Are you sure you want to block?');
+                
+                this.userController.setCurrentUser(event.target.id)
+                const currentUser = this.userController.getCurrentUser()
+                if(currentUser.status=="false"){
 
-                for (let i = 0; i < this.users.length; i++) {
-                    const myUser=this.users[i].username;
-                    if(myUser==event.target.id){
-                        console.log(myUser);
-                        const status=this.users[i].status;
-                        console.log(status);
-                       
-                        
-    
-                        if(decide==true){
-                            this.userController.blockUser(event.target.id)
-                            this.renderCatalog1(this.userModel.getAll())
-                        }else{
-                        console.log('ok')
-                        }
-                    }
-                    
-                    
-                }
-               
-                
-                /* if(decide==true){
-                    this.status==='false'
-                    
-                    console.log(this.status);
-                    
-                   document.querySelector('td').style.backgroundColor="red"
+                    alert("Already Blocked!")
                 }else{
-                console.log('ok')
-                } */
+                if (confirm("Are you Sure to block?")) {
+                this.userController.editProfile(currentUser.username,currentUser.password,currentUser.photo,currentUser.type,currentUser.age,currentUser.adress,currentUser.email,"false")
+                alert("User Blocked with Success!")
+                }
+                }
+            })
+        }
+    }
+
+    bindUnlockEvent() {
+        for (const btnUnlock of document.getElementsByClassName('unlock')) {
+            
+            btnUnlock.addEventListener('click', event => {
                 
+                
+                this.userController.setCurrentUser(event.target.id)
+                const currentUser = this.userController.getCurrentUser()
+                if(currentUser.status=="true"){
+
+                    alert("Already Unlocked!")
+                }else{
+                if (confirm("Are you Sure to unlock?")) {
+                this.userController.editProfile(currentUser.username,currentUser.password,currentUser.photo,currentUser.type,currentUser.age,currentUser.adress,currentUser.email,"true")
+                alert("User Unlocked with Success!")
+                }
+            }
             })
         }
     }
@@ -75,7 +76,7 @@ export default class AdminUserView {
         let result = ''
         if (users.length != 0) {
             result = `
-            <table class="info"><tr><th>Username</th><th></th><th></th></tr>
+            <table class="info text-center"><tr><th>Username</th><th></th><th></th><th></th></tr>
             `
         } else {
             result = `<p class="info">Without any users registered!</p>`
@@ -86,14 +87,15 @@ export default class AdminUserView {
             result += `                
             <td>${user.username}</td>
             <td><button id='${user.username}' class='btn btn-outline-primary m-2 remove'>REMOVE</button></td>
-            <td><button id='${user.username}' class='btn btn-outline-primary m-2 block'>BLOCK</button></td>
+            <td><button id='${user.id}' class='btn btn-outline-primary m-2 block'>BLOCK</button></td>
+            <td><button id='${user.id}' class='btn btn-outline-primary m-2 unlock' >UNLOCK</button></td>
             </tr>
             `
         }
         result += `</table>`
         this.userCatalog.innerHTML = result
         this.bindRemoveEvent()
-        this.bindBlockEvent()
+        
     }
 
 

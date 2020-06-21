@@ -1,5 +1,5 @@
 import UserController from '../controllers/UserController.js'
-import UserModel from '../controllers/UserModel.js'
+import UserModel from '../models/UserModel.js'
 
 export default class ProfileView {
     constructor() {
@@ -22,13 +22,14 @@ export default class ProfileView {
     }
 
     fillProfileInfo()  {
-        const currentUser = this.userController.getUserId(sessionStorage.getItem("userid"))
-        console.log(currentUser)
-        /* this.userName.value = currentUser.username
+        
+        const currentUser = this.userController.getCurrentUser()
+        
+         this.userName.value = currentUser.username
         this.userEmail.value = currentUser.email
         this.userAge.value = currentUser.age
         this.userAdress.value = currentUser.adress
-        this.userPhoto.value = currentUser.photo */
+        this.userPhoto.value = currentUser.photo 
     }
     
     bindEditProfile() {
