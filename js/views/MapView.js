@@ -5,6 +5,8 @@ let doctors = []
 if(localStorage.getItem("doctors")){
    doctors = JSON.parse(localStorage.getItem("doctors"));
 }
+
+
   
 
 
@@ -445,14 +447,18 @@ let map, infoWindow;
 
 
       document.getElementById("btnSubmit").addEventListener("click", () =>{
-  
+        
+        
         let doctor = sessionStorage.getItem('doctorSelected')
         let user = sessionStorage.getItem('loggedUser')
         let prescription = document.getElementById("Prescription")
         let diagnosis = document.getElementById("Diagnosis")
         let rating = document.getElementById("sltRating")
-      
-        let doctorReport ={
+        let length = 0
+        let sum = 0
+        let average
+        let prevRatings = 0
+        let doctorReport = {
           "User": user,
           "Doctor": doctor,
           "Diagnosis": diagnosis.value,
@@ -472,7 +478,12 @@ let map, infoWindow;
           localStorage.setItem('Reports', JSON.stringify(reports))
           location.replace('../html/hc.html')
         }
+
+        
       })
+
+     
+
     }
 
     
