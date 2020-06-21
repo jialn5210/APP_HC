@@ -1,8 +1,10 @@
 import UserController from '../controllers/UserController.js'
+import UserModel from '../controllers/UserModel.js'
 
 export default class ProfileView {
     constructor() {
         this.userController = new UserController();
+        this.userModel = new UserModel();
 
         //DOM references
         this.userName = document.getElementById('txtName');
@@ -20,7 +22,8 @@ export default class ProfileView {
     }
 
     fillProfileInfo()  {
-        const userLogged = this.userController.checkLoginStatus()
+        const userLogged = sessionStorage.getItem('loggedUser');
+        console.log(userLogged)
         this.userName.value = userLogged.username
         this.userEmail.value = userLogged.email
         this.userAge.value = userLogged.age
