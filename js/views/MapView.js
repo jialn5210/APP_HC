@@ -6,7 +6,7 @@ if(localStorage.getItem("doctors")){
    doctors = JSON.parse(localStorage.getItem("doctors"));
 }
   
-let marker;
+
 
 alert("Choose the specialty you want on the filters menu to see the doctors")
       
@@ -289,6 +289,8 @@ let map, infoWindow;
         const directionsService = new google.maps.DirectionsService();
         const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
         
+
+        
         /* for (let i = 0; i < doctors.length; i++) {
           const medicLat = doctors[i].latitude
           const medicLng = doctors[i].longitude
@@ -331,15 +333,22 @@ let map, infoWindow;
             showDirection(pos, event.latLng)
           }) 
         } */
+        let markers = []
+        
+        function removeMarkers(){
+          for(i=0; i<markers.length; i++){
+            markers[i].setMap(null);
+          }
+        }
 
         //botão de filtros
         document.getElementById('btnSearch').addEventListener('click',
           () => {
             
+            removeMarkers()
             const txtDistance = document.getElementById("sltDistance")
             const txtSpecialty = document.getElementById("sltSpecialty")
-            const directionsService = new google.maps.DirectionsService();
-            const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
+          
             let infoWindowsArray = [];
             for (let i = 0; i < doctors.length; i++) {
               const medicLat = doctors[i].latitude
@@ -349,13 +358,15 @@ let map, infoWindow;
               const medicSpecialty = doctors[i].specialty
               const medicDescription = doctors[i].description
               const medicStatus = doctors[i].medicStatus
-              let distance = 0
+              //let distance = 0
+              
               let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
               if(txtSpecialty.value == medicSpecialty){
-                marker = new google.maps.Marker({
+                let marker = new google.maps.Marker({
                   position: medicLatLng,
                   map:map
                 })
+                markers.push(marker)
                 
                 let contentString = `
                 <div id="content">
@@ -437,7 +448,7 @@ let map, infoWindow;
   
         let doctor = sessionStorage.getItem('doctorSelected')
         let user = sessionStorage.getItem('loggedUser')
-        let presciption = document.getElementById("Prescription")
+        let prescription = document.getElementById("Prescription")
         let diagnosis = document.getElementById("Diagnosis")
         let rating = document.getElementById("sltRating")
       
@@ -445,7 +456,7 @@ let map, infoWindow;
           "User": user,
           "Doctor": doctor,
           "Diagnosis": diagnosis.value,
-          "Presciption": presciption.value,
+          "Prescription": prescription.value,
           "Rating": rating.value
         }
         console.log(doctorReport)
