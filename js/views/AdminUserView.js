@@ -9,9 +9,7 @@ export default class AdminUserView {
         this.userCatalog = document.querySelector('#userCatalog')
       
         this.renderCatalog1(this.userModel.getAll())
-        this.bindRemoveEvent()
-        this.bindBlockEvent()
-        this.bindUnlockEvent()
+        
     }
 
 
@@ -63,7 +61,7 @@ export default class AdminUserView {
                 let decide = confirm('Are you sure you want to delete?');
                 if(decide==true){
                     this.userController.removeUser(event.target.id)
-                    this.renderCatalog1(this.userModel.getAll())
+                    location.href="adminUsers.html"
                 }else{
                 console.log('ok')
                 }
@@ -94,8 +92,10 @@ export default class AdminUserView {
         }
         result += `</table>`
         this.userCatalog.innerHTML = result
-        this.bindRemoveEvent()
         
+        this.bindRemoveEvent()
+        this.bindBlockEvent()
+        this.bindUnlockEvent()
     }
 
 

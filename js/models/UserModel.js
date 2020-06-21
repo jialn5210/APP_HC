@@ -45,9 +45,9 @@ export default class UserModel {
         return sessionStorage.getItem('loggedUser') !== null ? true : false;
     }
 
-   /*  setCurrentUser(id) {
+    setCurrentUser(id) {
         localStorage.setItem("user", id); 
-    } */
+    } 
 
     getCurrentUser() {
         return this.users.find(user => user.id === +localStorage.user)

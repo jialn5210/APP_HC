@@ -55,7 +55,8 @@ class App {
                 
             ],
             'profile':[
-                ProfileView
+                ProfileView,
+                LoginUserView 
             ]
             
         };

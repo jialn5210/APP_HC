@@ -30,11 +30,10 @@ export default class UserController {
             throw Error('Invalid login!');
         }    
     }
-/* 
-   setCurrentUser(id) {
-        this.userModel.setCurrentUser(id)
-    } */
 
+    setCurrentUser(id) {
+        this.userModel.setCurrentUser(id)
+    }
     getCurrentUser() {
         return this.userModel.getCurrentUser()
     } 
