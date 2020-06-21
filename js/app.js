@@ -60,7 +60,8 @@ class App {
                 LoginUserView 
             ],
             'appointments':[
-                AppsView
+                AppsView,
+                LoginUserView 
             ]
 
             

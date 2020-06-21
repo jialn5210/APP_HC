@@ -1,4 +1,4 @@
-nav{
+/* nav{
     background-color: #70c5c0;
     color: white;
     position: fixed;
@@ -24,7 +24,7 @@ nav{
     left: 200px;
     height: 100%;
     width: 90%;
-  }
+  } */
   label {
     display: flex;
     justify-content: center;
@@ -37,4 +37,11 @@ nav{
  position: relative;
  left: 33.5%;
     
+}
+.footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+  
 }

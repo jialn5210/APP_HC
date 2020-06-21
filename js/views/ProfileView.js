@@ -15,7 +15,7 @@ export default class ProfileView {
         this.userPassword = document.getElementById('txtPassword');
         this.editBtn = document.querySelector("#btnEdit");
         this.editMessage = document.querySelector("#editProfileMessage");
-
+        this.getUserPhoto1=document.getElementById('UserPhoto1')
         this.fillProfileInfo() ; 
         this.bindEditProfile();
 
@@ -31,6 +31,7 @@ export default class ProfileView {
         this.userAge.value = currentUser.age
         this.userAdress.value = currentUser.adress
         this.userPhoto.value = currentUser.photo 
+        this.getUserPhoto1.setAttribute("src",sessionStorage.getItem("userPhoto"))
     }
     
     bindEditProfile() {
@@ -43,6 +44,8 @@ export default class ProfileView {
                             this.userController.editProfile(this.userName.value,this.userPassword.value,this.userPhoto.value,"user",this.userAge.value,this.userAdress.value,this.userEmail.value,"true")
                             alert("Information saved with success")
                             sessionStorage.setItem('userPhoto',this.userPhoto.value)
+                           
+                            
                             setTimeout(() => {
                                 location.href = "profile.html";
                             },

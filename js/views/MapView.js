@@ -462,16 +462,34 @@ let map, infoWindow;
         console.log(doctorReport)
         
         let reports = []
-        if(localStorage.Reports){
-          reports = JSON.parse(localStorage.getItem('Reports'))
-          reports.push(doctorReport)
-          localStorage.setItem('Reports', JSON.stringify(reports))
-          location.replace('../html/hc.html')
-        } else { 
-          reports.push(doctorReport)
-          localStorage.setItem('Reports', JSON.stringify(reports))
-          location.replace('../html/hc.html')
+        if(prescription.value!="" && diagnosis.value!="" && rating.value!="")
+        {
+          if(confirm("Are you sure to submit?"))
+          {
+          if(localStorage.Reports){
+            reports = JSON.parse(localStorage.getItem('Reports'))
+            reports.push(doctorReport)
+            localStorage.setItem('Reports', JSON.stringify(reports))
+            alert("Submited with Success!")
+            setTimeout(() => {
+            location.replace('../html/appointments.html')
+          },
+          1000)
+          } else { 
+            reports.push(doctorReport)
+            localStorage.setItem('Reports', JSON.stringify(reports))
+            alert("Submited with Success!")
+            setTimeout(() => {
+              location.replace('../html/appointments.html')
+            },
+            1000)
+          }
         }
+        }
+        else{
+          throw Error("There are empty fields")
+        }
+        
       })
     }
 
