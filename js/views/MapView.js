@@ -288,7 +288,7 @@ let map, infoWindow;
         const directionsService = new google.maps.DirectionsService();
         const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
         
-        for (let i = 0; i < doctors.length; i++) {
+        /* for (let i = 0; i < doctors.length; i++) {
           const medicLat = doctors[i].latitude
           const medicLng = doctors[i].longitude
           const medicName = doctors[i].name
@@ -328,15 +328,68 @@ let map, infoWindow;
             infoWindow.open(map, marker);
             infoWindow.setPosition(event.latLng);;
             showDirection(pos, event.latLng)
-          })
-        }
+          }) 
+        } */
+
+        //botão de filtros
+        document.getElementById('btnSearch').addEventListener('click',
+          () => {
+            
+            const txtDistance = document.getElementById("sltDistance")
+            const txtSpecialty = document.getElementById("sltSpecialty")
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true});
+            let infoWindowsArray = [];
+            for (let i = 0; i < doctors.length; i++) {
+              const medicLat = doctors[i].latitude
+              const medicLng = doctors[i].longitude
+              const medicName = doctors[i].name
+              const medicPhoto = doctors[i].photo
+              const medicSpecialty = doctors[i].specialty
+              const medicDescription = doctors[i].description
+              const medicStatus = doctors[i].medicStatus
+              let distance = 0
+              let medicLatLng = new google.maps.LatLng(medicLat, medicLng)
+              if(txtSpecialty.value == medicSpecialty){
+                marker = new google.maps.Marker({
+                  position: medicLatLng,
+                  map:map
+                })
+                
+                let contentString = `
+                <div id="content">
+                  <h1 id="doctorName">${medicName}</h1>
+                  <div id="bodyContent"><p> Specialty: ${medicSpecialty}</p>
+                    <p> Description: ${medicDescription}</p>
+                    <p id='extra'></p>
+                    <p><img src="${medicPhoto}" width="150px" height ="100px"></p>
+                  </div>
+                  <button id="${medicName}" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdlRegisterAppointment">Register Appointment!</button>
+                </div>
+                `
+                
+                let infoWindow = new google.maps.InfoWindow({content: contentString,});
+              
+                infoWindowsArray.push(infoWindow);
+      
+                marker.addListener('click', function (event) {
+                  for (var i = 0; i < infoWindowsArray.length; i++) {
+                    infoWindowsArray[i].close();
+                    
+                    sessionStorage.setItem( 'doctorSelected', medicName)
+                  }
+                  infoWindow.open(map, marker);
+                  infoWindow.setPosition(event.latLng);;
+                  showDirection(pos, event.latLng)
+                })
+              }
+              
+            }
+            
+        })
 
         function showDirection(homePos, doctorPos) {
       
-          //directionsRenderer.suppressMarkers = true;
-    
-          //directionsRenderer.setMap(map);
-    
           // Creation of a DirectionsRequest object 
           const request = {
             origin: doctorPos,
@@ -364,50 +417,7 @@ let map, infoWindow;
                 document.querySelector("#extra").innerHTML = status
               }
             });
-          console.log(homePos);
-          console.log(doctorPos);
-          
-          
         }
-
-        let markers = []
-
-        document.getElementById('btnSearch').addEventListener('click',
-          () => {
-            const txtDistance = document.getElementById("sltDistance")
-            const txtSpecialty = document.getElementById("sltSpecialty")
-            console.log(txtDistance.value);
-            
-            const request = {
-              location: pos,
-              radius: txtDistance.value
-            };
-            service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
-            markers.forEach(function(marker) {
-              marker.setMap(null);
-            });
-            marker.setMap(null);
-            markers = [];
-        }
-      )
-      function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          for (const result of results) {
-              createMarker(result);          
-          }
-          map.setCenter(pos);
-        }
-      }
-  
-      function createMarker(place) {
-        const marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-    }
-
-    
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -461,4 +471,7 @@ let map, infoWindow;
           location.replace('../html/hc.html')
         }
       })
-      }  
+    }
+
+    
+        
