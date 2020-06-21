@@ -5,10 +5,9 @@ export default class AdminUserView {
     constructor() {
         this.userController = new UserController()
         this.userModel= new UserModel()
-
+        this.users = localStorage.users ? JSON.parse(localStorage.users) : [];
         this.userCatalog = document.querySelector('#userCatalog')
-        this.status=localStorage.getItem('status')
-   
+      
         this.renderCatalog1(this.userModel.getAll())
         this.bindRemoveEvent()
         this.bindBlockEvent()
@@ -20,7 +19,29 @@ export default class AdminUserView {
             
             btnBlock.addEventListener('click', event => {
                 let decide = confirm('Are you sure you want to block?');
-                if(decide==true){
+
+                for (let i = 0; i < this.users.length; i++) {
+                    const myUser=this.users[i].username;
+                    if(myUser==event.target.id){
+                        console.log(myUser);
+                        const status=this.users[i].status;
+                        console.log(status);
+                       
+                        
+    
+                        if(decide==true){
+                            this.userController.blockUser(event.target.id)
+                            this.renderCatalog1(this.userModel.getAll())
+                        }else{
+                        console.log('ok')
+                        }
+                    }
+                    
+                    
+                }
+               
+                
+                /* if(decide==true){
                     this.status==='false'
                     
                     console.log(this.status);
@@ -28,7 +49,7 @@ export default class AdminUserView {
                    document.querySelector('td').style.backgroundColor="red"
                 }else{
                 console.log('ok')
-                }
+                } */
                 
             })
         }
@@ -72,6 +93,7 @@ export default class AdminUserView {
         result += `</table>`
         this.userCatalog.innerHTML = result
         this.bindRemoveEvent()
+        this.bindBlockEvent()
     }
 
 

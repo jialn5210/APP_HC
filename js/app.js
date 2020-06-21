@@ -6,8 +6,8 @@ import DoctorDetailsView from './views/DoctorDetailsView.js'
 import LoginUserView from './views/loginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import AdminView from './views/AdminView.js'
-import EditDoctorView from './views/EditDoctorView.js'
 import ProfileView from './views/ProfileView.js'
+import AdminAppView from './views/AdminAppView.js'
 
 
 class App {
@@ -45,7 +45,7 @@ class App {
             ],
             'adminApp': [
                 
-                
+                AdminAppView,
                 LoginUserView 
                 
             ],
@@ -53,9 +53,6 @@ class App {
                 AdminView,
                 LoginUserView 
                 
-            ],
-            'editDoctor': [
-                EditDoctorView
             ],
             'profile':[
                 ProfileView
