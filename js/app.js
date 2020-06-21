@@ -56,7 +56,8 @@ class App {
                 
             ],
             'profile':[
-                ProfileView
+                ProfileView,
+                LoginUserView 
             ],
             'appointments':[
                 AppsView

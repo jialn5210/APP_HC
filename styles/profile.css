@@ -25,3 +25,16 @@ nav{
     height: 100%;
     width: 90%;
   }
+  label {
+    display: flex;
+    justify-content: center;
+    
+  }
+.form-group input{
+  text-align: center;
+}
+#btnEdit{
+ position: relative;
+ left: 33.5%;
+    
+}
