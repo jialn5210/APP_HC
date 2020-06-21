@@ -6,6 +6,7 @@ export default class AdminAppView {
         this.Reports = localStorage.Reports ? JSON.parse(localStorage.Reports) : [];
      
         this.renderCatalog()
+       
 
     }
 
