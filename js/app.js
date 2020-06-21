@@ -7,6 +7,7 @@ import LoginUserView from './views/loginUserView.js'
 import AdminUserView from './views/AdminUserView.js'
 import AdminView from './views/AdminView.js'
 import EditDoctorView from './views/EditDoctorView.js'
+import ProfileView from './views/ProfileView.js'
 
 
 class App {
@@ -14,10 +15,12 @@ class App {
         this.routes = {
 
             'index': [
-                UserView
+                UserView,
+                ProfileView
             ],
             'hc': [
-                LoginUserView
+                LoginUserView,
+                ProfileView
             ],
             'addDoctor': [
                 DoctorAddView
@@ -54,6 +57,9 @@ class App {
             'editDoctor': [
                 EditDoctorView
             ],
+            'profile':[
+                ProfileView
+            ]
             
         };
 

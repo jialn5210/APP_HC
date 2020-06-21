@@ -33,6 +33,7 @@ export default class UserView {
 LoginUser(){
     document.getElementById('user').innerHTML = ("Welcome,   " + this.loginUser);
     this.getUserPhoto.setAttribute("src",sessionStorage.getItem("userPhoto"))
+    sessionStorage.setItem("userid",event.target.id)
 }
 
 

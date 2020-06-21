@@ -42,15 +42,23 @@ export default class UserModel {
         return sessionStorage.getItem('loggedUser') !== null ? true : false;
     }
 
+   /*  setCurrentUser(id) {
+        localStorage.setItem("user", id); 
+    }
+
+    getCurrentUser() {
+        return this.users.find(user => user.id === +localStorage.user)
+    } */
+
     _persist() {
         localStorage.setItem('users', JSON.stringify(this.users));
     }
 
-    editDoctor(username, password, photo, type ,status, age, adress, email){
-        const userLogged = this.userController.checkLoginStatus()
+    editProfile(username, password, photo, type ,status, age, adress, email){
+        const currentUser = this.userController.getCurrentUser()
 
         const UserNew = {
-            id: userLogged.id,
+            id: currentUser.id,
             username: username,
             password: password,
             photo: photo,
@@ -62,7 +70,7 @@ export default class UserModel {
             
         }
         
-        this.users= this.users.map(user=>user.id==userLogged.id?UserNew:user)
+        this.users= this.users.map(user=>user.id==currentUser.id?UserNew:user)
         this._persist()
     }
 }
