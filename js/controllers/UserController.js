@@ -5,9 +5,9 @@ export default class UserController {
         this.userModel = new UserModel();
     }
 
-    createUser(username, password, photo, type ,status, age, adress, email) {
+    createUser(username, password, photo, type , age, adress, email,status) {
         if (!this.userModel.getAll().some(user => user.username === username)) {
-            this.userModel.create(username, password, photo, type, status, age, adress, email);
+            this.userModel.create(username, password, photo, type, age, adress, email, status);
         } else {
             throw Error(`User with username "${username}" already exists!`);
         }
@@ -36,14 +36,14 @@ export default class UserController {
     getCurrentUser() {
         return this.userModel.getCurrentUser()
     } */
-    getUserId(id){
+    /* getUserId(id){
         for (const user of this.userModel.users) {
            if(user.id==id){
                return user;
            }
             
         }
-    }
+    } */
 
     logoutUser() {
         this.userModel.logout();
@@ -55,6 +55,10 @@ export default class UserController {
 
     removeUser(username) {
         this.userModel.remove(username)
+    }
+
+    blockUser(username) {
+        this.userModel.block(username)
     }
 
     editProfile(username, password, photo, type ,status, age, adress, email) {

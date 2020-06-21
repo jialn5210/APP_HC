@@ -1,14 +1,13 @@
 export default class DoctorModel {
     constructor() {
         this.doctors = localStorage.doctors ? JSON.parse(localStorage.doctors) : [];
-        this.comments = localStorage.comments ? JSON.parse(localStorage.comments) : [];
     }
 
     getAll() {
         return this.doctors;
     }
     
-    create(name,email ,latitude,longitude ,specialty , photo, description,status) {
+    create(name,email ,latitude,longitude ,specialty , photo, description, status, rating ) {
         const doctor = {
             id: this.doctors.length > 0 ? this.doctors[this.doctors.length - 1].id + 1 : 1,
             name: name,
@@ -19,6 +18,7 @@ export default class DoctorModel {
             photo: photo,
             description: description,
             status:status,
+            rating:rating
         }
         this.doctors.push(doctor);
         this._persist();
