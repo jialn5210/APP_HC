@@ -8,6 +8,7 @@ if(localStorage.getItem("doctors")){
   
 let marker;
 
+alert("Choose the specialty you want on the filters menu to see the doctors")
       
 //criação e design do mapa
 let map, infoWindow;
