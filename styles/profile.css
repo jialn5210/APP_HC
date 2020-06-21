@@ -6,22 +6,49 @@ nav{
     left: 0;
     width: 200px;
     height: 100%;
-  }
-  #logo{
+}
+
+#logo{
     height: 60px;
     width: 170px;
     position: fixed;
     top: 100px;
     left: 13px
-  }
-  #btnLogout{
+}
+
+#btnLogout{
     position: fixed;
     bottom: 25px;
     left: 45px;
-  }
-  #box{
+}
+
+#box{
     position: fixed;
     left: 200px;
     height: 100%;
     width: 90%;
-  }
+}
+
+#appstable{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+  width: 100%;
+}
+
+#appstable td, #appstable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#appstable tr:nth-child(even){background-color: #f2f2f2;}
+
+#appstable tr:hover {background-color: #ddd;}
+
+#appstable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #70c5c0;
+  color: white;
+}
+

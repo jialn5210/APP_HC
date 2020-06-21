@@ -25,7 +25,7 @@ export default class ProfileView {
         
         const currentUser = this.userController.getCurrentUser()
         
-         this.userName.value = currentUser.username
+        this.userName.value = currentUser.username
         this.userEmail.value = currentUser.email
         this.userAge.value = currentUser.age
         this.userAdress.value = currentUser.adress

@@ -3,6 +3,7 @@ import DoctorController from '../controllers/DoctorController.js'
 export default class DoctorDetailsView {
     constructor() {
         this.doctorController = new DoctorController();
+        this.Reports = localStorage.Reports ? JSON.parse(localStorage.Reports) : [];
 
         // DOM References
         this.doctorName = document.getElementById('doctorName');
