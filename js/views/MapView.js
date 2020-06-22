@@ -10,7 +10,7 @@ if(localStorage.getItem("doctors")){
   
 
 
-alert("Choose the specialty you want on the filters menu to see the doctors")
+alert("Choose the specialty you want on the filters menu, so the doctors appear on the map")
       
 //criação e design do mapa
 let map, infoWindow;
@@ -470,7 +470,7 @@ let map, infoWindow;
         let reports = []
         if(prescription.value!="" && diagnosis.value!="" && rating.value!="")
         {
-          if(confirm("Are you sure to submit?"))
+          if(confirm("Are you sure you want to submit?"))
           {
           if(localStorage.Reports){
             reports = JSON.parse(localStorage.getItem('Reports'))
