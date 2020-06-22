@@ -43,9 +43,9 @@ export default class AdminUserView {
                 const currentUser = this.userController.getCurrentUser()
                 if(currentUser.status=="true"){
 
-                    alert("Already Unlocked!")
+                    alert("Already Unblocked!")
                 }else{
-                if (confirm("Are you Sure to unlock?")) {
+                if (confirm("Are you Sure to unblock?")) {
                 this.userController.editProfile(currentUser.username,currentUser.password,currentUser.photo,currentUser.type,currentUser.age,currentUser.adress,currentUser.email,"true")
                 alert("User Unlocked with Success!")
                 }
@@ -86,7 +86,7 @@ export default class AdminUserView {
             <td>${user.username}</td>
             <td><button id='${user.username}' class='btn btn-outline-primary m-2 remove'>REMOVE</button></td>
             <td><button id='${user.id}' class='btn btn-outline-primary m-2 block'>BLOCK</button></td>
-            <td><button id='${user.id}' class='btn btn-outline-primary m-2 unlock' >UNLOCK</button></td>
+            <td><button id='${user.id}' class='btn btn-outline-primary m-2 unlock' >UNBLOCK</button></td>
             </tr>
             `
         }
