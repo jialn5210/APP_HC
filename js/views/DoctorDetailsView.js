@@ -10,26 +10,22 @@ export default class DoctorDetailsView {
         this.doctorSpecialty = document.getElementById('doctorSpecialty');
         this.doctorPhoto = document.getElementById('doctorPhoto');
         this.doctorDescription = document.getElementById('doctorDescription');
-        this.doctorRating = document.getElementById('rating');
-        this.btnBack = document.querySelector("#btnBack")
+        
+        
 
         this.fillDoctorData()
-        this.bindBackButton()
+        
     }
 
-    bindBackButton() {
-        this.btnBack.addEventListener('click', () => {
-            location.href="catalog.html"
-        })
-    }
+   
 
     fillDoctorData() {
         const currentDoctor = this.doctorController.getCurrentDoctor()
-        this.doctorName.innerHTML = currentDoctor.name
-        this.doctorSpecialty.innerHTML = currentDoctor.specialty
-        this.doctorDescription.innerHTML = currentDoctor.description
+        this.doctorName.innerHTML = "Name: " + currentDoctor.name
+        this.doctorSpecialty.innerHTML ="Specialty: " + currentDoctor.specialty
+        this.doctorDescription.innerHTML ="Description: " + currentDoctor.description
         this.doctorPhoto.src = currentDoctor.photo
-        this.doctorRating.innerHTML = currentDoctor.rating
+        
     } 
 
    
