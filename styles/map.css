@@ -23,32 +23,22 @@ nav{
 #btnRecommended{
 position: fixed;
 left: 17px;
-top: 300px;
-}
-#lblDistance{
-  position: fixed;
-  left: 17px;
-  top: 350px;
-}
-#sltDistance{
-  position: fixed;
-  left: 8px;
-  top: 380px;
+top: 400px;
 }
 #lblSpecialty{
   position: fixed;
   left: 17px;
-  top: 440px;
+  top: 450px;
 }
 #sltSpecialty{
   position: fixed;
   left: 8px;
-  top: 470px;
+  top: 480px;
 }
 #btnSearch{
   position: fixed;
   left: 17px;
-  top: 540px;
+  top: 550px;
 }
 #medico1{
   height: 50px;
