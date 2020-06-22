@@ -9,6 +9,7 @@ import AdminView from './views/AdminView.js'
 import ProfileView from './views/ProfileView.js'
 import AdminAppView from './views/AdminAppView.js'
 import AppsView from './views/AppsView.js'
+import AchievementsView from './views/AchievementsView.js'
 
 
 class App {
@@ -61,6 +62,9 @@ class App {
             ],
             'appointments':[
                 AppsView
+            ],
+            'achievements':[
+                AchievementsView
             ]
 
             
