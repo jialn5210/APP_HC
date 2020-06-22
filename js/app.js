@@ -40,21 +40,16 @@ class App {
                 DoctorDetailsView
             ],
             'adminUsers': [
-                
                 AdminUserView,
                 LoginUserView 
-                
             ],
             'adminApp': [
-                
                 AdminAppView,
                 LoginUserView 
-                
             ],
             'admin': [
                 AdminView,
                 LoginUserView 
-                
             ],
             'profile':[
                 ProfileView,
@@ -66,7 +61,6 @@ class App {
             ],
             'achievements':[
                 AchievementsView
-               
             ]
 
             
