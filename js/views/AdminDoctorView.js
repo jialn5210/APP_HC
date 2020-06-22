@@ -126,7 +126,7 @@ export default class AdminDoctorView {
                     if (this.docName.value != "" && this.docEmail.value != "" && this.docLatitude.value != "" && this.docLongitude.value != "" && this.docSpecialty.value != "" && this.docPhoto.value != "" && this.docDescription.value != "")
                      {
                          if (confirm("Are you Sure to edit?")) { 
-                            this.doctorController.editDoctor(this.docName.value, this.docEmail.value, this.docLatitude.value, this.docLongitude.value, this.docSpecialty.value, this.docPhoto.value, this.docDescription.value)
+                            this.doctorController.editDoctor(this.docName.value, this.docEmail.value, this.docLatitude.value, this.docLongitude.value, this.docSpecialty.value, this.docPhoto.value, this.docDescription.value,"true","")
                             this.displayEditMessage("Doctor edited with success", 'success')
                             setTimeout(() => {
                                 location.href = "admin.html";

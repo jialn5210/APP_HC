@@ -100,7 +100,8 @@ class App {
                 specialty:'Emergency',
                 description:"Master's degree in medicine with 10 years of experience",
                 photo:'https://iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -112,7 +113,8 @@ class App {
                 specialty:'Pediatrics',
                 description:"Master's degree in medicine with 10 years of experience",
                 photo:'https://www.abrale.org.br/revista-online/wp-content/uploads/2016/12/imagem-medico.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -124,7 +126,8 @@ class App {
                 specialty:'Geriatrics',
                 description:"Master's degree in medicine with 15 years of experience.",
                 photo:'https://s.calendarr.com/upload/datas/me/di/medico_c.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -136,7 +139,8 @@ class App {
                 specialty:'General Medicine',
                 description:"Master's degree in medicine with 7 years of experience.",
                 photo:'https://telemedicinamorsch.com.br/wp-content/uploads/2018/05/carreira-medica.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -148,7 +152,8 @@ class App {
                 specialty:'Geriatrics',
                 description:"Master's degree in medicine with 4 years of experience.",
                 photo:'https://heci.com.br/wp-content/uploads/2016/11/O6TRVV0-540x280.jpg?i=8337',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -160,7 +165,8 @@ class App {
                 specialty:'Geriatrics',
                 description:"Master's degree in medicine with 5 years of experience.",
                 photo:'https://veja.abril.com.br/wp-content/uploads/2016/12/istock-508387030.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -172,7 +178,8 @@ class App {
                 specialty:'General Medicine',
                 description:"Master's degree in medicine with 10 years of experience.",
                 photo:'https://www.alphals.org/wp-content/uploads/2019/01/solucoes-medicas-detalhes.jpg',
-                status: 'true'
+                status: 'true',
+                rating:''
             },
 
             {
@@ -184,7 +191,8 @@ class App {
                 specialty:'Pediatrics',
                 description:"Master's degree in medicine with 3 years of experience.",
                 photo:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOlQqzKwckvdEyJDD4xt_aS8lJqF7ozmUajDymHs2Hnky_PNlF&usqp=CAU',
-                status: 'true'
+                status: 'true',
+                rating:''
             } 
 
         ];

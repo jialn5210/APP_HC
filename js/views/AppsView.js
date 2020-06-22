@@ -4,7 +4,7 @@ export default class AppsView {
     constructor() {
         this.userController = new UserController()
         
-        this.users = localStorage.users ? JSON.parse(localStorage.users) : [];
+        
     
         this.Reports = localStorage.Reports ? JSON.parse(localStorage.Reports) : [];
         this.appCatalog = document.querySelector('#appCatalog')
