@@ -37,7 +37,8 @@ class App {
                 LoginUserView 
             ],
             'doctorDetails': [
-                DoctorDetailsView
+                DoctorDetailsView,
+                LoginUserView 
             ],
             'adminUsers': [
                 AdminUserView,

@@ -913,3 +913,11 @@ color: #2dc997;
   width: 5rem;
 }
 
+ .doctorDetails{
+padding-top: 8%;
+} 
+
+ #doctorPhoto{
+  position: relative;
+  left: 27%;
+} 
