@@ -40,13 +40,13 @@ export default class AchievementsView {
         }
 
         if (help == 1) {
-            alert("Congratulations! You unlock the Bronze Medal!")
+            alert("Congratulations! You unlocked the Bronze Medal!")
         }
         if (help == 5) {
-            alert("Congratulations! You unlock the Silver Medal!")
+            alert("Congratulations! You unlocked the Silver Medal!")
         }
         if (help == 10) {
-            alert("Congratulations! You unlock the Gold Medal!")
+            alert("Congratulations! You unlocked the Gold Medal!")
         }
             if(help>=1){              
                 
