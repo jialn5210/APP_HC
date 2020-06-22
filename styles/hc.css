@@ -905,4 +905,11 @@ color: #2dc997;
   }
 
 }
+.medal{
+  width: 100%;
+}
+.medal img{
+  height: 5rem;
+  width: 5rem;
+}
 

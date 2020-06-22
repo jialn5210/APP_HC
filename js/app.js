@@ -65,7 +65,8 @@ class App {
                 LoginUserView 
             ],
             'achievements':[
-                AchievementsView
+                AchievementsView,
+                LoginUserView 
                
             ]
 
