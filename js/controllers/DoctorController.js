@@ -22,9 +22,10 @@ export default class DoctorController {
             throw Error(`The doctor "${name}" already exists!`);
         }
     }
+   
 
-    editDoctor(name,email ,latitude,longitude ,specialty , photo, description) {
-        this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description)
+    editDoctor(name,email ,latitude,longitude ,specialty , photo, description,status,rating) {
+        this.doctorModel.editDoctor(name,email ,latitude,longitude ,specialty , photo, description,status,rating)
         
     }
 

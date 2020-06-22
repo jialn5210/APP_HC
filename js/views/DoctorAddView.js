@@ -33,7 +33,10 @@ export default class DoctorAddView {
                     this.doctorLongitude.value,
                     this.doctorSpecialty.value,
                     this.doctorPhoto.value,
-                    this.doctorDescription.value
+                    this.doctorDescription.value,
+                    "true",
+                    ""
+
                 );
                 this.displayAddDoctorMessage('Doctor added with success!', 'success');
 

@@ -56,7 +56,7 @@ export default class DoctorModel {
         return 0;
     }
 
-    editDoctor(name,email ,latitude,longitude ,specialty , photo, description){
+    editDoctor(name,email ,latitude,longitude ,specialty , photo, description,status,rating){
         const currentDoctor = this.getCurrentDoctor() 
 
         const DoctorNew = {
@@ -67,7 +67,9 @@ export default class DoctorModel {
             longitude: longitude,
             specialty:specialty,
             photo: photo,
-            description: description
+            description: description,
+            status:status,
+            rating:rating
             
         }
         

@@ -13,6 +13,7 @@ export default class UserView {
         this.logoutButton = document.getElementById('btnLogout');
         
         this.getUserPhoto=document.getElementById('UserPhoto')
+        
      
 
         // buttons Social painel
@@ -31,8 +32,9 @@ export default class UserView {
          
 
 LoginUser(){
-    this.getUserPhoto.setAttribute("src",sessionStorage.getItem("userPhoto"))
+    this.getUserPhoto.setAttribute("src",sessionStorage.getItem("userPhoto")) 
     document.getElementById('user').innerHTML = ("Welcome,   " + this.loginUser);
+    
     
     /* sessionStorage.setItem("userid",event.target.id) */
 }
