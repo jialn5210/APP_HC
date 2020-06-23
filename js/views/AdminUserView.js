@@ -24,7 +24,7 @@ export default class AdminUserView {
 
                     alert("Already Blocked!")
                 }else{
-                if (confirm("Are you Sure to block?")) {
+                if (confirm("Are you Sure you want to block?")) {
                 this.userController.editProfile(currentUser.username,currentUser.password,currentUser.photo,currentUser.type,currentUser.age,currentUser.adress,currentUser.email,"false")
                 alert("User Blocked with Success!")
                 }
@@ -45,7 +45,7 @@ export default class AdminUserView {
 
                     alert("Already Unblocked!")
                 }else{
-                if (confirm("Are you Sure to unblock?")) {
+                if (confirm("Are you Sure you want to unblock?")) {
                 this.userController.editProfile(currentUser.username,currentUser.password,currentUser.photo,currentUser.type,currentUser.age,currentUser.adress,currentUser.email,"true")
                 alert("User Unlocked with Success!")
                 }

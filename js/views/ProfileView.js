@@ -38,7 +38,7 @@ export default class ProfileView {
         this.editBtn.addEventListener("click", event => {
             event.preventDefault();
             try {
-                if (confirm("Are you Sure to Save?")) {
+                if (confirm("Are you Sure you want to Save?")) {
                     if (this.userName.value != "" && this.userEmail.value != "" && this.userAge.value != "" && this.userAdress.value != "" && this.userPhoto.value != "")
                      {
                             this.userController.editProfile(this.userName.value,this.userPassword.value,this.userPhoto.value,"user",this.userAge.value,this.userAdress.value,this.userEmail.value,"true")
