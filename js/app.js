@@ -37,7 +37,8 @@ class App {
                 LoginUserView 
             ],
             'doctorDetails': [
-                DoctorDetailsView
+                DoctorDetailsView,
+                LoginUserView 
             ],
             'adminUsers': [
                 AdminUserView,
@@ -60,7 +61,9 @@ class App {
                 LoginUserView 
             ],
             'achievements':[
-                AchievementsView
+                AchievementsView,
+                LoginUserView 
+               
             ]
 
             

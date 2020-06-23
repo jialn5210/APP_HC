@@ -22,6 +22,38 @@
   color: white;
 }
 
+
+#achievTable{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  height: 50px;
+  width: 100%;
+}
+
+#achievTable td, #achievTable th {
+  border: 2px solid #ddd;
+  padding: 10px;
+  height: 60px;
+  width: 300px;
+}
+
+#achievTable tr:nth-child(even){
+  color: black;
+  font-size: 20px;
+  background-color: #f2f2f2;}
+
+#achievTable tr:hover {background-color: #ddd;}
+
+#achievTable th {
+  
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #70c5c0;
+  color: white;
+}
+
+
   label {
     display: flex;
     justify-content: center;
@@ -41,4 +73,15 @@
    bottom: 0;
    width: 100%;
   
+}
+
+.claim{
+  background-color: rgb(153, 255, 0);
+  border-radius: 20;
+  border: 1px solid black;
+}
+.claim:hover{
+  background-color: rgb(111, 160, 37);
+  color: white;
+
 }

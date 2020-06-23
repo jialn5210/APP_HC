@@ -905,4 +905,19 @@ color: #2dc997;
   }
 
 }
+.medal{
+  width: 100%;
+}
+.medal img{
+  height: 5rem;
+  width: 5rem;
+}
 
+ .doctorDetails{
+padding-top: 8%;
+} 
+
+ #doctorPhoto{
+  position: relative;
+  left: 27%;
+} 

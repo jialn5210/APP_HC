@@ -6,6 +6,7 @@ export default class UserView {
 
         // register DOM
         this.registerForm = document.getElementById('frmRegister');
+        this.registerBtn = document.getElementById('btnRegister');
 
         this.registerLoadUserPhoto = document.getElementById("userPhoto")
         this.registerPhoto = document.getElementById("txtUserphoto")
@@ -50,6 +51,11 @@ export default class UserView {
                 this.userController.createUser(this.registerUsername.value, this.registerPassword.value,this.registerPhoto.value,"user", "","","","true");
                 this.registerLoadUserPhoto.setAttribute("src",this.registerPhoto.value)
                 this.displayRegisterMessage('User registered with success!', 'success');
+                setTimeout(() => {
+               location.href="index.html"
+   
+                },
+                    1000);
                     }
                 }
             } catch (e) {

@@ -7,6 +7,7 @@
     <title>My Appointments</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="../img/logo.png" rel="icon">
+    <link href="../styles/hc.css" rel="stylesheet">
     <link href="../styles/profile.css" rel="stylesheet">
     <link href="../styles/hc.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -15,8 +16,6 @@
 
 <body>
 
-    <!--side bar-->
-    
     <header id="header">
         <div class="container">
             <div class="responsive_bar">
@@ -58,24 +57,98 @@
             </nav>
         </div>
     </header>
-    <br><br>
+
+<br><br>
     <div class="container-fluid">
         <div class="jumbotron" id="box" style="background-color: white;">
             <div class="container">
-                <h1 class="display-3">My Achievements</h1>
+                <h1 class="display-3 text-center">My Achievements</h1>
                 <hr class="my-2">
-                    <br><br>
+                    <br>
                     <div class="container2">
                         <p id="achievements"></p>
                     </div>
             </div>
         </div>
     </div>
+    <h5 class="text-center">Every 10 Completed Appointments, the next will be FREE!</h3>
+        <div class="row justify-content-center ">
+            <button id="claim"class="claim">CLAIM NOW</button>
+        </div>
+        
+    <div class="container text-center">
+        <hr class="my-4">
+        <hr class="my-4">
+        <hr class="my-4">
+     
+    
+        <div class="row">
+    <div class="col-sm-4 medal ">
+        <div class="card-all"> 
+            <h2 style="color: rgb(116, 76, 28);">Bronze</h2>          
+    <img src="../img/medal.png" class="medal" id="medal">
+    <hr>
+                <p>Get After 1º Appointments</p>
+         </div>
+        </div>
+
+        <div class="col-sm-4 medal ">
+            <div class="card-all">    
+                <h2>Silver</h2>  
+                <img src="../img/medal.png" class="medal" id="medal1">
+                <hr>
+                <p>Get After 5 Appointments</p>
+                           
+                     </div>
+                    </div>
+
+                    <div class="col-sm-4 medal ">
+                        <div class="card-all">
+                            <h2 style="color: rgb(255, 174, 0);">Gold</h2>      
+                            <img src="../img/medal.png" class="medal" id="medal2">
+                            <hr>
+                            <p>Get After 10 Appointments</p>       
+                                 </div>
+                                </div>                              
+    </div>
+</div>
+
+
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>HC</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="#">HomeClinic</a>
+            </div>
+        </div>
+    </footer>
+
     
     <script type="module" src="../js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(window).on('scroll', function () {
+               if ($(window).scrollTop()) {
+                   $('header').addClass('black');
+   
+               }
+               else {
+                   $('header').removeClass('black');
+               }
+           })
+           
+   
+           $(document).ready(function () {
+               $(".menu .fa-bars").click(function () {
+                   $("nav ul").toggleClass("active")
+               })
+           })
+   </script>
 </body>
 
 </html>
