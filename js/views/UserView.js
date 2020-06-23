@@ -64,10 +64,11 @@ export default class UserView {
 
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
-                this.displayLoginMessage('User logged in with success!', 'success');
+               
                 let LoadPage;
                 if(sessionStorage.getItem("userStatus")==="true")
                 {
+                    this.displayLoginMessage('User logged in with success!', 'success');
                     if(sessionStorage.getItem("userType")==="user")
                     {
                         LoadPage="html/hc.html"
@@ -77,6 +78,7 @@ export default class UserView {
                     {
                         LoadPage="html/admin.html"
                     }
+
                 }else{
                     alert("You are blocked!")
                     LoadPage="index.html"

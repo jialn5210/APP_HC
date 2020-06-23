@@ -35,12 +35,7 @@ export default class AchievementsView {
             help ++
 
             
-        if(help===1){
-            alert("Congratulations! This first appointement is the begining of winning promo codes!")
-        }
-        if(help===2){
-            alert('Congratulations! You reached '+ help +'appointements! Your next appointment will be free of charges!')
-        }
+        
         }
         
 
